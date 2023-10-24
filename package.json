@@ -1,0 +1,16 @@
+{
+  "name": "@acc/xtk-parser",
+  "version": "1.0.0",
+  "description": "XTK expression parser",
+  "main": "src/index.js",
+  "private": true,
+  "scripts": {
+    "generateParser": "antlr4-tool grammar/XtkLexer.g4 grammar/XtkParser.g4 -o src/parser"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/antlr4": "4.7.2",
+    "antlr4": "4.8.0"
+  }
+}
