@@ -8,157 +8,184 @@ var grammarFileName = "XtkParser.g4";
 
 
 var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
-    "\u00038\u00e6\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t",
+    "\u0003;\u010d\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t",
     "\u0004\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t\u0007\u0004",
     "\b\t\b\u0004\t\t\t\u0004\n\t\n\u0004\u000b\t\u000b\u0004\f\t\f\u0004",
     "\r\t\r\u0004\u000e\t\u000e\u0004\u000f\t\u000f\u0004\u0010\t\u0010\u0004",
     "\u0011\t\u0011\u0004\u0012\t\u0012\u0004\u0013\t\u0013\u0004\u0014\t",
     "\u0014\u0004\u0015\t\u0015\u0004\u0016\t\u0016\u0004\u0017\t\u0017\u0004",
-    "\u0018\t\u0018\u0003\u0002\u0003\u0002\u0003\u0002\u0003\u0003\u0003",
+    "\u0018\t\u0018\u0004\u0019\t\u0019\u0004\u001a\t\u001a\u0004\u001b\t",
+    "\u001b\u0004\u001c\t\u001c\u0003\u0002\u0003\u0002\u0003\u0002\u0003",
     "\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003",
-    "\u0003\u0005\u0003<\n\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003",
-    "\u0003\u0003\u0003\u0005\u0003C\n\u0003\u0007\u0003E\n\u0003\f\u0003",
-    "\u000e\u0003H\u000b\u0003\u0003\u0003\u0005\u0003K\n\u0003\u0003\u0004",
-    "\u0003\u0004\u0003\u0005\u0003\u0005\u0003\u0005\u0005\u0005R\n\u0005",
-    "\u0003\u0005\u0003\u0005\u0003\u0006\u0003\u0006\u0003\u0006\u0007\u0006",
-    "Y\n\u0006\f\u0006\u000e\u0006\\\u000b\u0006\u0003\u0007\u0003\u0007",
-    "\u0003\u0007\u0007\u0007a\n\u0007\f\u0007\u000e\u0007d\u000b\u0007\u0003",
-    "\b\u0003\b\u0003\t\u0003\t\u0003\t\u0003\t\u0003\n\u0003\n\u0003\u000b",
-    "\u0003\u000b\u0003\u000b\u0003\f\u0003\f\u0003\r\u0003\r\u0003\r\u0003",
-    "\r\u0003\u000e\u0003\u000e\u0003\u000e\u0003\u000e\u0003\u000e\u0003",
-    "\u000e\u0003\u000f\u0003\u000f\u0003\u000f\u0003\u000f\u0005\u000f\u0081",
-    "\n\u000f\u0003\u000f\u0003\u000f\u0003\u000f\u0003\u000f\u0005\u000f",
-    "\u0087\n\u000f\u0003\u0010\u0005\u0010\u008a\n\u0010\u0003\u0010\u0003",
-    "\u0010\u0003\u0010\u0007\u0010\u008f\n\u0010\f\u0010\u000e\u0010\u0092",
-    "\u000b\u0010\u0003\u0010\u0003\u0010\u0005\u0010\u0096\n\u0010\u0003",
-    "\u0010\u0005\u0010\u0099\n\u0010\u0003\u0011\u0005\u0011\u009c\n\u0011",
-    "\u0003\u0011\u0003\u0011\u0007\u0011\u00a0\n\u0011\f\u0011\u000e\u0011",
-    "\u00a3\u000b\u0011\u0003\u0011\u0003\u0011\u0005\u0011\u00a7\n\u0011",
-    "\u0003\u0012\u0003\u0012\u0007\u0012\u00ab\n\u0012\f\u0012\u000e\u0012",
-    "\u00ae\u000b\u0012\u0003\u0012\u0003\u0012\u0003\u0013\u0003\u0013\u0003",
-    "\u0013\u0003\u0013\u0003\u0014\u0003\u0014\u0003\u0014\u0003\u0014\u0003",
-    "\u0014\u0005\u0014\u00bb\n\u0014\u0003\u0015\u0003\u0015\u0003\u0015",
-    "\u0007\u0015\u00c0\n\u0015\f\u0015\u000e\u0015\u00c3\u000b\u0015\u0003",
-    "\u0016\u0003\u0016\u0003\u0016\u0007\u0016\u00c8\n\u0016\f\u0016\u000e",
-    "\u0016\u00cb\u000b\u0016\u0003\u0016\u0003\u0016\u0003\u0017\u0003\u0017",
-    "\u0003\u0017\u0003\u0017\u0003\u0017\u0003\u0017\u0003\u0017\u0003\u0017",
-    "\u0003\u0017\u0003\u0017\u0003\u0017\u0005\u0017\u00da\n\u0017\u0003",
-    "\u0018\u0003\u0018\u0003\u0018\u0003\u0018\u0003\u0018\u0003\u0018\u0003",
-    "\u0018\u0003\u0018\u0005\u0018\u00e4\n\u0018\u0003\u0018\u0002\u0002",
-    "\u0019\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014\u0016\u0018\u001a",
-    "\u001c\u001e \"$&(*,.\u0002\u000b\u0003\u0002\u0013\u0015\u0004\u0002",
-    "#$\'(\u0004\u0002%&))\u0003\u0002\u001b\"\u0003\u0002\u000e\u000f\u0003",
-    "\u0002\u0016\u0017\u0004\u0002\f\f\u0011\u0011\u0003\u0002\u0018\u0019",
-    "\u0004\u00020022\u0002\u00f6\u00020\u0003\u0002\u0002\u0002\u0004J\u0003",
-    "\u0002\u0002\u0002\u0006L\u0003\u0002\u0002\u0002\bN\u0003\u0002\u0002",
-    "\u0002\nU\u0003\u0002\u0002\u0002\f]\u0003\u0002\u0002\u0002\u000ee",
-    "\u0003\u0002\u0002\u0002\u0010g\u0003\u0002\u0002\u0002\u0012k\u0003",
-    "\u0002\u0002\u0002\u0014m\u0003\u0002\u0002\u0002\u0016p\u0003\u0002",
-    "\u0002\u0002\u0018r\u0003\u0002\u0002\u0002\u001av\u0003\u0002\u0002",
-    "\u0002\u001c\u0086\u0003\u0002\u0002\u0002\u001e\u0089\u0003\u0002\u0002",
-    "\u0002 \u00a6\u0003\u0002\u0002\u0002\"\u00ac\u0003\u0002\u0002\u0002",
-    "$\u00b1\u0003\u0002\u0002\u0002&\u00ba\u0003\u0002\u0002\u0002(\u00bc",
-    "\u0003\u0002\u0002\u0002*\u00c9\u0003\u0002\u0002\u0002,\u00d9\u0003",
-    "\u0002\u0002\u0002.\u00e3\u0003\u0002\u0002\u000201\u0005\u0004\u0003",
-    "\u000212\u0007\u0002\u0002\u00032\u0003\u0003\u0002\u0002\u00023K\u0005",
-    "\u001c\u000f\u00024K\u0005,\u0017\u00025K\u0007\u001a\u0002\u000267",
-    "\u0007*\u0002\u00027K\u0005\u0004\u0003\u00028<\u0005\u0010\t\u0002",
-    "9<\u0005\u0014\u000b\u0002:<\u0005\u0018\r\u0002;8\u0003\u0002\u0002",
-    "\u0002;9\u0003\u0002\u0002\u0002;:\u0003\u0002\u0002\u0002<F\u0003\u0002",
-    "\u0002\u0002=B\u0005\u0006\u0004\u0002>C\u0005\u0010\t\u0002?C\u0005",
-    "\u0014\u000b\u0002@C\u0005\u0018\r\u0002AC\u0005\u001a\u000e\u0002B",
-    ">\u0003\u0002\u0002\u0002B?\u0003\u0002\u0002\u0002B@\u0003\u0002\u0002",
-    "\u0002BA\u0003\u0002\u0002\u0002CE\u0003\u0002\u0002\u0002D=\u0003\u0002",
-    "\u0002\u0002EH\u0003\u0002\u0002\u0002FD\u0003\u0002\u0002\u0002FG\u0003",
-    "\u0002\u0002\u0002GK\u0003\u0002\u0002\u0002HF\u0003\u0002\u0002\u0002",
-    "IK\u0005\n\u0006\u0002J3\u0003\u0002\u0002\u0002J4\u0003\u0002\u0002",
-    "\u0002J5\u0003\u0002\u0002\u0002J6\u0003\u0002\u0002\u0002J;\u0003\u0002",
-    "\u0002\u0002JI\u0003\u0002\u0002\u0002K\u0005\u0003\u0002\u0002\u0002",
-    "LM\t\u0002\u0002\u0002M\u0007\u0003\u0002\u0002\u0002NO\u0007\u0019",
-    "\u0002\u0002OQ\u0007\u0006\u0002\u0002PR\u0005*\u0016\u0002QP\u0003",
-    "\u0002\u0002\u0002QR\u0003\u0002\u0002\u0002RS\u0003\u0002\u0002\u0002",
-    "ST\u0007\u0007\u0002\u0002T\t\u0003\u0002\u0002\u0002UZ\u0005\f\u0007",
-    "\u0002VW\t\u0003\u0002\u0002WY\u0005\f\u0007\u0002XV\u0003\u0002\u0002",
-    "\u0002Y\\\u0003\u0002\u0002\u0002ZX\u0003\u0002\u0002\u0002Z[\u0003",
-    "\u0002\u0002\u0002[\u000b\u0003\u0002\u0002\u0002\\Z\u0003\u0002\u0002",
-    "\u0002]b\u0005.\u0018\u0002^_\t\u0004\u0002\u0002_a\u0005.\u0018\u0002",
-    "`^\u0003\u0002\u0002\u0002ad\u0003\u0002\u0002\u0002b`\u0003\u0002\u0002",
-    "\u0002bc\u0003\u0002\u0002\u0002c\r\u0003\u0002\u0002\u0002db\u0003",
-    "\u0002\u0002\u0002ef\t\u0005\u0002\u0002f\u000f\u0003\u0002\u0002\u0002",
-    "gh\u0005\n\u0006\u0002hi\u0005\u000e\b\u0002ij\u0005\n\u0006\u0002j",
-    "\u0011\u0003\u0002\u0002\u0002kl\t\u0006\u0002\u0002l\u0013\u0003\u0002",
-    "\u0002\u0002mn\u0005\n\u0006\u0002no\u0005\u0012\n\u0002o\u0015\u0003",
-    "\u0002\u0002\u0002pq\t\u0007\u0002\u0002q\u0017\u0003\u0002\u0002\u0002",
-    "rs\u0005\n\u0006\u0002st\u0005\u0016\f\u0002tu\u0005\n\u0006\u0002u",
-    "\u0019\u0003\u0002\u0002\u0002vw\u0005\n\u0006\u0002wx\t\b\u0002\u0002",
-    "xy\u0007\u0006\u0002\u0002yz\u0005(\u0015\u0002z{\u0007\u0007\u0002",
-    "\u0002{\u001b\u0003\u0002\u0002\u0002|\u0080\t\t\u0002\u0002}~\u0007",
-    "-\u0002\u0002~\u007f\u00070\u0002\u0002\u007f\u0081\u0007/\u0002\u0002",
-    "\u0080}\u0003\u0002\u0002\u0002\u0080\u0081\u0003\u0002\u0002\u0002",
-    "\u0081\u0087\u0003\u0002\u0002\u0002\u0082\u0083\u0007-\u0002\u0002",
-    "\u0083\u0084\u0005\u001e\u0010\u0002\u0084\u0085\u0007/\u0002\u0002",
-    "\u0085\u0087\u0003\u0002\u0002\u0002\u0086|\u0003\u0002\u0002\u0002",
-    "\u0086\u0082\u0003\u0002\u0002\u0002\u0087\u001d\u0003\u0002\u0002\u0002",
-    "\u0088\u008a\u00073\u0002\u0002\u0089\u0088\u0003\u0002\u0002\u0002",
-    "\u0089\u008a\u0003\u0002\u0002\u0002\u008a\u008b\u0003\u0002\u0002\u0002",
-    "\u008b\u0090\u0005 \u0011\u0002\u008c\u008d\u00073\u0002\u0002\u008d",
-    "\u008f\u0005 \u0011\u0002\u008e\u008c\u0003\u0002\u0002\u0002\u008f",
-    "\u0092\u0003\u0002\u0002\u0002\u0090\u008e\u0003\u0002\u0002\u0002\u0090",
-    "\u0091\u0003\u0002\u0002\u0002\u0091\u0098\u0003\u0002\u0002\u0002\u0092",
-    "\u0090\u0003\u0002\u0002\u0002\u0093\u0095\u00074\u0002\u0002\u0094",
-    "\u0096\u00077\u0002\u0002\u0095\u0094\u0003\u0002\u0002\u0002\u0095",
-    "\u0096\u0003\u0002\u0002\u0002\u0096\u0097\u0003\u0002\u0002\u0002\u0097",
-    "\u0099\u0005\"\u0012\u0002\u0098\u0093\u0003\u0002\u0002\u0002\u0098",
-    "\u0099\u0003\u0002\u0002\u0002\u0099\u001f\u0003\u0002\u0002\u0002\u009a",
-    "\u009c\u00077\u0002\u0002\u009b\u009a\u0003\u0002\u0002\u0002\u009b",
-    "\u009c\u0003\u0002\u0002\u0002\u009c\u009d\u0003\u0002\u0002\u0002\u009d",
-    "\u00a1\u0005\"\u0012\u0002\u009e\u00a0\u0005$\u0013\u0002\u009f\u009e",
-    "\u0003\u0002\u0002\u0002\u00a0\u00a3\u0003\u0002\u0002\u0002\u00a1\u009f",
-    "\u0003\u0002\u0002\u0002\u00a1\u00a2\u0003\u0002\u0002\u0002\u00a2\u00a7",
-    "\u0003\u0002\u0002\u0002\u00a3\u00a1\u0003\u0002\u0002\u0002\u00a4\u00a7",
-    "\u00076\u0002\u0002\u00a5\u00a7\u00075\u0002\u0002\u00a6\u009b\u0003",
-    "\u0002\u0002\u0002\u00a6\u00a4\u0003\u0002\u0002\u0002\u00a6\u00a5\u0003",
-    "\u0002\u0002\u0002\u00a7!\u0003\u0002\u0002\u0002\u00a8\u00a9\u0007",
-    "2\u0002\u0002\u00a9\u00ab\u00074\u0002\u0002\u00aa\u00a8\u0003\u0002",
-    "\u0002\u0002\u00ab\u00ae\u0003\u0002\u0002\u0002\u00ac\u00aa\u0003\u0002",
-    "\u0002\u0002\u00ac\u00ad\u0003\u0002\u0002\u0002\u00ad\u00af\u0003\u0002",
-    "\u0002\u0002\u00ae\u00ac\u0003\u0002\u0002\u0002\u00af\u00b0\t\n\u0002",
-    "\u0002\u00b0#\u0003\u0002\u0002\u0002\u00b1\u00b2\u0007.\u0002\u0002",
-    "\u00b2\u00b3\u0005&\u0014\u0002\u00b3\u00b4\u0007/\u0002\u0002\u00b4",
-    "%\u0003\u0002\u0002\u0002\u00b5\u00bb\u00070\u0002\u0002\u00b6\u00b7",
-    "\u0005\u001e\u0010\u0002\u00b7\u00b8\u00078\u0002\u0002\u00b8\u00b9",
-    "\u00071\u0002\u0002\u00b9\u00bb\u0003\u0002\u0002\u0002\u00ba\u00b5",
-    "\u0003\u0002\u0002\u0002\u00ba\u00b6\u0003\u0002\u0002\u0002\u00bb\'",
-    "\u0003\u0002\u0002\u0002\u00bc\u00c1\u0005\u0004\u0003\u0002\u00bd\u00be",
-    "\u0007+\u0002\u0002\u00be\u00c0\u0005\u0004\u0003\u0002\u00bf\u00bd",
-    "\u0003\u0002\u0002\u0002\u00c0\u00c3\u0003\u0002\u0002\u0002\u00c1\u00bf",
-    "\u0003\u0002\u0002\u0002\u00c1\u00c2\u0003\u0002\u0002\u0002\u00c2)",
-    "\u0003\u0002\u0002\u0002\u00c3\u00c1\u0003\u0002\u0002\u0002\u00c4\u00c5",
-    "\u0005\u0004\u0003\u0002\u00c5\u00c6\u0007+\u0002\u0002\u00c6\u00c8",
-    "\u0003\u0002\u0002\u0002\u00c7\u00c4\u0003\u0002\u0002\u0002\u00c8\u00cb",
-    "\u0003\u0002\u0002\u0002\u00c9\u00c7\u0003\u0002\u0002\u0002\u00c9\u00ca",
-    "\u0003\u0002\u0002\u0002\u00ca\u00cc\u0003\u0002\u0002\u0002\u00cb\u00c9",
-    "\u0003\u0002\u0002\u0002\u00cc\u00cd\u0005\u0004\u0003\u0002\u00cd+",
-    "\u0003\u0002\u0002\u0002\u00ce\u00da\u0007\u0003\u0002\u0002\u00cf\u00da",
-    "\u0007\u0004\u0002\u0002\u00d0\u00d1\u0007$\u0002\u0002\u00d1\u00da",
-    "\u0007\u0004\u0002\u0002\u00d2\u00da\u0007\b\u0002\u0002\u00d3\u00d4",
-    "\u0007$\u0002\u0002\u00d4\u00da\u0007\b\u0002\u0002\u00d5\u00da\u0007",
-    "\u0005\u0002\u0002\u00d6\u00da\u0007\t\u0002\u0002\u00d7\u00da\u0007",
-    "\n\u0002\u0002\u00d8\u00da\u0007\u000b\u0002\u0002\u00d9\u00ce\u0003",
-    "\u0002\u0002\u0002\u00d9\u00cf\u0003\u0002\u0002\u0002\u00d9\u00d0\u0003",
-    "\u0002\u0002\u0002\u00d9\u00d2\u0003\u0002\u0002\u0002\u00d9\u00d3\u0003",
-    "\u0002\u0002\u0002\u00d9\u00d5\u0003\u0002\u0002\u0002\u00d9\u00d6\u0003",
-    "\u0002\u0002\u0002\u00d9\u00d7\u0003\u0002\u0002\u0002\u00d9\u00d8\u0003",
-    "\u0002\u0002\u0002\u00da-\u0003\u0002\u0002\u0002\u00db\u00e4\u0005",
-    ",\u0017\u0002\u00dc\u00e4\u0005\b\u0005\u0002\u00dd\u00e4\u0005\u001c",
-    "\u000f\u0002\u00de\u00e4\u0007\u001a\u0002\u0002\u00df\u00e0\u0007\u0006",
-    "\u0002\u0002\u00e0\u00e1\u0005\n\u0006\u0002\u00e1\u00e2\u0007\u0007",
-    "\u0002\u0002\u00e2\u00e4\u0003\u0002\u0002\u0002\u00e3\u00db\u0003\u0002",
-    "\u0002\u0002\u00e3\u00dc\u0003\u0002\u0002\u0002\u00e3\u00dd\u0003\u0002",
-    "\u0002\u0002\u00e3\u00de\u0003\u0002\u0002\u0002\u00e3\u00df\u0003\u0002",
-    "\u0002\u0002\u00e4/\u0003\u0002\u0002\u0002\u0018;BFJQZb\u0080\u0086",
-    "\u0089\u0090\u0095\u0098\u009b\u00a1\u00a6\u00ac\u00ba\u00c1\u00c9\u00d9",
-    "\u00e3"].join("");
+    "\u0003\u0003\u0003\u0005\u0003D\n\u0003\u0003\u0003\u0003\u0003\u0003",
+    "\u0003\u0003\u0003\u0003\u0003\u0005\u0003K\n\u0003\u0007\u0003M\n\u0003",
+    "\f\u0003\u000e\u0003P\u000b\u0003\u0003\u0003\u0003\u0003\u0003\u0003",
+    "\u0003\u0003\u0003\u0003\u0005\u0003W\n\u0003\u0003\u0004\u0003\u0004",
+    "\u0003\u0005\u0003\u0005\u0003\u0005\u0005\u0005^\n\u0005\u0003\u0005",
+    "\u0003\u0005\u0003\u0006\u0003\u0006\u0003\u0006\u0007\u0006e\n\u0006",
+    "\f\u0006\u000e\u0006h\u000b\u0006\u0003\u0007\u0003\u0007\u0003\u0007",
+    "\u0007\u0007m\n\u0007\f\u0007\u000e\u0007p\u000b\u0007\u0003\b\u0003",
+    "\b\u0003\t\u0003\t\u0003\t\u0003\t\u0003\n\u0003\n\u0003\u000b\u0003",
+    "\u000b\u0003\u000b\u0003\f\u0003\f\u0003\r\u0003\r\u0003\r\u0003\r\u0003",
+    "\u000e\u0003\u000e\u0003\u000e\u0003\u000e\u0003\u000e\u0003\u000e\u0003",
+    "\u000f\u0003\u000f\u0003\u000f\u0003\u000f\u0005\u000f\u008d\n\u000f",
+    "\u0003\u000f\u0003\u000f\u0003\u000f\u0003\u000f\u0005\u000f\u0093\n",
+    "\u000f\u0003\u0010\u0005\u0010\u0096\n\u0010\u0003\u0010\u0003\u0010",
+    "\u0003\u0010\u0007\u0010\u009b\n\u0010\f\u0010\u000e\u0010\u009e\u000b",
+    "\u0010\u0003\u0010\u0003\u0010\u0005\u0010\u00a2\n\u0010\u0003\u0010",
+    "\u0005\u0010\u00a5\n\u0010\u0003\u0011\u0005\u0011\u00a8\n\u0011\u0003",
+    "\u0011\u0003\u0011\u0007\u0011\u00ac\n\u0011\f\u0011\u000e\u0011\u00af",
+    "\u000b\u0011\u0003\u0011\u0003\u0011\u0005\u0011\u00b3\n\u0011\u0003",
+    "\u0012\u0003\u0012\u0007\u0012\u00b7\n\u0012\f\u0012\u000e\u0012\u00ba",
+    "\u000b\u0012\u0003\u0012\u0003\u0012\u0003\u0013\u0003\u0013\u0003\u0013",
+    "\u0003\u0013\u0003\u0014\u0003\u0014\u0003\u0014\u0003\u0014\u0003\u0014",
+    "\u0005\u0014\u00c7\n\u0014\u0003\u0015\u0003\u0015\u0003\u0015\u0007",
+    "\u0015\u00cc\n\u0015\f\u0015\u000e\u0015\u00cf\u000b\u0015\u0003\u0016",
+    "\u0003\u0016\u0003\u0016\u0007\u0016\u00d4\n\u0016\f\u0016\u000e\u0016",
+    "\u00d7\u000b\u0016\u0003\u0016\u0003\u0016\u0003\u0017\u0003\u0017\u0007",
+    "\u0017\u00dd\n\u0017\f\u0017\u000e\u0017\u00e0\u000b\u0017\u0003\u0017",
+    "\u0003\u0017\u0003\u0018\u0003\u0018\u0003\u0018\u0003\u0018\u0005\u0018",
+    "\u00e8\n\u0018\u0003\u0019\u0003\u0019\u0003\u0019\u0003\u0019\u0003",
+    "\u0019\u0003\u001a\u0003\u001a\u0003\u001a\u0003\u001a\u0003\u001a\u0003",
+    "\u001a\u0003\u001b\u0003\u001b\u0003\u001b\u0003\u001b\u0003\u001b\u0003",
+    "\u001b\u0003\u001b\u0003\u001b\u0003\u001b\u0003\u001b\u0003\u001b\u0005",
+    "\u001b\u0100\n\u001b\u0003\u001c\u0003\u001c\u0003\u001c\u0003\u001c",
+    "\u0003\u001c\u0003\u001c\u0003\u001c\u0003\u001c\u0003\u001c\u0005\u001c",
+    "\u010b\n\u001c\u0003\u001c\u0002\u0002\u001d\u0002\u0004\u0006\b\n\f",
+    "\u000e\u0010\u0012\u0014\u0016\u0018\u001a\u001c\u001e \"$&(*,.0246",
+    "\u0002\f\u0003\u0002\u0013\u0015\u0005\u0002\u0018\u0018$%()\u0004\u0002",
+    "&\'**\u0003\u0002\u001c#\u0003\u0002\u000e\u000f\u0003\u0002\u0016\u0017",
+    "\u0004\u0002\f\f\u0011\u0011\u0003\u0002\u0019\u001a\u0004\u0002335",
+    "5\u0003\u0002-.\u0002\u011d\u00028\u0003\u0002\u0002\u0002\u0004V\u0003",
+    "\u0002\u0002\u0002\u0006X\u0003\u0002\u0002\u0002\bZ\u0003\u0002\u0002",
+    "\u0002\na\u0003\u0002\u0002\u0002\fi\u0003\u0002\u0002\u0002\u000eq",
+    "\u0003\u0002\u0002\u0002\u0010s\u0003\u0002\u0002\u0002\u0012w\u0003",
+    "\u0002\u0002\u0002\u0014y\u0003\u0002\u0002\u0002\u0016|\u0003\u0002",
+    "\u0002\u0002\u0018~\u0003\u0002\u0002\u0002\u001a\u0082\u0003\u0002",
+    "\u0002\u0002\u001c\u0092\u0003\u0002\u0002\u0002\u001e\u0095\u0003\u0002",
+    "\u0002\u0002 \u00b2\u0003\u0002\u0002\u0002\"\u00b8\u0003\u0002\u0002",
+    "\u0002$\u00bd\u0003\u0002\u0002\u0002&\u00c6\u0003\u0002\u0002\u0002",
+    "(\u00c8\u0003\u0002\u0002\u0002*\u00d5\u0003\u0002\u0002\u0002,\u00de",
+    "\u0003\u0002\u0002\u0002.\u00e7\u0003\u0002\u0002\u00020\u00e9\u0003",
+    "\u0002\u0002\u00022\u00ee\u0003\u0002\u0002\u00024\u00ff\u0003\u0002",
+    "\u0002\u00026\u010a\u0003\u0002\u0002\u000289\u0005\u0004\u0003\u0002",
+    "9:\u0007\u0002\u0002\u0003:\u0003\u0003\u0002\u0002\u0002;W\u0005\u001c",
+    "\u000f\u0002<W\u00054\u001b\u0002=>\u0007+\u0002\u0002>W\u0005\u0004",
+    "\u0003\u0002?D\u0005\u0010\t\u0002@D\u0005\u0014\u000b\u0002AD\u0005",
+    "\u0018\r\u0002BD\u0005\u001a\u000e\u0002C?\u0003\u0002\u0002\u0002C",
+    "@\u0003\u0002\u0002\u0002CA\u0003\u0002\u0002\u0002CB\u0003\u0002\u0002",
+    "\u0002DN\u0003\u0002\u0002\u0002EJ\u0005\u0006\u0004\u0002FK\u0005\u0010",
+    "\t\u0002GK\u0005\u0014\u000b\u0002HK\u0005\u0018\r\u0002IK\u0005\u001a",
+    "\u000e\u0002JF\u0003\u0002\u0002\u0002JG\u0003\u0002\u0002\u0002JH\u0003",
+    "\u0002\u0002\u0002JI\u0003\u0002\u0002\u0002KM\u0003\u0002\u0002\u0002",
+    "LE\u0003\u0002\u0002\u0002MP\u0003\u0002\u0002\u0002NL\u0003\u0002\u0002",
+    "\u0002NO\u0003\u0002\u0002\u0002OW\u0003\u0002\u0002\u0002PN\u0003\u0002",
+    "\u0002\u0002QW\u0005\n\u0006\u0002RS\u0007\u0006\u0002\u0002ST\u0005",
+    "\u0004\u0003\u0002TU\u0007\u0007\u0002\u0002UW\u0003\u0002\u0002\u0002",
+    "V;\u0003\u0002\u0002\u0002V<\u0003\u0002\u0002\u0002V=\u0003\u0002\u0002",
+    "\u0002VC\u0003\u0002\u0002\u0002VQ\u0003\u0002\u0002\u0002VR\u0003\u0002",
+    "\u0002\u0002W\u0005\u0003\u0002\u0002\u0002XY\t\u0002\u0002\u0002Y\u0007",
+    "\u0003\u0002\u0002\u0002Z[\u0007\u001a\u0002\u0002[]\u0007\u0006\u0002",
+    "\u0002\\^\u0005*\u0016\u0002]\\\u0003\u0002\u0002\u0002]^\u0003\u0002",
+    "\u0002\u0002^_\u0003\u0002\u0002\u0002_`\u0007\u0007\u0002\u0002`\t",
+    "\u0003\u0002\u0002\u0002af\u0005\f\u0007\u0002bc\t\u0003\u0002\u0002",
+    "ce\u0005\f\u0007\u0002db\u0003\u0002\u0002\u0002eh\u0003\u0002\u0002",
+    "\u0002fd\u0003\u0002\u0002\u0002fg\u0003\u0002\u0002\u0002g\u000b\u0003",
+    "\u0002\u0002\u0002hf\u0003\u0002\u0002\u0002in\u00056\u001c\u0002jk",
+    "\t\u0004\u0002\u0002km\u00056\u001c\u0002lj\u0003\u0002\u0002\u0002",
+    "mp\u0003\u0002\u0002\u0002nl\u0003\u0002\u0002\u0002no\u0003\u0002\u0002",
+    "\u0002o\r\u0003\u0002\u0002\u0002pn\u0003\u0002\u0002\u0002qr\t\u0005",
+    "\u0002\u0002r\u000f\u0003\u0002\u0002\u0002st\u0005\n\u0006\u0002tu",
+    "\u0005\u000e\b\u0002uv\u0005\n\u0006\u0002v\u0011\u0003\u0002\u0002",
+    "\u0002wx\t\u0006\u0002\u0002x\u0013\u0003\u0002\u0002\u0002yz\u0005",
+    "\n\u0006\u0002z{\u0005\u0012\n\u0002{\u0015\u0003\u0002\u0002\u0002",
+    "|}\t\u0007\u0002\u0002}\u0017\u0003\u0002\u0002\u0002~\u007f\u0005\n",
+    "\u0006\u0002\u007f\u0080\u0005\u0016\f\u0002\u0080\u0081\u0005\n\u0006",
+    "\u0002\u0081\u0019\u0003\u0002\u0002\u0002\u0082\u0083\u0005\n\u0006",
+    "\u0002\u0083\u0084\t\b\u0002\u0002\u0084\u0085\u0007\u0006\u0002\u0002",
+    "\u0085\u0086\u0005(\u0015\u0002\u0086\u0087\u0007\u0007\u0002\u0002",
+    "\u0087\u001b\u0003\u0002\u0002\u0002\u0088\u008c\t\t\u0002\u0002\u0089",
+    "\u008a\u00070\u0002\u0002\u008a\u008b\u00073\u0002\u0002\u008b\u008d",
+    "\u00072\u0002\u0002\u008c\u0089\u0003\u0002\u0002\u0002\u008c\u008d",
+    "\u0003\u0002\u0002\u0002\u008d\u0093\u0003\u0002\u0002\u0002\u008e\u008f",
+    "\u00070\u0002\u0002\u008f\u0090\u0005\u001e\u0010\u0002\u0090\u0091",
+    "\u00072\u0002\u0002\u0091\u0093\u0003\u0002\u0002\u0002\u0092\u0088",
+    "\u0003\u0002\u0002\u0002\u0092\u008e\u0003\u0002\u0002\u0002\u0093\u001d",
+    "\u0003\u0002\u0002\u0002\u0094\u0096\u00076\u0002\u0002\u0095\u0094",
+    "\u0003\u0002\u0002\u0002\u0095\u0096\u0003\u0002\u0002\u0002\u0096\u0097",
+    "\u0003\u0002\u0002\u0002\u0097\u009c\u0005 \u0011\u0002\u0098\u0099",
+    "\u00076\u0002\u0002\u0099\u009b\u0005 \u0011\u0002\u009a\u0098\u0003",
+    "\u0002\u0002\u0002\u009b\u009e\u0003\u0002\u0002\u0002\u009c\u009a\u0003",
+    "\u0002\u0002\u0002\u009c\u009d\u0003\u0002\u0002\u0002\u009d\u00a4\u0003",
+    "\u0002\u0002\u0002\u009e\u009c\u0003\u0002\u0002\u0002\u009f\u00a1\u0007",
+    "7\u0002\u0002\u00a0\u00a2\u0007:\u0002\u0002\u00a1\u00a0\u0003\u0002",
+    "\u0002\u0002\u00a1\u00a2\u0003\u0002\u0002\u0002\u00a2\u00a3\u0003\u0002",
+    "\u0002\u0002\u00a3\u00a5\u0005\"\u0012\u0002\u00a4\u009f\u0003\u0002",
+    "\u0002\u0002\u00a4\u00a5\u0003\u0002\u0002\u0002\u00a5\u001f\u0003\u0002",
+    "\u0002\u0002\u00a6\u00a8\u0007:\u0002\u0002\u00a7\u00a6\u0003\u0002",
+    "\u0002\u0002\u00a7\u00a8\u0003\u0002\u0002\u0002\u00a8\u00a9\u0003\u0002",
+    "\u0002\u0002\u00a9\u00ad\u0005\"\u0012\u0002\u00aa\u00ac\u0005$\u0013",
+    "\u0002\u00ab\u00aa\u0003\u0002\u0002\u0002\u00ac\u00af\u0003\u0002\u0002",
+    "\u0002\u00ad\u00ab\u0003\u0002\u0002\u0002\u00ad\u00ae\u0003\u0002\u0002",
+    "\u0002\u00ae\u00b3\u0003\u0002\u0002\u0002\u00af\u00ad\u0003\u0002\u0002",
+    "\u0002\u00b0\u00b3\u00079\u0002\u0002\u00b1\u00b3\u00078\u0002\u0002",
+    "\u00b2\u00a7\u0003\u0002\u0002\u0002\u00b2\u00b0\u0003\u0002\u0002\u0002",
+    "\u00b2\u00b1\u0003\u0002\u0002\u0002\u00b3!\u0003\u0002\u0002\u0002",
+    "\u00b4\u00b5\u00075\u0002\u0002\u00b5\u00b7\u00077\u0002\u0002\u00b6",
+    "\u00b4\u0003\u0002\u0002\u0002\u00b7\u00ba\u0003\u0002\u0002\u0002\u00b8",
+    "\u00b6\u0003\u0002\u0002\u0002\u00b8\u00b9\u0003\u0002\u0002\u0002\u00b9",
+    "\u00bb\u0003\u0002\u0002\u0002\u00ba\u00b8\u0003\u0002\u0002\u0002\u00bb",
+    "\u00bc\t\n\u0002\u0002\u00bc#\u0003\u0002\u0002\u0002\u00bd\u00be\u0007",
+    "1\u0002\u0002\u00be\u00bf\u0005&\u0014\u0002\u00bf\u00c0\u00072\u0002",
+    "\u0002\u00c0%\u0003\u0002\u0002\u0002\u00c1\u00c7\u00073\u0002\u0002",
+    "\u00c2\u00c3\u0005\u001e\u0010\u0002\u00c3\u00c4\u0007;\u0002\u0002",
+    "\u00c4\u00c5\u00074\u0002\u0002\u00c5\u00c7\u0003\u0002\u0002\u0002",
+    "\u00c6\u00c1\u0003\u0002\u0002\u0002\u00c6\u00c2\u0003\u0002\u0002\u0002",
+    "\u00c7\'\u0003\u0002\u0002\u0002\u00c8\u00cd\u0005\u0004\u0003\u0002",
+    "\u00c9\u00ca\u0007,\u0002\u0002\u00ca\u00cc\u0005\u0004\u0003\u0002",
+    "\u00cb\u00c9\u0003\u0002\u0002\u0002\u00cc\u00cf\u0003\u0002\u0002\u0002",
+    "\u00cd\u00cb\u0003\u0002\u0002\u0002\u00cd\u00ce\u0003\u0002\u0002\u0002",
+    "\u00ce)\u0003\u0002\u0002\u0002\u00cf\u00cd\u0003\u0002\u0002\u0002",
+    "\u00d0\u00d1\u0005\u0004\u0003\u0002\u00d1\u00d2\u0007,\u0002\u0002",
+    "\u00d2\u00d4\u0003\u0002\u0002\u0002\u00d3\u00d0\u0003\u0002\u0002\u0002",
+    "\u00d4\u00d7\u0003\u0002\u0002\u0002\u00d5\u00d3\u0003\u0002\u0002\u0002",
+    "\u00d5\u00d6\u0003\u0002\u0002\u0002\u00d6\u00d8\u0003\u0002\u0002\u0002",
+    "\u00d7\u00d5\u0003\u0002\u0002\u0002\u00d8\u00d9\u0005\u0004\u0003\u0002",
+    "\u00d9+\u0003\u0002\u0002\u0002\u00da\u00db\u0007\u001a\u0002\u0002",
+    "\u00db\u00dd\u0007\'\u0002\u0002\u00dc\u00da\u0003\u0002\u0002\u0002",
+    "\u00dd\u00e0\u0003\u0002\u0002\u0002\u00de\u00dc\u0003\u0002\u0002\u0002",
+    "\u00de\u00df\u0003\u0002\u0002\u0002\u00df\u00e1\u0003\u0002\u0002\u0002",
+    "\u00e0\u00de\u0003\u0002\u0002\u0002\u00e1\u00e2\t\t\u0002\u0002\u00e2",
+    "-\u0003\u0002\u0002\u0002\u00e3\u00e4\u0007\u001a\u0002\u0002\u00e4",
+    "\u00e5\t\u000b\u0002\u0002\u00e5\u00e8\u0007\u001a\u0002\u0002\u00e6",
+    "\u00e8\u0005,\u0017\u0002\u00e7\u00e3\u0003\u0002\u0002\u0002\u00e7",
+    "\u00e6\u0003\u0002\u0002\u0002\u00e8/\u0003\u0002\u0002\u0002\u00e9",
+    "\u00ea\u0007\u001b\u0002\u0002\u00ea\u00eb\u0007\u0006\u0002\u0002\u00eb",
+    "\u00ec\u0005.\u0018\u0002\u00ec\u00ed\u0007\u0007\u0002\u0002\u00ed",
+    "1\u0003\u0002\u0002\u0002\u00ee\u00ef\u0007\u001b\u0002\u0002\u00ef",
+    "\u00f0\u0007\u001a\u0002\u0002\u00f0\u00f1\u0007\u0006\u0002\u0002\u00f1",
+    "\u00f2\u0005.\u0018\u0002\u00f2\u00f3\u0007\u0007\u0002\u0002\u00f3",
+    "3\u0003\u0002\u0002\u0002\u00f4\u0100\u0007\u0003\u0002\u0002\u00f5",
+    "\u0100\u0007\u0004\u0002\u0002\u00f6\u00f7\u0007%\u0002\u0002\u00f7",
+    "\u0100\u0007\u0004\u0002\u0002\u00f8\u0100\u0007\b\u0002\u0002\u00f9",
+    "\u00fa\u0007%\u0002\u0002\u00fa\u0100\u0007\b\u0002\u0002\u00fb\u0100",
+    "\u0007\u0005\u0002\u0002\u00fc\u0100\u0007\t\u0002\u0002\u00fd\u0100",
+    "\u0007\n\u0002\u0002\u00fe\u0100\u0007\u000b\u0002\u0002\u00ff\u00f4",
+    "\u0003\u0002\u0002\u0002\u00ff\u00f5\u0003\u0002\u0002\u0002\u00ff\u00f6",
+    "\u0003\u0002\u0002\u0002\u00ff\u00f8\u0003\u0002\u0002\u0002\u00ff\u00f9",
+    "\u0003\u0002\u0002\u0002\u00ff\u00fb\u0003\u0002\u0002\u0002\u00ff\u00fc",
+    "\u0003\u0002\u0002\u0002\u00ff\u00fd\u0003\u0002\u0002\u0002\u00ff\u00fe",
+    "\u0003\u0002\u0002\u0002\u01005\u0003\u0002\u0002\u0002\u0101\u010b",
+    "\u00054\u001b\u0002\u0102\u010b\u0005\b\u0005\u0002\u0103\u010b\u0005",
+    "\u001c\u000f\u0002\u0104\u010b\u00050\u0019\u0002\u0105\u010b\u0005",
+    "2\u001a\u0002\u0106\u0107\u0007\u0006\u0002\u0002\u0107\u0108\u0005",
+    "\n\u0006\u0002\u0108\u0109\u0007\u0007\u0002\u0002\u0109\u010b\u0003",
+    "\u0002\u0002\u0002\u010a\u0101\u0003\u0002\u0002\u0002\u010a\u0102\u0003",
+    "\u0002\u0002\u0002\u010a\u0103\u0003\u0002\u0002\u0002\u010a\u0104\u0003",
+    "\u0002\u0002\u0002\u010a\u0105\u0003\u0002\u0002\u0002\u010a\u0106\u0003",
+    "\u0002\u0002\u0002\u010b7\u0003\u0002\u0002\u0002\u001aCJNV]fn\u008c",
+    "\u0092\u0095\u009c\u00a1\u00a4\u00a7\u00ad\u00b2\u00b8\u00c6\u00cd\u00d5",
+    "\u00de\u00e7\u00ff\u010a"].join("");
 
 
 var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -169,22 +196,22 @@ var sharedContextCache = new antlr4.PredictionContextCache();
 
 var literalNames = [ null, null, null, null, "'('", "')'", null, null, null, 
                      null, null, null, null, null, null, null, null, null, 
-                     null, null, null, null, null, null, null, "'<'", "'>'", 
-                     "'<='", "'>='", null, "'=='", "'!='", "'<>'", "'+'", 
-                     "'-'", "'*'", null, "'&'", "'|'", "'%'", "'!'", "','", 
-                     null, null, null, "']'", null, null, null, null, "':'", 
-                     "'..'", "'.'", "'@'" ];
+                     null, null, null, null, "'||'", null, null, "'$'", 
+                     "'<'", "'>'", "'<='", "'>='", null, "'=='", "'!='", 
+                     "'<>'", "'+'", "'-'", "'*'", null, "'&'", "'|'", "'%'", 
+                     "'!'", "','", null, null, null, null, null, "']'", 
+                     null, null, null, null, null, "'..'", null, "'@'" ];
 
 var symbolicNames = [ null, "STRING", "INT", "BOOLEAN", "PAR_OPEN", "PAR_CLOSE", 
                       "DOUBLE", "DATE", "TIME", "DATETIME", "NOT_IN", "NOT", 
                       "IS_NULL", "IS_NOT_NULL", "IS", "IN", "NULL", "OR", 
-                      "AND", "AND_NOT", "LIKE", "NOT_LIKE", "ATTRIBUTE", 
-                      "IDENTIFIER", "VARIABLE", "LT", "GT", "LE", "GE", 
-                      "EQ", "EQ_2", "NEQ", "NEQ_2", "PLUS", "MINUS", "TIMES", 
-                      "DIV", "AMP", "PIPE", "PERCENT", "EXCLAMATION", "COMMA", 
-                      "WS", "BRAC_OPEN", "X_BRAC_OPEN", "X_BRAC_CLOSE", 
-                      "X_INT", "X_STRING", "X_NCNAME", "X_SEP", "X_COLON", 
-                      "X_PARENT", "X_CURRENT", "X_ATTR", "X_EQ" ];
+                      "AND", "AND_NOT", "LIKE", "NOT_LIKE", "CONCAT", "ATTRIBUTE", 
+                      "IDENTIFIER", "START_VARIABLE", "LT", "GT", "LE", 
+                      "GE", "EQ", "EQ_2", "NEQ", "NEQ_2", "PLUS", "MINUS", 
+                      "TIMES", "DIV", "AMP", "PIPE", "PERCENT", "EXCLAMATION", 
+                      "COMMA", "COLON", "DOT", "WS", "BRAC_OPEN", "X_BRAC_OPEN", 
+                      "X_BRAC_CLOSE", "X_INT", "X_STRING", "X_NCNAME", "X_SEP", 
+                      "X_COLON", "X_PARENT", "X_CURRENT", "X_ATTR", "X_EQ" ];
 
 var ruleNames =  [ "unit", "expression", "logicalOperator", "functionCall", 
                    "addingExpression", "multiplyingExpression", "comparisonOperator", 
@@ -192,6 +219,7 @@ var ruleNames =  [ "unit", "expression", "logicalOperator", "functionCall",
                    "likeOperator", "likeExpression", "includedInExpression", 
                    "xpath", "xpath_locationPath", "xpath_step", "xpath_qname", 
                    "xpath_predicate", "xpath_expr", "list", "parameters", 
+                   "variablePath", "variableIdentifier", "variable", "castVariable", 
                    "literal", "computableAtom" ];
 
 function XtkParser (input) {
@@ -234,39 +262,42 @@ XtkParser.AND = 18;
 XtkParser.AND_NOT = 19;
 XtkParser.LIKE = 20;
 XtkParser.NOT_LIKE = 21;
-XtkParser.ATTRIBUTE = 22;
-XtkParser.IDENTIFIER = 23;
-XtkParser.VARIABLE = 24;
-XtkParser.LT = 25;
-XtkParser.GT = 26;
-XtkParser.LE = 27;
-XtkParser.GE = 28;
-XtkParser.EQ = 29;
-XtkParser.EQ_2 = 30;
-XtkParser.NEQ = 31;
-XtkParser.NEQ_2 = 32;
-XtkParser.PLUS = 33;
-XtkParser.MINUS = 34;
-XtkParser.TIMES = 35;
-XtkParser.DIV = 36;
-XtkParser.AMP = 37;
-XtkParser.PIPE = 38;
-XtkParser.PERCENT = 39;
-XtkParser.EXCLAMATION = 40;
-XtkParser.COMMA = 41;
-XtkParser.WS = 42;
-XtkParser.BRAC_OPEN = 43;
-XtkParser.X_BRAC_OPEN = 44;
-XtkParser.X_BRAC_CLOSE = 45;
-XtkParser.X_INT = 46;
-XtkParser.X_STRING = 47;
-XtkParser.X_NCNAME = 48;
-XtkParser.X_SEP = 49;
-XtkParser.X_COLON = 50;
-XtkParser.X_PARENT = 51;
-XtkParser.X_CURRENT = 52;
-XtkParser.X_ATTR = 53;
-XtkParser.X_EQ = 54;
+XtkParser.CONCAT = 22;
+XtkParser.ATTRIBUTE = 23;
+XtkParser.IDENTIFIER = 24;
+XtkParser.START_VARIABLE = 25;
+XtkParser.LT = 26;
+XtkParser.GT = 27;
+XtkParser.LE = 28;
+XtkParser.GE = 29;
+XtkParser.EQ = 30;
+XtkParser.EQ_2 = 31;
+XtkParser.NEQ = 32;
+XtkParser.NEQ_2 = 33;
+XtkParser.PLUS = 34;
+XtkParser.MINUS = 35;
+XtkParser.TIMES = 36;
+XtkParser.DIV = 37;
+XtkParser.AMP = 38;
+XtkParser.PIPE = 39;
+XtkParser.PERCENT = 40;
+XtkParser.EXCLAMATION = 41;
+XtkParser.COMMA = 42;
+XtkParser.COLON = 43;
+XtkParser.DOT = 44;
+XtkParser.WS = 45;
+XtkParser.BRAC_OPEN = 46;
+XtkParser.X_BRAC_OPEN = 47;
+XtkParser.X_BRAC_CLOSE = 48;
+XtkParser.X_INT = 49;
+XtkParser.X_STRING = 50;
+XtkParser.X_NCNAME = 51;
+XtkParser.X_SEP = 52;
+XtkParser.X_COLON = 53;
+XtkParser.X_PARENT = 54;
+XtkParser.X_CURRENT = 55;
+XtkParser.X_ATTR = 56;
+XtkParser.X_EQ = 57;
 
 XtkParser.RULE_unit = 0;
 XtkParser.RULE_expression = 1;
@@ -289,8 +320,12 @@ XtkParser.RULE_xpath_predicate = 17;
 XtkParser.RULE_xpath_expr = 18;
 XtkParser.RULE_list = 19;
 XtkParser.RULE_parameters = 20;
-XtkParser.RULE_literal = 21;
-XtkParser.RULE_computableAtom = 22;
+XtkParser.RULE_variablePath = 21;
+XtkParser.RULE_variableIdentifier = 22;
+XtkParser.RULE_variable = 23;
+XtkParser.RULE_castVariable = 24;
+XtkParser.RULE_literal = 25;
+XtkParser.RULE_computableAtom = 26;
 
 
 function UnitContext(parser, parent, invokingState) {
@@ -348,9 +383,9 @@ XtkParser.prototype.unit = function() {
     this.enterRule(localctx, 0, XtkParser.RULE_unit);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 46;
+        this.state = 54;
         this.expression();
-        this.state = 47;
+        this.state = 55;
         this.match(XtkParser.EOF);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -389,10 +424,6 @@ ExpressionContext.prototype.xpath = function() {
 
 ExpressionContext.prototype.literal = function() {
     return this.getTypedRuleContext(LiteralContext,0);
-};
-
-ExpressionContext.prototype.VARIABLE = function() {
-    return this.getToken(XtkParser.VARIABLE, 0);
 };
 
 ExpressionContext.prototype.EXCLAMATION = function() {
@@ -436,17 +467,6 @@ ExpressionContext.prototype.likeExpression = function(i) {
     }
 };
 
-ExpressionContext.prototype.logicalOperator = function(i) {
-    if(i===undefined) {
-        i = null;
-    }
-    if(i===null) {
-        return this.getTypedRuleContexts(LogicalOperatorContext);
-    } else {
-        return this.getTypedRuleContext(LogicalOperatorContext,i);
-    }
-};
-
 ExpressionContext.prototype.includedInExpression = function(i) {
     if(i===undefined) {
         i = null;
@@ -458,8 +478,27 @@ ExpressionContext.prototype.includedInExpression = function(i) {
     }
 };
 
+ExpressionContext.prototype.logicalOperator = function(i) {
+    if(i===undefined) {
+        i = null;
+    }
+    if(i===null) {
+        return this.getTypedRuleContexts(LogicalOperatorContext);
+    } else {
+        return this.getTypedRuleContext(LogicalOperatorContext,i);
+    }
+};
+
 ExpressionContext.prototype.addingExpression = function() {
     return this.getTypedRuleContext(AddingExpressionContext,0);
+};
+
+ExpressionContext.prototype.PAR_OPEN = function() {
+    return this.getToken(XtkParser.PAR_OPEN, 0);
+};
+
+ExpressionContext.prototype.PAR_CLOSE = function() {
+    return this.getToken(XtkParser.PAR_CLOSE, 0);
 };
 
 ExpressionContext.prototype.enterRule = function(listener) {
@@ -493,99 +532,108 @@ XtkParser.prototype.expression = function() {
     this.enterRule(localctx, 2, XtkParser.RULE_expression);
     var _la = 0; // Token type
     try {
-        this.state = 72;
+        this.state = 84;
         this._errHandler.sync(this);
         var la_ = this._interp.adaptivePredict(this._input,3,this._ctx);
         switch(la_) {
         case 1:
             this.enterOuterAlt(localctx, 1);
-            this.state = 49;
+            this.state = 57;
             this.xpath();
             break;
 
         case 2:
             this.enterOuterAlt(localctx, 2);
-            this.state = 50;
+            this.state = 58;
             this.literal();
             break;
 
         case 3:
             this.enterOuterAlt(localctx, 3);
-            this.state = 51;
-            this.match(XtkParser.VARIABLE);
+            this.state = 59;
+            this.match(XtkParser.EXCLAMATION);
+            this.state = 60;
+            this.expression();
             break;
 
         case 4:
             this.enterOuterAlt(localctx, 4);
-            this.state = 52;
-            this.match(XtkParser.EXCLAMATION);
-            this.state = 53;
-            this.expression();
-            break;
-
-        case 5:
-            this.enterOuterAlt(localctx, 5);
-            this.state = 57;
+            this.state = 65;
             this._errHandler.sync(this);
             var la_ = this._interp.adaptivePredict(this._input,0,this._ctx);
             switch(la_) {
             case 1:
-                this.state = 54;
+                this.state = 61;
                 this.relationalExpression();
                 break;
 
             case 2:
-                this.state = 55;
+                this.state = 62;
                 this.unaryExpression();
                 break;
 
             case 3:
-                this.state = 56;
+                this.state = 63;
                 this.likeExpression();
                 break;
 
+            case 4:
+                this.state = 64;
+                this.includedInExpression();
+                break;
+
             }
-            this.state = 68;
+            this.state = 76;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             while((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << XtkParser.OR) | (1 << XtkParser.AND) | (1 << XtkParser.AND_NOT))) !== 0)) {
-                this.state = 59;
+                this.state = 67;
                 this.logicalOperator();
-                this.state = 64;
+                this.state = 72;
                 this._errHandler.sync(this);
                 var la_ = this._interp.adaptivePredict(this._input,1,this._ctx);
                 switch(la_) {
                 case 1:
-                    this.state = 60;
+                    this.state = 68;
                     this.relationalExpression();
                     break;
 
                 case 2:
-                    this.state = 61;
+                    this.state = 69;
                     this.unaryExpression();
                     break;
 
                 case 3:
-                    this.state = 62;
+                    this.state = 70;
                     this.likeExpression();
                     break;
 
                 case 4:
-                    this.state = 63;
+                    this.state = 71;
                     this.includedInExpression();
                     break;
 
                 }
-                this.state = 70;
+                this.state = 78;
                 this._errHandler.sync(this);
                 _la = this._input.LA(1);
             }
             break;
 
+        case 5:
+            this.enterOuterAlt(localctx, 5);
+            this.state = 79;
+            this.addingExpression();
+            break;
+
         case 6:
             this.enterOuterAlt(localctx, 6);
-            this.state = 71;
-            this.addingExpression();
+            this.state = 80;
+            this.match(XtkParser.PAR_OPEN);
+            this.state = 81;
+            this.expression();
+            this.state = 82;
+            this.match(XtkParser.PAR_CLOSE);
             break;
 
         }
@@ -664,7 +712,7 @@ XtkParser.prototype.logicalOperator = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 74;
+        this.state = 86;
         _la = this._input.LA(1);
         if(!((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << XtkParser.OR) | (1 << XtkParser.AND) | (1 << XtkParser.AND_NOT))) !== 0))) {
         this._errHandler.recoverInline(this);
@@ -752,19 +800,19 @@ XtkParser.prototype.functionCall = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 76;
+        this.state = 88;
         this.match(XtkParser.IDENTIFIER);
-        this.state = 77;
+        this.state = 89;
         this.match(XtkParser.PAR_OPEN);
-        this.state = 79;
+        this.state = 91;
         this._errHandler.sync(this);
         _la = this._input.LA(1);
-        if((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << XtkParser.STRING) | (1 << XtkParser.INT) | (1 << XtkParser.BOOLEAN) | (1 << XtkParser.PAR_OPEN) | (1 << XtkParser.DOUBLE) | (1 << XtkParser.DATE) | (1 << XtkParser.TIME) | (1 << XtkParser.DATETIME) | (1 << XtkParser.ATTRIBUTE) | (1 << XtkParser.IDENTIFIER) | (1 << XtkParser.VARIABLE))) !== 0) || ((((_la - 34)) & ~0x1f) == 0 && ((1 << (_la - 34)) & ((1 << (XtkParser.MINUS - 34)) | (1 << (XtkParser.EXCLAMATION - 34)) | (1 << (XtkParser.BRAC_OPEN - 34)))) !== 0)) {
-            this.state = 78;
+        if((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << XtkParser.STRING) | (1 << XtkParser.INT) | (1 << XtkParser.BOOLEAN) | (1 << XtkParser.PAR_OPEN) | (1 << XtkParser.DOUBLE) | (1 << XtkParser.DATE) | (1 << XtkParser.TIME) | (1 << XtkParser.DATETIME) | (1 << XtkParser.ATTRIBUTE) | (1 << XtkParser.IDENTIFIER) | (1 << XtkParser.START_VARIABLE))) !== 0) || ((((_la - 35)) & ~0x1f) == 0 && ((1 << (_la - 35)) & ((1 << (XtkParser.MINUS - 35)) | (1 << (XtkParser.EXCLAMATION - 35)) | (1 << (XtkParser.BRAC_OPEN - 35)))) !== 0)) {
+            this.state = 90;
             this.parameters();
         }
 
-        this.state = 81;
+        this.state = 93;
         this.match(XtkParser.PAR_CLOSE);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -856,6 +904,18 @@ AddingExpressionContext.prototype.PIPE = function(i) {
 };
 
 
+AddingExpressionContext.prototype.CONCAT = function(i) {
+	if(i===undefined) {
+		i = null;
+	}
+    if(i===null) {
+        return this.getTokens(XtkParser.CONCAT);
+    } else {
+        return this.getToken(XtkParser.CONCAT, i);
+    }
+};
+
+
 AddingExpressionContext.prototype.enterRule = function(listener) {
     if(listener instanceof XtkParserListener ) {
         listener.enterAddingExpression(this);
@@ -888,24 +948,24 @@ XtkParser.prototype.addingExpression = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 83;
+        this.state = 95;
         this.multiplyingExpression();
-        this.state = 88;
+        this.state = 100;
         this._errHandler.sync(this);
         _la = this._input.LA(1);
-        while(((((_la - 33)) & ~0x1f) == 0 && ((1 << (_la - 33)) & ((1 << (XtkParser.PLUS - 33)) | (1 << (XtkParser.MINUS - 33)) | (1 << (XtkParser.AMP - 33)) | (1 << (XtkParser.PIPE - 33)))) !== 0)) {
-            this.state = 84;
+        while(((((_la - 22)) & ~0x1f) == 0 && ((1 << (_la - 22)) & ((1 << (XtkParser.CONCAT - 22)) | (1 << (XtkParser.PLUS - 22)) | (1 << (XtkParser.MINUS - 22)) | (1 << (XtkParser.AMP - 22)) | (1 << (XtkParser.PIPE - 22)))) !== 0)) {
+            this.state = 96;
             _la = this._input.LA(1);
-            if(!(((((_la - 33)) & ~0x1f) == 0 && ((1 << (_la - 33)) & ((1 << (XtkParser.PLUS - 33)) | (1 << (XtkParser.MINUS - 33)) | (1 << (XtkParser.AMP - 33)) | (1 << (XtkParser.PIPE - 33)))) !== 0))) {
+            if(!(((((_la - 22)) & ~0x1f) == 0 && ((1 << (_la - 22)) & ((1 << (XtkParser.CONCAT - 22)) | (1 << (XtkParser.PLUS - 22)) | (1 << (XtkParser.MINUS - 22)) | (1 << (XtkParser.AMP - 22)) | (1 << (XtkParser.PIPE - 22)))) !== 0))) {
             this._errHandler.recoverInline(this);
             }
             else {
             	this._errHandler.reportMatch(this);
                 this.consume();
             }
-            this.state = 85;
+            this.state = 97;
             this.multiplyingExpression();
-            this.state = 90;
+            this.state = 102;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
         }
@@ -1019,24 +1079,24 @@ XtkParser.prototype.multiplyingExpression = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 91;
+        this.state = 103;
         this.computableAtom();
-        this.state = 96;
+        this.state = 108;
         this._errHandler.sync(this);
         _la = this._input.LA(1);
-        while(((((_la - 35)) & ~0x1f) == 0 && ((1 << (_la - 35)) & ((1 << (XtkParser.TIMES - 35)) | (1 << (XtkParser.DIV - 35)) | (1 << (XtkParser.PERCENT - 35)))) !== 0)) {
-            this.state = 92;
+        while(((((_la - 36)) & ~0x1f) == 0 && ((1 << (_la - 36)) & ((1 << (XtkParser.TIMES - 36)) | (1 << (XtkParser.DIV - 36)) | (1 << (XtkParser.PERCENT - 36)))) !== 0)) {
+            this.state = 104;
             _la = this._input.LA(1);
-            if(!(((((_la - 35)) & ~0x1f) == 0 && ((1 << (_la - 35)) & ((1 << (XtkParser.TIMES - 35)) | (1 << (XtkParser.DIV - 35)) | (1 << (XtkParser.PERCENT - 35)))) !== 0))) {
+            if(!(((((_la - 36)) & ~0x1f) == 0 && ((1 << (_la - 36)) & ((1 << (XtkParser.TIMES - 36)) | (1 << (XtkParser.DIV - 36)) | (1 << (XtkParser.PERCENT - 36)))) !== 0))) {
             this._errHandler.recoverInline(this);
             }
             else {
             	this._errHandler.reportMatch(this);
                 this.consume();
             }
-            this.state = 93;
+            this.state = 105;
             this.computableAtom();
-            this.state = 98;
+            this.state = 110;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
         }
@@ -1135,9 +1195,9 @@ XtkParser.prototype.comparisonOperator = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 99;
+        this.state = 111;
         _la = this._input.LA(1);
-        if(!(((((_la - 25)) & ~0x1f) == 0 && ((1 << (_la - 25)) & ((1 << (XtkParser.LT - 25)) | (1 << (XtkParser.GT - 25)) | (1 << (XtkParser.LE - 25)) | (1 << (XtkParser.GE - 25)) | (1 << (XtkParser.EQ - 25)) | (1 << (XtkParser.EQ_2 - 25)) | (1 << (XtkParser.NEQ - 25)) | (1 << (XtkParser.NEQ_2 - 25)))) !== 0))) {
+        if(!(((((_la - 26)) & ~0x1f) == 0 && ((1 << (_la - 26)) & ((1 << (XtkParser.LT - 26)) | (1 << (XtkParser.GT - 26)) | (1 << (XtkParser.LE - 26)) | (1 << (XtkParser.GE - 26)) | (1 << (XtkParser.EQ - 26)) | (1 << (XtkParser.EQ_2 - 26)) | (1 << (XtkParser.NEQ - 26)) | (1 << (XtkParser.NEQ_2 - 26)))) !== 0))) {
         this._errHandler.recoverInline(this);
         }
         else {
@@ -1221,11 +1281,11 @@ XtkParser.prototype.relationalExpression = function() {
     this.enterRule(localctx, 14, XtkParser.RULE_relationalExpression);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 101;
+        this.state = 113;
         this.addingExpression();
-        this.state = 102;
+        this.state = 114;
         this.comparisonOperator();
-        this.state = 103;
+        this.state = 115;
         this.addingExpression();
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -1298,7 +1358,7 @@ XtkParser.prototype.unaryOperator = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 105;
+        this.state = 117;
         _la = this._input.LA(1);
         if(!(_la===XtkParser.IS_NULL || _la===XtkParser.IS_NOT_NULL)) {
         this._errHandler.recoverInline(this);
@@ -1377,9 +1437,9 @@ XtkParser.prototype.unaryExpression = function() {
     this.enterRule(localctx, 18, XtkParser.RULE_unaryExpression);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 107;
+        this.state = 119;
         this.addingExpression();
-        this.state = 108;
+        this.state = 120;
         this.unaryOperator();
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -1452,7 +1512,7 @@ XtkParser.prototype.likeOperator = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 110;
+        this.state = 122;
         _la = this._input.LA(1);
         if(!(_la===XtkParser.LIKE || _la===XtkParser.NOT_LIKE)) {
         this._errHandler.recoverInline(this);
@@ -1538,11 +1598,11 @@ XtkParser.prototype.likeExpression = function() {
     this.enterRule(localctx, 22, XtkParser.RULE_likeExpression);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 112;
+        this.state = 124;
         this.addingExpression();
-        this.state = 113;
+        this.state = 125;
         this.likeOperator();
-        this.state = 114;
+        this.state = 126;
         this.addingExpression();
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -1631,9 +1691,9 @@ XtkParser.prototype.includedInExpression = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 116;
+        this.state = 128;
         this.addingExpression();
-        this.state = 117;
+        this.state = 129;
         _la = this._input.LA(1);
         if(!(_la===XtkParser.NOT_IN || _la===XtkParser.IN)) {
         this._errHandler.recoverInline(this);
@@ -1642,11 +1702,11 @@ XtkParser.prototype.includedInExpression = function() {
         	this._errHandler.reportMatch(this);
             this.consume();
         }
-        this.state = 118;
+        this.state = 130;
         this.match(XtkParser.PAR_OPEN);
-        this.state = 119;
+        this.state = 131;
         this.list();
-        this.state = 120;
+        this.state = 132;
         this.match(XtkParser.PAR_CLOSE);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -1734,13 +1794,13 @@ XtkParser.prototype.xpath = function() {
     this.enterRule(localctx, 26, XtkParser.RULE_xpath);
     var _la = 0; // Token type
     try {
-        this.state = 132;
+        this.state = 144;
         this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case XtkParser.ATTRIBUTE:
         case XtkParser.IDENTIFIER:
             this.enterOuterAlt(localctx, 1);
-            this.state = 122;
+            this.state = 134;
             _la = this._input.LA(1);
             if(!(_la===XtkParser.ATTRIBUTE || _la===XtkParser.IDENTIFIER)) {
             this._errHandler.recoverInline(this);
@@ -1749,26 +1809,26 @@ XtkParser.prototype.xpath = function() {
             	this._errHandler.reportMatch(this);
                 this.consume();
             }
-            this.state = 126;
+            this.state = 138;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if(_la===XtkParser.BRAC_OPEN) {
-                this.state = 123;
+                this.state = 135;
                 this.match(XtkParser.BRAC_OPEN);
-                this.state = 124;
+                this.state = 136;
                 this.match(XtkParser.X_INT);
-                this.state = 125;
+                this.state = 137;
                 this.match(XtkParser.X_BRAC_CLOSE);
             }
 
             break;
         case XtkParser.BRAC_OPEN:
             this.enterOuterAlt(localctx, 2);
-            this.state = 128;
+            this.state = 140;
             this.match(XtkParser.BRAC_OPEN);
-            this.state = 129;
+            this.state = 141;
             this.xpath_locationPath();
-            this.state = 130;
+            this.state = 142;
             this.match(XtkParser.X_BRAC_CLOSE);
             break;
         default:
@@ -1872,43 +1932,43 @@ XtkParser.prototype.xpath_locationPath = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 135;
+        this.state = 147;
         this._errHandler.sync(this);
         _la = this._input.LA(1);
         if(_la===XtkParser.X_SEP) {
-            this.state = 134;
+            this.state = 146;
             this.match(XtkParser.X_SEP);
         }
 
-        this.state = 137;
+        this.state = 149;
         this.xpath_step();
-        this.state = 142;
+        this.state = 154;
         this._errHandler.sync(this);
         _la = this._input.LA(1);
         while(_la===XtkParser.X_SEP) {
-            this.state = 138;
+            this.state = 150;
             this.match(XtkParser.X_SEP);
-            this.state = 139;
+            this.state = 151;
             this.xpath_step();
-            this.state = 144;
+            this.state = 156;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
         }
-        this.state = 150;
+        this.state = 162;
         this._errHandler.sync(this);
         _la = this._input.LA(1);
         if(_la===XtkParser.X_COLON) {
-            this.state = 145;
+            this.state = 157;
             this.match(XtkParser.X_COLON);
-            this.state = 147;
+            this.state = 159;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if(_la===XtkParser.X_ATTR) {
-                this.state = 146;
+                this.state = 158;
                 this.match(XtkParser.X_ATTR);
             }
 
-            this.state = 149;
+            this.state = 161;
             this.xpath_qname();
         }
 
@@ -2001,42 +2061,42 @@ XtkParser.prototype.xpath_step = function() {
     this.enterRule(localctx, 30, XtkParser.RULE_xpath_step);
     var _la = 0; // Token type
     try {
-        this.state = 164;
+        this.state = 176;
         this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case XtkParser.X_INT:
         case XtkParser.X_NCNAME:
         case XtkParser.X_ATTR:
             this.enterOuterAlt(localctx, 1);
-            this.state = 153;
+            this.state = 165;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             if(_la===XtkParser.X_ATTR) {
-                this.state = 152;
+                this.state = 164;
                 this.match(XtkParser.X_ATTR);
             }
 
-            this.state = 155;
+            this.state = 167;
             this.xpath_qname();
-            this.state = 159;
+            this.state = 171;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             while(_la===XtkParser.X_BRAC_OPEN) {
-                this.state = 156;
+                this.state = 168;
                 this.xpath_predicate();
-                this.state = 161;
+                this.state = 173;
                 this._errHandler.sync(this);
                 _la = this._input.LA(1);
             }
             break;
         case XtkParser.X_CURRENT:
             this.enterOuterAlt(localctx, 2);
-            this.state = 162;
+            this.state = 174;
             this.match(XtkParser.X_CURRENT);
             break;
         case XtkParser.X_PARENT:
             this.enterOuterAlt(localctx, 3);
-            this.state = 163;
+            this.state = 175;
             this.match(XtkParser.X_PARENT);
             break;
         default:
@@ -2133,22 +2193,22 @@ XtkParser.prototype.xpath_qname = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 170;
+        this.state = 182;
         this._errHandler.sync(this);
         var _alt = this._interp.adaptivePredict(this._input,16,this._ctx)
         while(_alt!=2 && _alt!=antlr4.atn.ATN.INVALID_ALT_NUMBER) {
             if(_alt===1) {
-                this.state = 166;
+                this.state = 178;
                 this.match(XtkParser.X_NCNAME);
-                this.state = 167;
+                this.state = 179;
                 this.match(XtkParser.X_COLON); 
             }
-            this.state = 172;
+            this.state = 184;
             this._errHandler.sync(this);
             _alt = this._interp.adaptivePredict(this._input,16,this._ctx);
         }
 
-        this.state = 173;
+        this.state = 185;
         _la = this._input.LA(1);
         if(!(_la===XtkParser.X_INT || _la===XtkParser.X_NCNAME)) {
         this._errHandler.recoverInline(this);
@@ -2231,11 +2291,11 @@ XtkParser.prototype.xpath_predicate = function() {
     this.enterRule(localctx, 34, XtkParser.RULE_xpath_predicate);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 175;
+        this.state = 187;
         this.match(XtkParser.X_BRAC_OPEN);
-        this.state = 176;
+        this.state = 188;
         this.xpath_expr();
-        this.state = 177;
+        this.state = 189;
         this.match(XtkParser.X_BRAC_CLOSE);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -2314,23 +2374,23 @@ XtkParser.prototype.xpath_expr = function() {
     var localctx = new Xpath_exprContext(this, this._ctx, this.state);
     this.enterRule(localctx, 36, XtkParser.RULE_xpath_expr);
     try {
-        this.state = 184;
+        this.state = 196;
         this._errHandler.sync(this);
         var la_ = this._interp.adaptivePredict(this._input,17,this._ctx);
         switch(la_) {
         case 1:
             this.enterOuterAlt(localctx, 1);
-            this.state = 179;
+            this.state = 191;
             this.match(XtkParser.X_INT);
             break;
 
         case 2:
             this.enterOuterAlt(localctx, 2);
-            this.state = 180;
+            this.state = 192;
             this.xpath_locationPath();
-            this.state = 181;
+            this.state = 193;
             this.match(XtkParser.X_EQ);
-            this.state = 182;
+            this.state = 194;
             this.match(XtkParser.X_STRING);
             break;
 
@@ -2421,17 +2481,17 @@ XtkParser.prototype.list = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 186;
+        this.state = 198;
         this.expression();
-        this.state = 191;
+        this.state = 203;
         this._errHandler.sync(this);
         _la = this._input.LA(1);
         while(_la===XtkParser.COMMA) {
-            this.state = 187;
+            this.state = 199;
             this.match(XtkParser.COMMA);
-            this.state = 188;
+            this.state = 200;
             this.expression();
-            this.state = 193;
+            this.state = 205;
             this._errHandler.sync(this);
             _la = this._input.LA(1);
         }
@@ -2520,23 +2580,430 @@ XtkParser.prototype.parameters = function() {
     this.enterRule(localctx, 40, XtkParser.RULE_parameters);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 199;
+        this.state = 211;
         this._errHandler.sync(this);
         var _alt = this._interp.adaptivePredict(this._input,19,this._ctx)
         while(_alt!=2 && _alt!=antlr4.atn.ATN.INVALID_ALT_NUMBER) {
             if(_alt===1) {
-                this.state = 194;
+                this.state = 206;
                 this.expression();
-                this.state = 195;
+                this.state = 207;
                 this.match(XtkParser.COMMA); 
             }
-            this.state = 201;
+            this.state = 213;
             this._errHandler.sync(this);
             _alt = this._interp.adaptivePredict(this._input,19,this._ctx);
         }
 
-        this.state = 202;
+        this.state = 214;
         this.expression();
+    } catch (re) {
+    	if(re instanceof antlr4.error.RecognitionException) {
+	        localctx.exception = re;
+	        this._errHandler.reportError(this, re);
+	        this._errHandler.recover(this, re);
+	    } else {
+	    	throw re;
+	    }
+    } finally {
+        this.exitRule();
+    }
+    return localctx;
+};
+
+
+function VariablePathContext(parser, parent, invokingState) {
+	if(parent===undefined) {
+	    parent = null;
+	}
+	if(invokingState===undefined || invokingState===null) {
+		invokingState = -1;
+	}
+	antlr4.ParserRuleContext.call(this, parent, invokingState);
+    this.parser = parser;
+    this.ruleIndex = XtkParser.RULE_variablePath;
+    return this;
+}
+
+VariablePathContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
+VariablePathContext.prototype.constructor = VariablePathContext;
+
+VariablePathContext.prototype.ATTRIBUTE = function() {
+    return this.getToken(XtkParser.ATTRIBUTE, 0);
+};
+
+VariablePathContext.prototype.IDENTIFIER = function(i) {
+	if(i===undefined) {
+		i = null;
+	}
+    if(i===null) {
+        return this.getTokens(XtkParser.IDENTIFIER);
+    } else {
+        return this.getToken(XtkParser.IDENTIFIER, i);
+    }
+};
+
+
+VariablePathContext.prototype.DIV = function(i) {
+	if(i===undefined) {
+		i = null;
+	}
+    if(i===null) {
+        return this.getTokens(XtkParser.DIV);
+    } else {
+        return this.getToken(XtkParser.DIV, i);
+    }
+};
+
+
+VariablePathContext.prototype.enterRule = function(listener) {
+    if(listener instanceof XtkParserListener ) {
+        listener.enterVariablePath(this);
+	}
+};
+
+VariablePathContext.prototype.exitRule = function(listener) {
+    if(listener instanceof XtkParserListener ) {
+        listener.exitVariablePath(this);
+	}
+};
+
+VariablePathContext.prototype.accept = function(visitor) {
+    if ( visitor instanceof XtkParserVisitor ) {
+        return visitor.visitVariablePath(this);
+    } else {
+        return visitor.visitChildren(this);
+    }
+};
+
+
+
+
+XtkParser.VariablePathContext = VariablePathContext;
+
+XtkParser.prototype.variablePath = function() {
+
+    var localctx = new VariablePathContext(this, this._ctx, this.state);
+    this.enterRule(localctx, 42, XtkParser.RULE_variablePath);
+    var _la = 0; // Token type
+    try {
+        this.enterOuterAlt(localctx, 1);
+        this.state = 220;
+        this._errHandler.sync(this);
+        var _alt = this._interp.adaptivePredict(this._input,20,this._ctx)
+        while(_alt!=2 && _alt!=antlr4.atn.ATN.INVALID_ALT_NUMBER) {
+            if(_alt===1) {
+                this.state = 216;
+                this.match(XtkParser.IDENTIFIER);
+                this.state = 217;
+                this.match(XtkParser.DIV); 
+            }
+            this.state = 222;
+            this._errHandler.sync(this);
+            _alt = this._interp.adaptivePredict(this._input,20,this._ctx);
+        }
+
+        this.state = 223;
+        _la = this._input.LA(1);
+        if(!(_la===XtkParser.ATTRIBUTE || _la===XtkParser.IDENTIFIER)) {
+        this._errHandler.recoverInline(this);
+        }
+        else {
+        	this._errHandler.reportMatch(this);
+            this.consume();
+        }
+    } catch (re) {
+    	if(re instanceof antlr4.error.RecognitionException) {
+	        localctx.exception = re;
+	        this._errHandler.reportError(this, re);
+	        this._errHandler.recover(this, re);
+	    } else {
+	    	throw re;
+	    }
+    } finally {
+        this.exitRule();
+    }
+    return localctx;
+};
+
+
+function VariableIdentifierContext(parser, parent, invokingState) {
+	if(parent===undefined) {
+	    parent = null;
+	}
+	if(invokingState===undefined || invokingState===null) {
+		invokingState = -1;
+	}
+	antlr4.ParserRuleContext.call(this, parent, invokingState);
+    this.parser = parser;
+    this.ruleIndex = XtkParser.RULE_variableIdentifier;
+    return this;
+}
+
+VariableIdentifierContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
+VariableIdentifierContext.prototype.constructor = VariableIdentifierContext;
+
+VariableIdentifierContext.prototype.IDENTIFIER = function(i) {
+	if(i===undefined) {
+		i = null;
+	}
+    if(i===null) {
+        return this.getTokens(XtkParser.IDENTIFIER);
+    } else {
+        return this.getToken(XtkParser.IDENTIFIER, i);
+    }
+};
+
+
+VariableIdentifierContext.prototype.COLON = function() {
+    return this.getToken(XtkParser.COLON, 0);
+};
+
+VariableIdentifierContext.prototype.DOT = function() {
+    return this.getToken(XtkParser.DOT, 0);
+};
+
+VariableIdentifierContext.prototype.variablePath = function() {
+    return this.getTypedRuleContext(VariablePathContext,0);
+};
+
+VariableIdentifierContext.prototype.enterRule = function(listener) {
+    if(listener instanceof XtkParserListener ) {
+        listener.enterVariableIdentifier(this);
+	}
+};
+
+VariableIdentifierContext.prototype.exitRule = function(listener) {
+    if(listener instanceof XtkParserListener ) {
+        listener.exitVariableIdentifier(this);
+	}
+};
+
+VariableIdentifierContext.prototype.accept = function(visitor) {
+    if ( visitor instanceof XtkParserVisitor ) {
+        return visitor.visitVariableIdentifier(this);
+    } else {
+        return visitor.visitChildren(this);
+    }
+};
+
+
+
+
+XtkParser.VariableIdentifierContext = VariableIdentifierContext;
+
+XtkParser.prototype.variableIdentifier = function() {
+
+    var localctx = new VariableIdentifierContext(this, this._ctx, this.state);
+    this.enterRule(localctx, 44, XtkParser.RULE_variableIdentifier);
+    var _la = 0; // Token type
+    try {
+        this.state = 229;
+        this._errHandler.sync(this);
+        var la_ = this._interp.adaptivePredict(this._input,21,this._ctx);
+        switch(la_) {
+        case 1:
+            this.enterOuterAlt(localctx, 1);
+            this.state = 225;
+            this.match(XtkParser.IDENTIFIER);
+            this.state = 226;
+            _la = this._input.LA(1);
+            if(!(_la===XtkParser.COLON || _la===XtkParser.DOT)) {
+            this._errHandler.recoverInline(this);
+            }
+            else {
+            	this._errHandler.reportMatch(this);
+                this.consume();
+            }
+            this.state = 227;
+            this.match(XtkParser.IDENTIFIER);
+            break;
+
+        case 2:
+            this.enterOuterAlt(localctx, 2);
+            this.state = 228;
+            this.variablePath();
+            break;
+
+        }
+    } catch (re) {
+    	if(re instanceof antlr4.error.RecognitionException) {
+	        localctx.exception = re;
+	        this._errHandler.reportError(this, re);
+	        this._errHandler.recover(this, re);
+	    } else {
+	    	throw re;
+	    }
+    } finally {
+        this.exitRule();
+    }
+    return localctx;
+};
+
+
+function VariableContext(parser, parent, invokingState) {
+	if(parent===undefined) {
+	    parent = null;
+	}
+	if(invokingState===undefined || invokingState===null) {
+		invokingState = -1;
+	}
+	antlr4.ParserRuleContext.call(this, parent, invokingState);
+    this.parser = parser;
+    this.ruleIndex = XtkParser.RULE_variable;
+    return this;
+}
+
+VariableContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
+VariableContext.prototype.constructor = VariableContext;
+
+VariableContext.prototype.START_VARIABLE = function() {
+    return this.getToken(XtkParser.START_VARIABLE, 0);
+};
+
+VariableContext.prototype.PAR_OPEN = function() {
+    return this.getToken(XtkParser.PAR_OPEN, 0);
+};
+
+VariableContext.prototype.variableIdentifier = function() {
+    return this.getTypedRuleContext(VariableIdentifierContext,0);
+};
+
+VariableContext.prototype.PAR_CLOSE = function() {
+    return this.getToken(XtkParser.PAR_CLOSE, 0);
+};
+
+VariableContext.prototype.enterRule = function(listener) {
+    if(listener instanceof XtkParserListener ) {
+        listener.enterVariable(this);
+	}
+};
+
+VariableContext.prototype.exitRule = function(listener) {
+    if(listener instanceof XtkParserListener ) {
+        listener.exitVariable(this);
+	}
+};
+
+VariableContext.prototype.accept = function(visitor) {
+    if ( visitor instanceof XtkParserVisitor ) {
+        return visitor.visitVariable(this);
+    } else {
+        return visitor.visitChildren(this);
+    }
+};
+
+
+
+
+XtkParser.VariableContext = VariableContext;
+
+XtkParser.prototype.variable = function() {
+
+    var localctx = new VariableContext(this, this._ctx, this.state);
+    this.enterRule(localctx, 46, XtkParser.RULE_variable);
+    try {
+        this.enterOuterAlt(localctx, 1);
+        this.state = 231;
+        this.match(XtkParser.START_VARIABLE);
+        this.state = 232;
+        this.match(XtkParser.PAR_OPEN);
+        this.state = 233;
+        this.variableIdentifier();
+        this.state = 234;
+        this.match(XtkParser.PAR_CLOSE);
+    } catch (re) {
+    	if(re instanceof antlr4.error.RecognitionException) {
+	        localctx.exception = re;
+	        this._errHandler.reportError(this, re);
+	        this._errHandler.recover(this, re);
+	    } else {
+	    	throw re;
+	    }
+    } finally {
+        this.exitRule();
+    }
+    return localctx;
+};
+
+
+function CastVariableContext(parser, parent, invokingState) {
+	if(parent===undefined) {
+	    parent = null;
+	}
+	if(invokingState===undefined || invokingState===null) {
+		invokingState = -1;
+	}
+	antlr4.ParserRuleContext.call(this, parent, invokingState);
+    this.parser = parser;
+    this.ruleIndex = XtkParser.RULE_castVariable;
+    return this;
+}
+
+CastVariableContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
+CastVariableContext.prototype.constructor = CastVariableContext;
+
+CastVariableContext.prototype.START_VARIABLE = function() {
+    return this.getToken(XtkParser.START_VARIABLE, 0);
+};
+
+CastVariableContext.prototype.IDENTIFIER = function() {
+    return this.getToken(XtkParser.IDENTIFIER, 0);
+};
+
+CastVariableContext.prototype.PAR_OPEN = function() {
+    return this.getToken(XtkParser.PAR_OPEN, 0);
+};
+
+CastVariableContext.prototype.variableIdentifier = function() {
+    return this.getTypedRuleContext(VariableIdentifierContext,0);
+};
+
+CastVariableContext.prototype.PAR_CLOSE = function() {
+    return this.getToken(XtkParser.PAR_CLOSE, 0);
+};
+
+CastVariableContext.prototype.enterRule = function(listener) {
+    if(listener instanceof XtkParserListener ) {
+        listener.enterCastVariable(this);
+	}
+};
+
+CastVariableContext.prototype.exitRule = function(listener) {
+    if(listener instanceof XtkParserListener ) {
+        listener.exitCastVariable(this);
+	}
+};
+
+CastVariableContext.prototype.accept = function(visitor) {
+    if ( visitor instanceof XtkParserVisitor ) {
+        return visitor.visitCastVariable(this);
+    } else {
+        return visitor.visitChildren(this);
+    }
+};
+
+
+
+
+XtkParser.CastVariableContext = CastVariableContext;
+
+XtkParser.prototype.castVariable = function() {
+
+    var localctx = new CastVariableContext(this, this._ctx, this.state);
+    this.enterRule(localctx, 48, XtkParser.RULE_castVariable);
+    try {
+        this.enterOuterAlt(localctx, 1);
+        this.state = 236;
+        this.match(XtkParser.START_VARIABLE);
+        this.state = 237;
+        this.match(XtkParser.IDENTIFIER);
+        this.state = 238;
+        this.match(XtkParser.PAR_OPEN);
+        this.state = 239;
+        this.variableIdentifier();
+        this.state = 240;
+        this.match(XtkParser.PAR_CLOSE);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
 	        localctx.exception = re;
@@ -2628,67 +3095,67 @@ XtkParser.LiteralContext = LiteralContext;
 XtkParser.prototype.literal = function() {
 
     var localctx = new LiteralContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 42, XtkParser.RULE_literal);
+    this.enterRule(localctx, 50, XtkParser.RULE_literal);
     try {
-        this.state = 215;
+        this.state = 253;
         this._errHandler.sync(this);
-        var la_ = this._interp.adaptivePredict(this._input,20,this._ctx);
+        var la_ = this._interp.adaptivePredict(this._input,22,this._ctx);
         switch(la_) {
         case 1:
             this.enterOuterAlt(localctx, 1);
-            this.state = 204;
+            this.state = 242;
             this.match(XtkParser.STRING);
             break;
 
         case 2:
             this.enterOuterAlt(localctx, 2);
-            this.state = 205;
+            this.state = 243;
             this.match(XtkParser.INT);
             break;
 
         case 3:
             this.enterOuterAlt(localctx, 3);
-            this.state = 206;
+            this.state = 244;
             this.match(XtkParser.MINUS);
-            this.state = 207;
+            this.state = 245;
             this.match(XtkParser.INT);
             break;
 
         case 4:
             this.enterOuterAlt(localctx, 4);
-            this.state = 208;
+            this.state = 246;
             this.match(XtkParser.DOUBLE);
             break;
 
         case 5:
             this.enterOuterAlt(localctx, 5);
-            this.state = 209;
+            this.state = 247;
             this.match(XtkParser.MINUS);
-            this.state = 210;
+            this.state = 248;
             this.match(XtkParser.DOUBLE);
             break;
 
         case 6:
             this.enterOuterAlt(localctx, 6);
-            this.state = 211;
+            this.state = 249;
             this.match(XtkParser.BOOLEAN);
             break;
 
         case 7:
             this.enterOuterAlt(localctx, 7);
-            this.state = 212;
+            this.state = 250;
             this.match(XtkParser.DATE);
             break;
 
         case 8:
             this.enterOuterAlt(localctx, 8);
-            this.state = 213;
+            this.state = 251;
             this.match(XtkParser.TIME);
             break;
 
         case 9:
             this.enterOuterAlt(localctx, 9);
-            this.state = 214;
+            this.state = 252;
             this.match(XtkParser.DATETIME);
             break;
 
@@ -2736,8 +3203,12 @@ ComputableAtomContext.prototype.xpath = function() {
     return this.getTypedRuleContext(XpathContext,0);
 };
 
-ComputableAtomContext.prototype.VARIABLE = function() {
-    return this.getToken(XtkParser.VARIABLE, 0);
+ComputableAtomContext.prototype.variable = function() {
+    return this.getTypedRuleContext(VariableContext,0);
+};
+
+ComputableAtomContext.prototype.castVariable = function() {
+    return this.getTypedRuleContext(CastVariableContext,0);
 };
 
 ComputableAtomContext.prototype.PAR_OPEN = function() {
@@ -2780,43 +3251,49 @@ XtkParser.ComputableAtomContext = ComputableAtomContext;
 XtkParser.prototype.computableAtom = function() {
 
     var localctx = new ComputableAtomContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 44, XtkParser.RULE_computableAtom);
+    this.enterRule(localctx, 52, XtkParser.RULE_computableAtom);
     try {
-        this.state = 225;
+        this.state = 264;
         this._errHandler.sync(this);
-        var la_ = this._interp.adaptivePredict(this._input,21,this._ctx);
+        var la_ = this._interp.adaptivePredict(this._input,23,this._ctx);
         switch(la_) {
         case 1:
             this.enterOuterAlt(localctx, 1);
-            this.state = 217;
+            this.state = 255;
             this.literal();
             break;
 
         case 2:
             this.enterOuterAlt(localctx, 2);
-            this.state = 218;
+            this.state = 256;
             this.functionCall();
             break;
 
         case 3:
             this.enterOuterAlt(localctx, 3);
-            this.state = 219;
+            this.state = 257;
             this.xpath();
             break;
 
         case 4:
             this.enterOuterAlt(localctx, 4);
-            this.state = 220;
-            this.match(XtkParser.VARIABLE);
+            this.state = 258;
+            this.variable();
             break;
 
         case 5:
             this.enterOuterAlt(localctx, 5);
-            this.state = 221;
+            this.state = 259;
+            this.castVariable();
+            break;
+
+        case 6:
+            this.enterOuterAlt(localctx, 6);
+            this.state = 260;
             this.match(XtkParser.PAR_OPEN);
-            this.state = 222;
+            this.state = 261;
             this.addingExpression();
-            this.state = 223;
+            this.state = 262;
             this.match(XtkParser.PAR_CLOSE);
             break;
 
@@ -2879,6 +3356,14 @@ exports.ListContext = ListContext;
 XtkParser.ListContext = ListContext;
 exports.ParametersContext = ParametersContext;
 XtkParser.ParametersContext = ParametersContext;
+exports.VariablePathContext = VariablePathContext;
+XtkParser.VariablePathContext = VariablePathContext;
+exports.VariableIdentifierContext = VariableIdentifierContext;
+XtkParser.VariableIdentifierContext = VariableIdentifierContext;
+exports.VariableContext = VariableContext;
+XtkParser.VariableContext = VariableContext;
+exports.CastVariableContext = CastVariableContext;
+XtkParser.CastVariableContext = CastVariableContext;
 exports.LiteralContext = LiteralContext;
 XtkParser.LiteralContext = LiteralContext;
 exports.ComputableAtomContext = ComputableAtomContext;

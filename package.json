@@ -5,7 +5,10 @@
   "main": "src/index.js",
   "private": true,
   "scripts": {
-    "generateParser": "antlr4-tool grammar/XtkLexer.g4 grammar/XtkParser.g4 -o src/parser"
+    "generateParser": "antlr4-tool grammar/XtkLexer.g4 grammar/XtkParser.g4 -o src/parser",
+    "test": "cross-env TZ=UTC && ../../node_modules/.bin/jest --config jest.config.js --passWithNoTests --logHeapUsage --silent --maxWorkers=4",
+    "test:ci": "cross-env TZ=UTC ../../node_modules/.bin/jest --config jest.config.js --passWithNoTests --maxWorkers=4 --silent",
+    "test:debug": "node --inspect-brk ../../node_modules/.bin/jest --config jest.config.js"
   },
   "author": "",
   "license": "ISC",

@@ -138,6 +138,30 @@ XtkParserVisitor.prototype.visitParameters = function(ctx) {
 };
 
 
+// Visit a parse tree produced by XtkParser#variablePath.
+XtkParserVisitor.prototype.visitVariablePath = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by XtkParser#variableIdentifier.
+XtkParserVisitor.prototype.visitVariableIdentifier = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by XtkParser#variable.
+XtkParserVisitor.prototype.visitVariable = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by XtkParser#castVariable.
+XtkParserVisitor.prototype.visitCastVariable = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by XtkParser#literal.
 XtkParserVisitor.prototype.visitLiteral = function(ctx) {
   return this.visitChildren(ctx);

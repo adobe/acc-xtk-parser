@@ -43,6 +43,14 @@ import {ListContext} from './XtkParser';
 
 import {ParametersContext} from './XtkParser';
 
+import {VariablePathContext} from './XtkParser';
+
+import {VariableIdentifierContext} from './XtkParser';
+
+import {VariableContext} from './XtkParser';
+
+import {CastVariableContext} from './XtkParser';
+
 import {LiteralContext} from './XtkParser';
 
 import {ComputableAtomContext} from './XtkParser';
@@ -134,6 +142,22 @@ export declare class XtkParserListener implements ParseTreeListener {
     enterParameters(ctx: ParametersContext): void;
     
     exitParameters(ctx: ParametersContext): void;
+    
+    enterVariablePath(ctx: VariablePathContext): void;
+    
+    exitVariablePath(ctx: VariablePathContext): void;
+    
+    enterVariableIdentifier(ctx: VariableIdentifierContext): void;
+    
+    exitVariableIdentifier(ctx: VariableIdentifierContext): void;
+    
+    enterVariable(ctx: VariableContext): void;
+    
+    exitVariable(ctx: VariableContext): void;
+    
+    enterCastVariable(ctx: CastVariableContext): void;
+    
+    exitCastVariable(ctx: CastVariableContext): void;
     
     enterLiteral(ctx: LiteralContext): void;
     

@@ -14,13 +14,15 @@ export declare class ExpressionContext extends ParserRuleContext {
     
     literal(): LiteralContext;
     
-    VARIABLE(): TerminalNode;
-    
     EXCLAMATION(): TerminalNode;
     
     expression(): ExpressionContext;
     
     addingExpression(): AddingExpressionContext;
+    
+    PAR_OPEN(): TerminalNode;
+    
+    PAR_CLOSE(): TerminalNode;
     
 }
 
@@ -200,6 +202,48 @@ export declare class ParametersContext extends ParserRuleContext {
     
 }
 
+export declare class VariablePathContext extends ParserRuleContext {
+    
+    ATTRIBUTE(): TerminalNode;
+    
+}
+
+export declare class VariableIdentifierContext extends ParserRuleContext {
+    
+    COLON(): TerminalNode;
+    
+    DOT(): TerminalNode;
+    
+    variablePath(): VariablePathContext;
+    
+}
+
+export declare class VariableContext extends ParserRuleContext {
+    
+    START_VARIABLE(): TerminalNode;
+    
+    PAR_OPEN(): TerminalNode;
+    
+    variableIdentifier(): VariableIdentifierContext;
+    
+    PAR_CLOSE(): TerminalNode;
+    
+}
+
+export declare class CastVariableContext extends ParserRuleContext {
+    
+    START_VARIABLE(): TerminalNode;
+    
+    IDENTIFIER(): TerminalNode;
+    
+    PAR_OPEN(): TerminalNode;
+    
+    variableIdentifier(): VariableIdentifierContext;
+    
+    PAR_CLOSE(): TerminalNode;
+    
+}
+
 export declare class LiteralContext extends ParserRuleContext {
     
     STRING(): TerminalNode;
@@ -228,7 +272,9 @@ export declare class ComputableAtomContext extends ParserRuleContext {
     
     xpath(): XpathContext;
     
-    VARIABLE(): TerminalNode;
+    variable(): VariableContext;
+    
+    castVariable(): CastVariableContext;
     
     PAR_OPEN(): TerminalNode;
     
@@ -287,6 +333,14 @@ export declare class XtkParser extends Parser {
     list(): ListContext;
 
     parameters(): ParametersContext;
+
+    variablePath(): VariablePathContext;
+
+    variableIdentifier(): VariableIdentifierContext;
+
+    variable(): VariableContext;
+
+    castVariable(): CastVariableContext;
 
     literal(): LiteralContext;
 

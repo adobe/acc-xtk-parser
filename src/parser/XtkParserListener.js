@@ -200,6 +200,42 @@ XtkParserListener.prototype.exitParameters = function(ctx) {
 };
 
 
+// Enter a parse tree produced by XtkParser#variablePath.
+XtkParserListener.prototype.enterVariablePath = function(ctx) {
+};
+
+// Exit a parse tree produced by XtkParser#variablePath.
+XtkParserListener.prototype.exitVariablePath = function(ctx) {
+};
+
+
+// Enter a parse tree produced by XtkParser#variableIdentifier.
+XtkParserListener.prototype.enterVariableIdentifier = function(ctx) {
+};
+
+// Exit a parse tree produced by XtkParser#variableIdentifier.
+XtkParserListener.prototype.exitVariableIdentifier = function(ctx) {
+};
+
+
+// Enter a parse tree produced by XtkParser#variable.
+XtkParserListener.prototype.enterVariable = function(ctx) {
+};
+
+// Exit a parse tree produced by XtkParser#variable.
+XtkParserListener.prototype.exitVariable = function(ctx) {
+};
+
+
+// Enter a parse tree produced by XtkParser#castVariable.
+XtkParserListener.prototype.enterCastVariable = function(ctx) {
+};
+
+// Exit a parse tree produced by XtkParser#castVariable.
+XtkParserListener.prototype.exitCastVariable = function(ctx) {
+};
+
+
 // Enter a parse tree produced by XtkParser#literal.
 XtkParserListener.prototype.enterLiteral = function(ctx) {
 };

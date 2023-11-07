@@ -1,13 +1,22 @@
 lexer grammar XtkLexer;
 
-fragment CHAR
-    :   ~['"\\\r\n]
-    |   '\\' ['"?abfnrtv\\]
+fragment CHAR_ESCAPED
+    : '\\' ['"?abfnrtv\\]
+    ;
+
+fragment CHAR_SQUOTED
+    :   ~['\\\r\n]
+    |   CHAR_ESCAPED
+    ;
+
+fragment CHAR_DQUOTED
+    :   ~["\\\r\n]
+    |   CHAR_ESCAPED
     ;
 
 STRING
-    : '"' CHAR* '"'
-    | '\'' CHAR* '\''
+    : '"' CHAR_DQUOTED* '"'
+    | '\'' CHAR_SQUOTED* '\''
     ;
 
 INT          : DIGIT+
@@ -26,15 +35,16 @@ DOUBLE       : NUM1 | NUM2
 ;
 fragment DATEPART : DIGIT DIGIT DIGIT DIGIT [/-] DIGIT DIGIT [/-] DIGIT DIGIT
 ;
-fragment TIMEPART : DIGIT DIGIT ':' DIGIT DIGIT ':' DIGIT DIGIT
+fragment TIMEPART : DIGIT DIGIT ':' DIGIT DIGIT ':' DIGIT DIGIT ('.' DIGIT DIGIT DIGIT)? 'Z'?
 ;
-DATE : '#' DATEPART '#'
+DATE : '#' DATEPART? '#'
 ;
-TIME : '#' TIMEPART '#'
+TIME : '#' TIMEPART? '#'
 ;
 DATETIME : '#' DATEPART [ \tT] TIMEPART '#'
 ;
-fragment ALPHA : [A-Za-z]
+// For now we only allow ascii and latin letters with accents
+fragment ALPHA : [A-Za-z\u00C0-\u00D6\u00DF-\u00F6\u00F8-\u00FF]
 ;
 fragment DIGIT : [0-9]
 ;
@@ -62,11 +72,13 @@ LIKE         : [Ll][Ii][Kk][Ee]
 ;
 NOT_LIKE     : NOT WS LIKE
 ;
+CONCAT       : '||'
+;
 ATTRIBUTE   : '@' (ALPHA|'_')(ALPHA|DIGIT|'_')*
 ;
 IDENTIFIER   : (ALPHA|'_')(ALPHA|DIGIT|'_')*
 ;
-VARIABLE : '$(' ( IDENTIFIER '/')* ATTRIBUTE ')'
+START_VARIABLE : '$'
 ;
 LT : '<'
 ;
@@ -101,6 +113,10 @@ PERCENT : '%'
 EXCLAMATION : '!'
 ;
 COMMA : ','
+;
+COLON : ':'
+;
+DOT : '.'
 ;
 WS : [ \r\n\t] + -> skip
 ;

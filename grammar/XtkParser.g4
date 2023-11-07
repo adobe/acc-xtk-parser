@@ -8,10 +8,10 @@ unit
 expression
     : xpath
     | literal
-    | VARIABLE
     | EXCLAMATION expression
-    | (relationalExpression | unaryExpression | likeExpression ) (logicalOperator (relationalExpression | unaryExpression | likeExpression | includedInExpression))*
+    | (relationalExpression | unaryExpression | likeExpression | includedInExpression ) (logicalOperator (relationalExpression | unaryExpression | likeExpression | includedInExpression))*
     | addingExpression
+    | PAR_OPEN expression PAR_CLOSE
     ;
 
 logicalOperator
@@ -23,7 +23,7 @@ functionCall
     ;
 
 addingExpression
-    : multiplyingExpression ((PLUS|MINUS|AMP|PIPE) multiplyingExpression)*
+    : multiplyingExpression ((PLUS|MINUS|AMP|PIPE|CONCAT) multiplyingExpression)*
     ;
 
 multiplyingExpression
@@ -94,6 +94,23 @@ parameters
     : (expression COMMA)* expression
     ;
 
+variablePath
+    : (IDENTIFIER DIV)* ( ATTRIBUTE | IDENTIFIER )
+    ;
+
+variableIdentifier
+    : IDENTIFIER (COLON | DOT) IDENTIFIER
+    | variablePath
+    ;
+
+variable
+    : START_VARIABLE PAR_OPEN variableIdentifier PAR_CLOSE
+    ;
+
+castVariable
+    : START_VARIABLE IDENTIFIER PAR_OPEN variableIdentifier PAR_CLOSE
+    ;
+
 literal
     : STRING
     | INT
@@ -110,6 +127,7 @@ computableAtom
    : literal
    | functionCall
    | xpath
-   | VARIABLE
+   | variable
+   | castVariable
    | PAR_OPEN addingExpression PAR_CLOSE
    ;
