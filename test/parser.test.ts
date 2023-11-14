@@ -1,34 +1,25 @@
-/*************************************************************************
- * ADOBE CONFIDENTIAL
- * ___________________
- *
- *  Copyright 2023 Adobe
- *  All Rights Reserved.
- *
- * NOTICE:  All information contained herein is, and remains
- * the property of Adobe and its suppliers, if any. The intellectual
- * and technical concepts contained herein are proprietary to Adobe
- * and its suppliers and are protected by all applicable intellectual
- * property laws, including trade secret and copyright laws.
- * Dissemination of this information or reproduction of this material
- * is strictly forbidden unless prior written permission is obtained
- * from Adobe.
- **************************************************************************/
+/*
+Copyright 2023 Adobe. All rights reserved.
+This file is licensed to you under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. You may obtain a copy
+of the License at http://www.apache.org/licenses/LICENSE-2.0
 
-import { CommonTokenStream, InputStream } from 'antlr4';
-import { ErrorListener } from 'antlr4/error';
-import { XtkLexer } from '../XtkLexer';
-import { UnitContext, XtkParser } from '../XtkParser';
-const XtkParserVisitor = require('../XtkParserVisitor').XtkParserVisitor;
+Unless required by applicable law or agreed to in writing, software distributed under
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+OF ANY KIND, either express or implied. See the License for the specific language
+governing permissions and limitations under the License.
+*/
+import { CommonTokenStream, ErrorListener, CharStream } from 'antlr4';
+import { XtkLexer, XtkParser, XtkParserVisitor } from '../src/index';
 
-export class ValidatorListener extends ErrorListener {
-  syntaxError(recognizer: any, offendingSymbol: any, line: number, column: number, msg: string, e: any): void {
+class ValidatorListener extends ErrorListener<any> {
+  syntaxError(recognizer, offendingSymbol, line, column, msg, e) {
     throw new Error(`${line}:${column}\n${msg}`);
   }
 }
 
-const runParser = (expr: string): UnitContext => {
-  const inputStream = new InputStream(expr);
+const runParser = (expr) => {
+  const inputStream = new CharStream(expr);
   const lexer = new XtkLexer(inputStream);
   const tokenStream = new CommonTokenStream(lexer);
   const parser = new XtkParser(tokenStream);
@@ -141,7 +132,7 @@ describe('Test a full list of customer expression', () => {
 
     let nbKo = 0;
     let nbTotal = 0;
-    const allKo = Array<string>();
+    const allKo = [];
 
     rl.on('line', (line) => {
       try {
