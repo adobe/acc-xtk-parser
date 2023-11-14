@@ -1,19 +1,36 @@
 {
-  "name": "@acc/xtk-parser",
+  "name": "@adobe/acc-xtk-parser",
   "version": "1.0.0",
-  "description": "XTK expression parser",
-  "main": "src/index.js",
+  "description": "Adobe Campaign XTK expression parser",
+  "source": "src/index.ts",
+  "main": "lib/main.js",
+  "module": "lib/module.js",
+  "types": "lib/types.d.ts",
   "private": true,
   "scripts": {
-    "generateParser": "antlr4-tool grammar/XtkLexer.g4 grammar/XtkParser.g4 -o src/parser",
-    "test": "cross-env TZ=UTC && ../../node_modules/.bin/jest --config jest.config.js --passWithNoTests --logHeapUsage --silent --maxWorkers=4",
-    "test:ci": "cross-env TZ=UTC ../../node_modules/.bin/jest --config jest.config.js --passWithNoTests --maxWorkers=4 --silent",
-    "test:debug": "node --inspect-brk ../../node_modules/.bin/jest --config jest.config.js"
+    "generateParser": "npm run clean && cd grammar && antlr4 -Dlanguage=TypeScript -visitor XtkLexer.g4 XtkParser.g4 -o ../src/generated",
+    "test": "jest --config test/jest.config.js",
+    "clean": "rm -rf lib && rm -rf src/generated",
+    "build": "parcel build --no-source-maps --no-cache"
   },
   "author": "",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
-    "@types/antlr4": "4.7.2",
-    "antlr4": "4.8.0"
-  }
+    "@types/antlr4": "4.11.6",
+    "antlr4": "4.13.1-patch-1"
+  },
+  "devDependencies": {
+    "@parcel/packager-ts": "^2.10.2",
+    "@parcel/transformer-typescript-types": "^2.10.2",
+    "@types/jest": "^29.5.10",
+    "@types/node": "^20.9.0",
+    "jest": "^29.3.1",
+    "jest-junit": "^15.0.0",
+    "parcel": "latest",
+    "typescript": "^5.2.2",
+    "ts-jest": "^29.1.1"
+  },
+  "files": [
+    "lib/*"
+  ]
 }
