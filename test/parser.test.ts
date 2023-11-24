@@ -10,7 +10,7 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 import { CommonTokenStream, ErrorListener, CharStream } from 'antlr4';
-import { XtkLexer, XtkParser, XtkParserVisitor } from '../src/index';
+import { runXtkParser, XtkLexer, XtkParser, XtkParserVisitor } from '../src/index';
 
 class ValidatorListener extends ErrorListener<any> {
   syntaxError(recognizer, offendingSymbol, line, column, msg, e) {
@@ -28,6 +28,12 @@ const runParser = (expr) => {
   unit.accept(new XtkParserVisitor());
   return unit;
 };
+
+describe('Test API', () => {
+  it('should parse expression and return tree', () => {
+    expect(runXtkParser('@a = @b')).toBeDefined();
+  });
+});
 
 describe('Test integer', () => {
   it.each(['=', '==', '!=', '<>', '>', '<', '>=', '<='])('should handle integer', (operator) => {

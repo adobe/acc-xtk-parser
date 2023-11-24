@@ -9,8 +9,20 @@ the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTA
 OF ANY KIND, either express or implied. See the License for the specific language
 governing permissions and limitations under the License.
 */
-export { default as XtkLexer } from './generated/XtkLexer';
-export { default as XtkParser } from './generated/XtkParser';
-export { default as XtkParserListener } from './generated/XtkParserListener';
-export { default as XtkParserVisitor } from './generated/XtkParserVisitor';
-export { runXtkParser } from './parser';
+
+import { CommonTokenStream, CharStream } from 'antlr4';
+import XtkLexer from './generated/XtkLexer';
+import XtkParser, { UnitContext } from './generated/XtkParser';
+
+/**
+ * Run the XTK parser on the provided expression and returns the parsing tree
+ * @param expr The expression
+ * @returns A parsing tree
+ */
+export const runXtkParser = (expr: string): UnitContext => {
+  const inputStream = new CharStream(expr);
+  const lexer = new XtkLexer(inputStream);
+  const tokenStream = new CommonTokenStream(lexer);
+  const parser = new XtkParser(tokenStream);
+  return parser.unit();
+};
