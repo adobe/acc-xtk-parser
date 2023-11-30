@@ -17,16 +17,19 @@ unit
     ;
 
 expression
-    : xpath
-    | literal
+    : computableAtom
     | EXCLAMATION expression
-    | (computableAtom | relationalExpression | unaryExpression | likeExpression | includedInExpression ) (logicalOperator (computableAtom | relationalExpression | unaryExpression | likeExpression | includedInExpression))*
+    | orExpression
     | addingExpression
     | PAR_OPEN expression PAR_CLOSE
     ;
 
-logicalOperator
-    : OR | AND | AND_NOT
+orExpression
+    : andExpression ( OR andExpression )*
+    ;
+
+andExpression
+    : (computableAtom | relationalExpression | unaryExpression | likeExpression | includedInExpression ) ((AND | AND_NOT) (computableAtom | relationalExpression | unaryExpression | likeExpression | includedInExpression | PAR_OPEN orExpression PAR_CLOSE ))*
     ;
 
 functionCall

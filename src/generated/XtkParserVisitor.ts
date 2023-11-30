@@ -5,7 +5,8 @@ import {ParseTreeVisitor} from 'antlr4';
 
 import { UnitContext } from "./XtkParser";
 import { ExpressionContext } from "./XtkParser";
-import { LogicalOperatorContext } from "./XtkParser";
+import { OrExpressionContext } from "./XtkParser";
+import { AndExpressionContext } from "./XtkParser";
 import { FunctionCallContext } from "./XtkParser";
 import { AddingExpressionContext } from "./XtkParser";
 import { MultiplyingExpressionContext } from "./XtkParser";
@@ -56,11 +57,17 @@ export default class XtkParserVisitor<Result> extends ParseTreeVisitor<Result> {
 	 */
 	visitExpression?: (ctx: ExpressionContext) => Result;
 	/**
-	 * Visit a parse tree produced by `XtkParser.logicalOperator`.
+	 * Visit a parse tree produced by `XtkParser.orExpression`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	visitLogicalOperator?: (ctx: LogicalOperatorContext) => Result;
+	visitOrExpression?: (ctx: OrExpressionContext) => Result;
+	/**
+	 * Visit a parse tree produced by `XtkParser.andExpression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitAndExpression?: (ctx: AndExpressionContext) => Result;
 	/**
 	 * Visit a parse tree produced by `XtkParser.functionCall`.
 	 * @param ctx the parse tree

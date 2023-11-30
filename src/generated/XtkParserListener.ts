@@ -5,7 +5,8 @@ import {ParseTreeListener} from "antlr4";
 
 import { UnitContext } from "./XtkParser";
 import { ExpressionContext } from "./XtkParser";
-import { LogicalOperatorContext } from "./XtkParser";
+import { OrExpressionContext } from "./XtkParser";
+import { AndExpressionContext } from "./XtkParser";
 import { FunctionCallContext } from "./XtkParser";
 import { AddingExpressionContext } from "./XtkParser";
 import { MultiplyingExpressionContext } from "./XtkParser";
@@ -61,15 +62,25 @@ export default class XtkParserListener extends ParseTreeListener {
 	 */
 	exitExpression?: (ctx: ExpressionContext) => void;
 	/**
-	 * Enter a parse tree produced by `XtkParser.logicalOperator`.
+	 * Enter a parse tree produced by `XtkParser.orExpression`.
 	 * @param ctx the parse tree
 	 */
-	enterLogicalOperator?: (ctx: LogicalOperatorContext) => void;
+	enterOrExpression?: (ctx: OrExpressionContext) => void;
 	/**
-	 * Exit a parse tree produced by `XtkParser.logicalOperator`.
+	 * Exit a parse tree produced by `XtkParser.orExpression`.
 	 * @param ctx the parse tree
 	 */
-	exitLogicalOperator?: (ctx: LogicalOperatorContext) => void;
+	exitOrExpression?: (ctx: OrExpressionContext) => void;
+	/**
+	 * Enter a parse tree produced by `XtkParser.andExpression`.
+	 * @param ctx the parse tree
+	 */
+	enterAndExpression?: (ctx: AndExpressionContext) => void;
+	/**
+	 * Exit a parse tree produced by `XtkParser.andExpression`.
+	 * @param ctx the parse tree
+	 */
+	exitAndExpression?: (ctx: AndExpressionContext) => void;
 	/**
 	 * Enter a parse tree produced by `XtkParser.functionCall`.
 	 * @param ctx the parse tree
