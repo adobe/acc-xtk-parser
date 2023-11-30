@@ -123,6 +123,18 @@ describe('Test SQL', () => {
   it.each(['AND', 'OR', 'AND NOT'])('should handle logical combinations', (operator) => {
     expect(runParser(`@a IS NULL ${operator} @b IS NOT NULL`)).toBeDefined();
   });
+  it('should handle precendence of AND over OR', () => {
+    expect(runParser(`@a = 1 OR @b > 0 AND @b < 2`)).toBeDefined();
+  });
+  it('should handle precendence chained OR', () => {
+    expect(runParser(`@a = 1 OR @b = 1 OR @b = 2`)).toBeDefined();
+  });
+  it('should handle precendence chained OR', () => {
+    expect(runParser(`@a = 1 AND @b = 1 AND @b = 2`)).toBeDefined();
+  });
+  it('should handle expression mixing AND and OR with parenthesis', () => {
+    expect(runParser(`@a = 1 AND ( @b > 0 OR @b < 2 )`)).toBeDefined();
+  });
 });
 
 const fs = require('fs');
