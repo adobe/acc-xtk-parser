@@ -9,9 +9,18 @@ the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTA
 OF ANY KIND, either express or implied. See the License for the specific language
 governing permissions and limitations under the License.
 */
-export { default as XtkLexer } from './generated/XtkLexer';
-export { default as XtkParser } from './generated/XtkParser';
-export { default as XtkParserListener } from './generated/XtkParserListener';
-export { default as XtkParserVisitor } from './generated/XtkParserVisitor';
-export { runXtkParser, SyntaxErrorException } from './parser';
-export { evaluate } from './evaluator';
+
+import { runXtkParser } from './parser';
+import { createEvaluator } from './evaluatorImpl';
+import { EvaluatorOptions, Literal } from './utils';
+
+/**
+ * Evaluate the given expression
+ * @param {string} expr The XTK expression
+ * @param {EvaluatorOptions} options Evaluator options used to provide external values required for evaluation
+ * @returns {string} A string
+ */
+export function evaluate(expr: string, options?: EvaluatorOptions): Literal {
+  const ctx = runXtkParser(expr);
+  return ctx.accept(createEvaluator(options));
+}

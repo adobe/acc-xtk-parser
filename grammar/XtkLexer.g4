@@ -25,14 +25,18 @@ fragment CHAR_DQUOTED
     |   CHAR_ESCAPED
     ;
 
+TRUE: 'TRUE' | 'true'
+;
+
+FALSE: 'FALSE' | 'false'
+;
+
 STRING
     : '"' CHAR_DQUOTED* '"'
     | '\'' CHAR_SQUOTED* '\''
     ;
 
 INT          : DIGIT+
-;
-BOOLEAN      : 'true'|'false'
 ;
 PAR_OPEN     : '('
 ;
