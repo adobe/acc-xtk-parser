@@ -42,4 +42,16 @@ describe('Test number evaluator', () => {
     expect(evaluate('12%5')).toEqual(2);
     expect(evaluate('1+12%5')).toEqual(3);
   });
+  it('should evaluate using variable values', () => {
+    const variableConverter = (name: string): number => {
+      if (name === 'var1') {
+        return 10;
+      }
+      if (name === 'var2') {
+        return 20;
+      }
+    };
+    expect(evaluate('$(var1) + $(var2)', { variableConverter: variableConverter })).toEqual(30);
+    expect(() => evaluate('$(var1) + $(var2)', { variableConverter: () => ({ key: '' } as any) })).toThrow();
+  });
 });

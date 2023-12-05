@@ -182,9 +182,12 @@ export function createEvaluator(options?: EvaluatorOptions) {
     if (!options?.variableConverter) {
       throw 'No variable converter provided';
     }
-    const value = options.variableConverter((ctx.variableIdentifier() as any).getText());
-    assertString(value);
-    return value as string;
+    const varName = (ctx.variableIdentifier() as any).getText();
+    const value = options.variableConverter(varName);
+    if (isString(value) || isNumber(value)) {
+      return value as string;
+    }
+    throw `Invalid type for variable ${varName}`;
   };
   evaluator.visitCastVariable = (ctx: CastVariableContext): Literal => {
     if (!options?.variableConverter) {

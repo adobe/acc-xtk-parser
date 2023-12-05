@@ -52,3 +52,22 @@ import { evaluate } from '@adobe/acc-xtk-parser';
 
 const value1 = evaluate('@myattribute == 1', { variableConverter: (name) => // return your value});
 ```
+
+## Match an Expression
+
+This feature is about capturing part of an expression based on a predefined pattern.
+
+```TypeScript
+import { XtkPattern } from '@adobe/acc-xtk-parser';
+
+const pattern = new XtkPattern('$(var1) = 1 AND $(var2) IS NOT NUL'); 
+const matched = pattern.match('@count = 1 AND @email IS NOT NULL');
+// matched is an object with the following properties :
+// {
+//   var1: '@count',
+//   var2: '@email'
+// }
+pattern.match('@count = 2 AND @email IS NOT NULL')
+// will raise a NoMatchFoundException exception
+
+```

@@ -15,3 +15,4 @@ export { default as XtkParserListener } from './generated/XtkParserListener';
 export { default as XtkParserVisitor } from './generated/XtkParserVisitor';
 export { runXtkParser, SyntaxErrorException } from './parser';
 export { evaluate } from './evaluator';
+export { XtkPattern } from './matcher';
