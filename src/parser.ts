@@ -10,19 +10,41 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { CommonTokenStream, CharStream } from 'antlr4';
+import { CommonTokenStream, CharStream, ErrorListener } from 'antlr4';
 import XtkLexer from './generated/XtkLexer';
 import XtkParser, { UnitContext } from './generated/XtkParser';
+
+class SyntaxError extends ErrorListener<void> {
+  syntaxError(_0: any, _1: any, line: number, column: number, _2: string, _3: any): void {
+    throw new SyntaxErrorException(line, column);
+  }
+}
+
+/**
+ * Exception raised in case of syntax error
+ */
+export class SyntaxErrorException extends Error {
+  line: number;
+  column: number;
+  constructor(l: number, c: number) {
+    super();
+    this.line = l;
+    this.column = c;
+  }
+}
 
 /**
  * Run the XTK parser on the provided expression and returns the parsing tree
  * @param expr The expression
  * @returns A parsing tree
+ * @throws {SyntaxErrorException} Raised at the first error of syntax
  */
 export const runXtkParser = (expr: string): UnitContext => {
   const inputStream = new CharStream(expr);
   const lexer = new XtkLexer(inputStream);
   const tokenStream = new CommonTokenStream(lexer);
   const parser = new XtkParser(tokenStream);
+  (parser as any).removeErrorListeners();
+  (parser as any).addErrorListener(new SyntaxError());
   return parser.unit();
 };

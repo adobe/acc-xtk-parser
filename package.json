@@ -9,6 +9,7 @@
   "scripts": {
     "generateParser": "npm run clean && cd grammar && antlr4 -Dlanguage=TypeScript -visitor XtkLexer.g4 XtkParser.g4 -o ../src/generated",
     "test": "jest --config test/jest.config.js",
+    "test:debug": "node --inspect-brk ./node_modules/.bin/jest --config /Users/sewagner/Documents/DEV/UI/github/acc-xtk-parser/test/jest.config.js",
     "clean": "rm -rf lib && rm -rf src/generated",
     "build": "parcel build --no-source-maps --no-cache"
   },

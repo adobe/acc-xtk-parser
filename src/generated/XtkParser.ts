@@ -19,98 +19,101 @@ import XtkParserVisitor from "./XtkParserVisitor.js";
 type int = number;
 
 export default class XtkParser extends Parser {
-	public static readonly STRING = 1;
-	public static readonly INT = 2;
-	public static readonly BOOLEAN = 3;
-	public static readonly PAR_OPEN = 4;
-	public static readonly PAR_CLOSE = 5;
-	public static readonly DOUBLE = 6;
-	public static readonly DATE = 7;
-	public static readonly TIME = 8;
-	public static readonly DATETIME = 9;
-	public static readonly NOT_IN = 10;
-	public static readonly NOT = 11;
-	public static readonly IS_NULL = 12;
-	public static readonly IS_NOT_NULL = 13;
-	public static readonly IS = 14;
-	public static readonly IN = 15;
-	public static readonly NULL = 16;
-	public static readonly OR = 17;
-	public static readonly AND = 18;
-	public static readonly AND_NOT = 19;
-	public static readonly LIKE = 20;
-	public static readonly NOT_LIKE = 21;
-	public static readonly CONCAT = 22;
-	public static readonly ATTRIBUTE = 23;
-	public static readonly IDENTIFIER = 24;
-	public static readonly START_VARIABLE = 25;
-	public static readonly LT = 26;
-	public static readonly GT = 27;
-	public static readonly LE = 28;
-	public static readonly GE = 29;
-	public static readonly EQ = 30;
-	public static readonly EQ_2 = 31;
-	public static readonly NEQ = 32;
-	public static readonly NEQ_2 = 33;
-	public static readonly PLUS = 34;
-	public static readonly MINUS = 35;
-	public static readonly TIMES = 36;
-	public static readonly DIV = 37;
-	public static readonly AMP = 38;
-	public static readonly PIPE = 39;
-	public static readonly PERCENT = 40;
-	public static readonly EXCLAMATION = 41;
-	public static readonly COMMA = 42;
-	public static readonly COLON = 43;
-	public static readonly DOT = 44;
-	public static readonly WS = 45;
-	public static readonly BRAC_OPEN = 46;
-	public static readonly X_BRAC_OPEN = 47;
-	public static readonly X_BRAC_CLOSE = 48;
-	public static readonly X_INT = 49;
-	public static readonly X_STRING = 50;
-	public static readonly X_NCNAME = 51;
-	public static readonly X_SEP = 52;
-	public static readonly X_COLON = 53;
-	public static readonly X_PARENT = 54;
-	public static readonly X_CURRENT = 55;
-	public static readonly X_ATTR = 56;
-	public static readonly X_EQ = 57;
+	public static readonly TRUE = 1;
+	public static readonly FALSE = 2;
+	public static readonly STRING = 3;
+	public static readonly INT = 4;
+	public static readonly PAR_OPEN = 5;
+	public static readonly PAR_CLOSE = 6;
+	public static readonly DOUBLE = 7;
+	public static readonly DATE = 8;
+	public static readonly TIME = 9;
+	public static readonly DATETIME = 10;
+	public static readonly NOT_IN = 11;
+	public static readonly NOT = 12;
+	public static readonly IS_NULL = 13;
+	public static readonly IS_NOT_NULL = 14;
+	public static readonly IS = 15;
+	public static readonly IN = 16;
+	public static readonly NULL = 17;
+	public static readonly OR = 18;
+	public static readonly AND = 19;
+	public static readonly AND_NOT = 20;
+	public static readonly LIKE = 21;
+	public static readonly NOT_LIKE = 22;
+	public static readonly CONCAT = 23;
+	public static readonly ATTRIBUTE = 24;
+	public static readonly IDENTIFIER = 25;
+	public static readonly START_VARIABLE = 26;
+	public static readonly LT = 27;
+	public static readonly GT = 28;
+	public static readonly LE = 29;
+	public static readonly GE = 30;
+	public static readonly EQ = 31;
+	public static readonly EQ_2 = 32;
+	public static readonly NEQ = 33;
+	public static readonly NEQ_2 = 34;
+	public static readonly PLUS = 35;
+	public static readonly MINUS = 36;
+	public static readonly TIMES = 37;
+	public static readonly DIV = 38;
+	public static readonly AMP = 39;
+	public static readonly PIPE = 40;
+	public static readonly PERCENT = 41;
+	public static readonly EXCLAMATION = 42;
+	public static readonly COMMA = 43;
+	public static readonly COLON = 44;
+	public static readonly DOT = 45;
+	public static readonly WS = 46;
+	public static readonly BRAC_OPEN = 47;
+	public static readonly X_BRAC_OPEN = 48;
+	public static readonly X_BRAC_CLOSE = 49;
+	public static readonly X_INT = 50;
+	public static readonly X_STRING = 51;
+	public static readonly X_NCNAME = 52;
+	public static readonly X_SEP = 53;
+	public static readonly X_COLON = 54;
+	public static readonly X_PARENT = 55;
+	public static readonly X_CURRENT = 56;
+	public static readonly X_ATTR = 57;
+	public static readonly X_EQ = 58;
 	public static readonly EOF = Token.EOF;
 	public static readonly RULE_unit = 0;
 	public static readonly RULE_expression = 1;
 	public static readonly RULE_orExpression = 2;
 	public static readonly RULE_andExpression = 3;
-	public static readonly RULE_functionCall = 4;
-	public static readonly RULE_addingExpression = 5;
-	public static readonly RULE_multiplyingExpression = 6;
-	public static readonly RULE_addingOperator = 7;
-	public static readonly RULE_comparisonOperator = 8;
-	public static readonly RULE_multiplyOperator = 9;
-	public static readonly RULE_relationalExpression = 10;
-	public static readonly RULE_unaryOperator = 11;
-	public static readonly RULE_unaryExpression = 12;
-	public static readonly RULE_likeOperator = 13;
-	public static readonly RULE_likeExpression = 14;
-	public static readonly RULE_includedInExpression = 15;
-	public static readonly RULE_xpath = 16;
-	public static readonly RULE_xpath_schema = 17;
-	public static readonly RULE_xpath_locationPath = 18;
-	public static readonly RULE_xpath_step = 19;
-	public static readonly RULE_xpath_qname = 20;
-	public static readonly RULE_xpath_predicate = 21;
-	public static readonly RULE_xpath_expr = 22;
-	public static readonly RULE_list = 23;
-	public static readonly RULE_parameters = 24;
-	public static readonly RULE_variablePath = 25;
-	public static readonly RULE_variableIdentifier = 26;
-	public static readonly RULE_variable = 27;
-	public static readonly RULE_castVariable = 28;
-	public static readonly RULE_literal = 29;
-	public static readonly RULE_computableAtom = 30;
+	public static readonly RULE_andOperator = 4;
+	public static readonly RULE_functionCall = 5;
+	public static readonly RULE_addingExpression = 6;
+	public static readonly RULE_multiplyingExpression = 7;
+	public static readonly RULE_addingOperator = 8;
+	public static readonly RULE_comparisonOperator = 9;
+	public static readonly RULE_multiplyOperator = 10;
+	public static readonly RULE_relationalExpression = 11;
+	public static readonly RULE_unaryOperator = 12;
+	public static readonly RULE_unaryExpression = 13;
+	public static readonly RULE_likeOperator = 14;
+	public static readonly RULE_likeExpression = 15;
+	public static readonly RULE_includedInExpression = 16;
+	public static readonly RULE_xpath = 17;
+	public static readonly RULE_xpath_schema = 18;
+	public static readonly RULE_xpath_locationPath = 19;
+	public static readonly RULE_xpath_step = 20;
+	public static readonly RULE_xpath_qname = 21;
+	public static readonly RULE_xpath_predicate = 22;
+	public static readonly RULE_xpath_expr = 23;
+	public static readonly RULE_list = 24;
+	public static readonly RULE_parameters = 25;
+	public static readonly RULE_variablePath = 26;
+	public static readonly RULE_variableIdentifier = 27;
+	public static readonly RULE_variable = 28;
+	public static readonly RULE_castVariable = 29;
+	public static readonly RULE_literal = 30;
+	public static readonly RULE_computableAtom = 31;
 	public static readonly literalNames: (string | null)[] = [ null, null, 
                                                             null, null, 
-                                                            "'('", "')'", 
+                                                            null, "'('", 
+                                                            "')'", null, 
                                                             null, null, 
                                                             null, null, 
                                                             null, null, 
@@ -118,28 +121,27 @@ export default class XtkParser extends Parser {
                                                             null, null, 
                                                             null, null, 
                                                             null, null, 
+                                                            null, "'||'", 
                                                             null, null, 
-                                                            "'||'", null, 
-                                                            null, "'$'", 
-                                                            "'<'", "'>'", 
-                                                            "'<='", "'>='", 
-                                                            null, "'=='", 
-                                                            "'!='", "'<>'", 
-                                                            "'+'", "'-'", 
-                                                            "'*'", null, 
-                                                            "'&'", "'|'", 
-                                                            "'%'", "'!'", 
-                                                            "','", null, 
-                                                            null, null, 
-                                                            null, null, 
-                                                            "']'", null, 
+                                                            "'$'", "'<'", 
+                                                            "'>'", "'<='", 
+                                                            "'>='", null, 
+                                                            "'=='", "'!='", 
+                                                            "'<>'", "'+'", 
+                                                            "'-'", "'*'", 
+                                                            null, "'&'", 
+                                                            "'|'", "'%'", 
+                                                            "'!'", "','", 
                                                             null, null, 
                                                             null, null, 
-                                                            "'..'", null, 
-                                                            "'@'" ];
-	public static readonly symbolicNames: (string | null)[] = [ null, "STRING", 
-                                                             "INT", "BOOLEAN", 
-                                                             "PAR_OPEN", 
+                                                            null, "']'", 
+                                                            null, null, 
+                                                            null, null, 
+                                                            null, "'..'", 
+                                                            null, "'@'" ];
+	public static readonly symbolicNames: (string | null)[] = [ null, "TRUE", 
+                                                             "FALSE", "STRING", 
+                                                             "INT", "PAR_OPEN", 
                                                              "PAR_CLOSE", 
                                                              "DOUBLE", "DATE", 
                                                              "TIME", "DATETIME", 
@@ -175,13 +177,13 @@ export default class XtkParser extends Parser {
                                                              "X_ATTR", "X_EQ" ];
 	// tslint:disable:no-trailing-whitespace
 	public static readonly ruleNames: string[] = [
-		"unit", "expression", "orExpression", "andExpression", "functionCall", 
-		"addingExpression", "multiplyingExpression", "addingOperator", "comparisonOperator", 
-		"multiplyOperator", "relationalExpression", "unaryOperator", "unaryExpression", 
-		"likeOperator", "likeExpression", "includedInExpression", "xpath", "xpath_schema", 
-		"xpath_locationPath", "xpath_step", "xpath_qname", "xpath_predicate", 
-		"xpath_expr", "list", "parameters", "variablePath", "variableIdentifier", 
-		"variable", "castVariable", "literal", "computableAtom",
+		"unit", "expression", "orExpression", "andExpression", "andOperator", 
+		"functionCall", "addingExpression", "multiplyingExpression", "addingOperator", 
+		"comparisonOperator", "multiplyOperator", "relationalExpression", "unaryOperator", 
+		"unaryExpression", "likeOperator", "likeExpression", "includedInExpression", 
+		"xpath", "xpath_schema", "xpath_locationPath", "xpath_step", "xpath_qname", 
+		"xpath_predicate", "xpath_expr", "list", "parameters", "variablePath", 
+		"variableIdentifier", "variable", "castVariable", "literal", "computableAtom",
 	];
 	public get grammarFileName(): string { return "XtkParser.g4"; }
 	public get literalNames(): (string | null)[] { return XtkParser.literalNames; }
@@ -204,9 +206,9 @@ export default class XtkParser extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 62;
+			this.state = 64;
 			this.expression();
-			this.state = 63;
+			this.state = 65;
 			this.match(XtkParser.EOF);
 			}
 		}
@@ -229,47 +231,47 @@ export default class XtkParser extends Parser {
 		let localctx: ExpressionContext = new ExpressionContext(this, this._ctx, this.state);
 		this.enterRule(localctx, 2, XtkParser.RULE_expression);
 		try {
-			this.state = 74;
+			this.state = 76;
 			this._errHandler.sync(this);
 			switch ( this._interp.adaptivePredict(this._input, 0, this._ctx) ) {
 			case 1:
 				this.enterOuterAlt(localctx, 1);
 				{
-				this.state = 65;
+				this.state = 67;
 				this.computableAtom();
 				}
 				break;
 			case 2:
 				this.enterOuterAlt(localctx, 2);
 				{
-				this.state = 66;
+				this.state = 68;
 				this.match(XtkParser.EXCLAMATION);
-				this.state = 67;
+				this.state = 69;
 				this.expression();
 				}
 				break;
 			case 3:
 				this.enterOuterAlt(localctx, 3);
 				{
-				this.state = 68;
+				this.state = 70;
 				this.orExpression();
 				}
 				break;
 			case 4:
 				this.enterOuterAlt(localctx, 4);
 				{
-				this.state = 69;
+				this.state = 71;
 				this.addingExpression();
 				}
 				break;
 			case 5:
 				this.enterOuterAlt(localctx, 5);
 				{
-				this.state = 70;
-				this.match(XtkParser.PAR_OPEN);
-				this.state = 71;
-				this.expression();
 				this.state = 72;
+				this.match(XtkParser.PAR_OPEN);
+				this.state = 73;
+				this.expression();
+				this.state = 74;
 				this.match(XtkParser.PAR_CLOSE);
 				}
 				break;
@@ -297,21 +299,21 @@ export default class XtkParser extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 76;
+			this.state = 78;
 			this.andExpression();
-			this.state = 81;
+			this.state = 83;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while (_la===17) {
+			while (_la===18) {
 				{
 				{
-				this.state = 77;
+				this.state = 79;
 				this.match(XtkParser.OR);
-				this.state = 78;
+				this.state = 80;
 				this.andExpression();
 				}
 				}
-				this.state = 83;
+				this.state = 85;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
@@ -339,104 +341,130 @@ export default class XtkParser extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 89;
+			this.state = 91;
 			this._errHandler.sync(this);
 			switch ( this._interp.adaptivePredict(this._input, 2, this._ctx) ) {
 			case 1:
 				{
-				this.state = 84;
+				this.state = 86;
 				this.computableAtom();
 				}
 				break;
 			case 2:
 				{
-				this.state = 85;
+				this.state = 87;
 				this.relationalExpression();
 				}
 				break;
 			case 3:
 				{
-				this.state = 86;
+				this.state = 88;
 				this.unaryExpression();
 				}
 				break;
 			case 4:
 				{
-				this.state = 87;
+				this.state = 89;
 				this.likeExpression();
 				}
 				break;
 			case 5:
 				{
-				this.state = 88;
+				this.state = 90;
 				this.includedInExpression();
 				}
 				break;
 			}
-			this.state = 105;
+			this.state = 107;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while (_la===18 || _la===19) {
+			while (_la===19 || _la===20) {
 				{
 				{
-				this.state = 91;
-				_la = this._input.LA(1);
-				if(!(_la===18 || _la===19)) {
-				this._errHandler.recoverInline(this);
-				}
-				else {
-					this._errHandler.reportMatch(this);
-				    this.consume();
-				}
-				this.state = 101;
+				this.state = 93;
+				this.andOperator();
+				this.state = 103;
 				this._errHandler.sync(this);
 				switch ( this._interp.adaptivePredict(this._input, 3, this._ctx) ) {
 				case 1:
 					{
-					this.state = 92;
+					this.state = 94;
 					this.computableAtom();
 					}
 					break;
 				case 2:
 					{
-					this.state = 93;
+					this.state = 95;
 					this.relationalExpression();
 					}
 					break;
 				case 3:
 					{
-					this.state = 94;
+					this.state = 96;
 					this.unaryExpression();
 					}
 					break;
 				case 4:
 					{
-					this.state = 95;
+					this.state = 97;
 					this.likeExpression();
 					}
 					break;
 				case 5:
 					{
-					this.state = 96;
+					this.state = 98;
 					this.includedInExpression();
 					}
 					break;
 				case 6:
 					{
-					this.state = 97;
-					this.match(XtkParser.PAR_OPEN);
-					this.state = 98;
-					this.orExpression();
 					this.state = 99;
+					this.match(XtkParser.PAR_OPEN);
+					this.state = 100;
+					this.orExpression();
+					this.state = 101;
 					this.match(XtkParser.PAR_CLOSE);
 					}
 					break;
 				}
 				}
 				}
-				this.state = 107;
+				this.state = 109;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
+			}
+			}
+		}
+		catch (re) {
+			if (re instanceof RecognitionException) {
+				localctx.exception = re;
+				this._errHandler.reportError(this, re);
+				this._errHandler.recover(this, re);
+			} else {
+				throw re;
+			}
+		}
+		finally {
+			this.exitRule();
+		}
+		return localctx;
+	}
+	// @RuleVersion(0)
+	public andOperator(): AndOperatorContext {
+		let localctx: AndOperatorContext = new AndOperatorContext(this, this._ctx, this.state);
+		this.enterRule(localctx, 8, XtkParser.RULE_andOperator);
+		let _la: number;
+		try {
+			this.enterOuterAlt(localctx, 1);
+			{
+			this.state = 110;
+			_la = this._input.LA(1);
+			if(!(_la===19 || _la===20)) {
+			this._errHandler.recoverInline(this);
+			}
+			else {
+				this._errHandler.reportMatch(this);
+			    this.consume();
 			}
 			}
 		}
@@ -457,26 +485,26 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public functionCall(): FunctionCallContext {
 		let localctx: FunctionCallContext = new FunctionCallContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 8, XtkParser.RULE_functionCall);
+		this.enterRule(localctx, 10, XtkParser.RULE_functionCall);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 108;
+			this.state = 112;
 			this.match(XtkParser.IDENTIFIER);
-			this.state = 109;
+			this.state = 113;
 			this.match(XtkParser.PAR_OPEN);
-			this.state = 111;
+			this.state = 115;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & 58721246) !== 0) || ((((_la - 35)) & ~0x1F) === 0 && ((1 << (_la - 35)) & 2113) !== 0)) {
+			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & 117442494) !== 0) || ((((_la - 36)) & ~0x1F) === 0 && ((1 << (_la - 36)) & 2113) !== 0)) {
 				{
-				this.state = 110;
+				this.state = 114;
 				this.parameters();
 				}
 			}
 
-			this.state = 113;
+			this.state = 117;
 			this.match(XtkParser.PAR_CLOSE);
 			}
 		}
@@ -497,26 +525,26 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public addingExpression(): AddingExpressionContext {
 		let localctx: AddingExpressionContext = new AddingExpressionContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 10, XtkParser.RULE_addingExpression);
+		this.enterRule(localctx, 12, XtkParser.RULE_addingExpression);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 115;
+			this.state = 119;
 			this.multiplyingExpression();
-			this.state = 121;
+			this.state = 125;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while (((((_la - 22)) & ~0x1F) === 0 && ((1 << (_la - 22)) & 208897) !== 0)) {
+			while (((((_la - 23)) & ~0x1F) === 0 && ((1 << (_la - 23)) & 208897) !== 0)) {
 				{
 				{
-				this.state = 116;
+				this.state = 120;
 				this.addingOperator();
-				this.state = 117;
+				this.state = 121;
 				this.multiplyingExpression();
 				}
 				}
-				this.state = 123;
+				this.state = 127;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
@@ -539,26 +567,26 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public multiplyingExpression(): MultiplyingExpressionContext {
 		let localctx: MultiplyingExpressionContext = new MultiplyingExpressionContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 12, XtkParser.RULE_multiplyingExpression);
+		this.enterRule(localctx, 14, XtkParser.RULE_multiplyingExpression);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 124;
+			this.state = 128;
 			this.computableAtom();
-			this.state = 130;
+			this.state = 134;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while (((((_la - 36)) & ~0x1F) === 0 && ((1 << (_la - 36)) & 19) !== 0)) {
+			while (((((_la - 37)) & ~0x1F) === 0 && ((1 << (_la - 37)) & 19) !== 0)) {
 				{
 				{
-				this.state = 125;
+				this.state = 129;
 				this.multiplyOperator();
-				this.state = 126;
+				this.state = 130;
 				this.computableAtom();
 				}
 				}
-				this.state = 132;
+				this.state = 136;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
@@ -581,14 +609,14 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public addingOperator(): AddingOperatorContext {
 		let localctx: AddingOperatorContext = new AddingOperatorContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 14, XtkParser.RULE_addingOperator);
+		this.enterRule(localctx, 16, XtkParser.RULE_addingOperator);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 133;
+			this.state = 137;
 			_la = this._input.LA(1);
-			if(!(((((_la - 22)) & ~0x1F) === 0 && ((1 << (_la - 22)) & 208897) !== 0))) {
+			if(!(((((_la - 23)) & ~0x1F) === 0 && ((1 << (_la - 23)) & 208897) !== 0))) {
 			this._errHandler.recoverInline(this);
 			}
 			else {
@@ -614,14 +642,14 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public comparisonOperator(): ComparisonOperatorContext {
 		let localctx: ComparisonOperatorContext = new ComparisonOperatorContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 16, XtkParser.RULE_comparisonOperator);
+		this.enterRule(localctx, 18, XtkParser.RULE_comparisonOperator);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 135;
+			this.state = 139;
 			_la = this._input.LA(1);
-			if(!(((((_la - 26)) & ~0x1F) === 0 && ((1 << (_la - 26)) & 255) !== 0))) {
+			if(!(((((_la - 27)) & ~0x1F) === 0 && ((1 << (_la - 27)) & 255) !== 0))) {
 			this._errHandler.recoverInline(this);
 			}
 			else {
@@ -647,14 +675,14 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public multiplyOperator(): MultiplyOperatorContext {
 		let localctx: MultiplyOperatorContext = new MultiplyOperatorContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 18, XtkParser.RULE_multiplyOperator);
+		this.enterRule(localctx, 20, XtkParser.RULE_multiplyOperator);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 137;
+			this.state = 141;
 			_la = this._input.LA(1);
-			if(!(((((_la - 36)) & ~0x1F) === 0 && ((1 << (_la - 36)) & 19) !== 0))) {
+			if(!(((((_la - 37)) & ~0x1F) === 0 && ((1 << (_la - 37)) & 19) !== 0))) {
 			this._errHandler.recoverInline(this);
 			}
 			else {
@@ -680,15 +708,15 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public relationalExpression(): RelationalExpressionContext {
 		let localctx: RelationalExpressionContext = new RelationalExpressionContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 20, XtkParser.RULE_relationalExpression);
+		this.enterRule(localctx, 22, XtkParser.RULE_relationalExpression);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 139;
+			this.state = 143;
 			this.addingExpression();
-			this.state = 140;
+			this.state = 144;
 			this.comparisonOperator();
-			this.state = 141;
+			this.state = 145;
 			this.addingExpression();
 			}
 		}
@@ -709,14 +737,14 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public unaryOperator(): UnaryOperatorContext {
 		let localctx: UnaryOperatorContext = new UnaryOperatorContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 22, XtkParser.RULE_unaryOperator);
+		this.enterRule(localctx, 24, XtkParser.RULE_unaryOperator);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 143;
+			this.state = 147;
 			_la = this._input.LA(1);
-			if(!(_la===12 || _la===13)) {
+			if(!(_la===13 || _la===14)) {
 			this._errHandler.recoverInline(this);
 			}
 			else {
@@ -742,13 +770,13 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public unaryExpression(): UnaryExpressionContext {
 		let localctx: UnaryExpressionContext = new UnaryExpressionContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 24, XtkParser.RULE_unaryExpression);
+		this.enterRule(localctx, 26, XtkParser.RULE_unaryExpression);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 145;
+			this.state = 149;
 			this.addingExpression();
-			this.state = 146;
+			this.state = 150;
 			this.unaryOperator();
 			}
 		}
@@ -769,14 +797,14 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public likeOperator(): LikeOperatorContext {
 		let localctx: LikeOperatorContext = new LikeOperatorContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 26, XtkParser.RULE_likeOperator);
+		this.enterRule(localctx, 28, XtkParser.RULE_likeOperator);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 148;
+			this.state = 152;
 			_la = this._input.LA(1);
-			if(!(_la===20 || _la===21)) {
+			if(!(_la===21 || _la===22)) {
 			this._errHandler.recoverInline(this);
 			}
 			else {
@@ -802,15 +830,15 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public likeExpression(): LikeExpressionContext {
 		let localctx: LikeExpressionContext = new LikeExpressionContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 28, XtkParser.RULE_likeExpression);
+		this.enterRule(localctx, 30, XtkParser.RULE_likeExpression);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 150;
+			this.state = 154;
 			this.addingExpression();
-			this.state = 151;
+			this.state = 155;
 			this.likeOperator();
-			this.state = 152;
+			this.state = 156;
 			this.addingExpression();
 			}
 		}
@@ -831,27 +859,27 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public includedInExpression(): IncludedInExpressionContext {
 		let localctx: IncludedInExpressionContext = new IncludedInExpressionContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 30, XtkParser.RULE_includedInExpression);
+		this.enterRule(localctx, 32, XtkParser.RULE_includedInExpression);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 154;
+			this.state = 158;
 			this.addingExpression();
-			this.state = 155;
+			this.state = 159;
 			_la = this._input.LA(1);
-			if(!(_la===10 || _la===15)) {
+			if(!(_la===11 || _la===16)) {
 			this._errHandler.recoverInline(this);
 			}
 			else {
 				this._errHandler.reportMatch(this);
 			    this.consume();
 			}
-			this.state = 156;
+			this.state = 160;
 			this.match(XtkParser.PAR_OPEN);
-			this.state = 157;
+			this.state = 161;
 			this.list();
-			this.state = 158;
+			this.state = 162;
 			this.match(XtkParser.PAR_CLOSE);
 			}
 		}
@@ -872,61 +900,61 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public xpath(): XpathContext {
 		let localctx: XpathContext = new XpathContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 32, XtkParser.RULE_xpath);
+		this.enterRule(localctx, 34, XtkParser.RULE_xpath);
 		let _la: number;
 		try {
-			this.state = 175;
+			this.state = 179;
 			this._errHandler.sync(this);
 			switch (this._input.LA(1)) {
-			case 23:
 			case 24:
+			case 25:
 				this.enterOuterAlt(localctx, 1);
 				{
-				this.state = 160;
+				this.state = 164;
 				_la = this._input.LA(1);
-				if(!(_la===23 || _la===24)) {
+				if(!(_la===24 || _la===25)) {
 				this._errHandler.recoverInline(this);
 				}
 				else {
 					this._errHandler.reportMatch(this);
 				    this.consume();
 				}
-				this.state = 164;
+				this.state = 168;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
-				if (_la===46) {
+				if (_la===47) {
 					{
-					this.state = 161;
+					this.state = 165;
 					this.match(XtkParser.BRAC_OPEN);
-					this.state = 162;
+					this.state = 166;
 					this.match(XtkParser.X_INT);
-					this.state = 163;
+					this.state = 167;
 					this.match(XtkParser.X_BRAC_CLOSE);
 					}
 				}
 
 				}
 				break;
-			case 46:
+			case 47:
 				this.enterOuterAlt(localctx, 2);
 				{
-				this.state = 166;
-				this.match(XtkParser.BRAC_OPEN);
 				this.state = 170;
+				this.match(XtkParser.BRAC_OPEN);
+				this.state = 174;
 				this._errHandler.sync(this);
 				switch ( this._interp.adaptivePredict(this._input, 9, this._ctx) ) {
 				case 1:
 					{
-					this.state = 167;
+					this.state = 171;
 					this.xpath_schema();
-					this.state = 168;
+					this.state = 172;
 					this.match(XtkParser.X_COLON);
 					}
 					break;
 				}
-				this.state = 172;
+				this.state = 176;
 				this.xpath_locationPath();
-				this.state = 173;
+				this.state = 177;
 				this.match(XtkParser.X_BRAC_CLOSE);
 				}
 				break;
@@ -951,24 +979,24 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public xpath_schema(): Xpath_schemaContext {
 		let localctx: Xpath_schemaContext = new Xpath_schemaContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 34, XtkParser.RULE_xpath_schema);
+		this.enterRule(localctx, 36, XtkParser.RULE_xpath_schema);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 177;
-			this.match(XtkParser.X_NCNAME);
-			this.state = 178;
-			this.match(XtkParser.X_COLON);
-			this.state = 179;
+			this.state = 181;
 			this.match(XtkParser.X_NCNAME);
 			this.state = 182;
+			this.match(XtkParser.X_COLON);
+			this.state = 183;
+			this.match(XtkParser.X_NCNAME);
+			this.state = 186;
 			this._errHandler.sync(this);
 			switch ( this._interp.adaptivePredict(this._input, 11, this._ctx) ) {
 			case 1:
 				{
-				this.state = 180;
+				this.state = 184;
 				this.match(XtkParser.X_COLON);
-				this.state = 181;
+				this.state = 185;
 				this.match(XtkParser.X_INT);
 				}
 				break;
@@ -992,45 +1020,45 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public xpath_locationPath(): Xpath_locationPathContext {
 		let localctx: Xpath_locationPathContext = new Xpath_locationPathContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 36, XtkParser.RULE_xpath_locationPath);
+		this.enterRule(localctx, 38, XtkParser.RULE_xpath_locationPath);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 185;
+			this.state = 189;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if (_la===52) {
+			if (_la===53) {
 				{
-				this.state = 184;
+				this.state = 188;
 				this.match(XtkParser.X_SEP);
 				}
 			}
 
-			this.state = 187;
+			this.state = 191;
 			this.xpath_step();
-			this.state = 192;
-			this._errHandler.sync(this);
-			_la = this._input.LA(1);
-			while (_la===52) {
-				{
-				{
-				this.state = 188;
-				this.match(XtkParser.X_SEP);
-				this.state = 189;
-				this.xpath_step();
-				}
-				}
-				this.state = 194;
-				this._errHandler.sync(this);
-				_la = this._input.LA(1);
-			}
 			this.state = 196;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if (_la===49 || _la===51) {
+			while (_la===53) {
 				{
-				this.state = 195;
+				{
+				this.state = 192;
+				this.match(XtkParser.X_SEP);
+				this.state = 193;
+				this.xpath_step();
+				}
+				}
+				this.state = 198;
+				this._errHandler.sync(this);
+				_la = this._input.LA(1);
+			}
+			this.state = 200;
+			this._errHandler.sync(this);
+			_la = this._input.LA(1);
+			if (_la===50 || _la===52) {
+				{
+				this.state = 199;
 				this.xpath_qname();
 				}
 			}
@@ -1054,56 +1082,56 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public xpath_step(): Xpath_stepContext {
 		let localctx: Xpath_stepContext = new Xpath_stepContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 38, XtkParser.RULE_xpath_step);
+		this.enterRule(localctx, 40, XtkParser.RULE_xpath_step);
 		let _la: number;
 		try {
-			this.state = 210;
+			this.state = 214;
 			this._errHandler.sync(this);
 			switch (this._input.LA(1)) {
-			case 49:
-			case 51:
-			case 56:
+			case 50:
+			case 52:
+			case 57:
 				this.enterOuterAlt(localctx, 1);
 				{
-				this.state = 199;
+				this.state = 203;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
-				if (_la===56) {
+				if (_la===57) {
 					{
-					this.state = 198;
+					this.state = 202;
 					this.match(XtkParser.X_ATTR);
 					}
 				}
 
-				this.state = 201;
-				this.xpath_qname();
 				this.state = 205;
+				this.xpath_qname();
+				this.state = 209;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
-				while (_la===47) {
+				while (_la===48) {
 					{
 					{
-					this.state = 202;
+					this.state = 206;
 					this.xpath_predicate();
 					}
 					}
-					this.state = 207;
+					this.state = 211;
 					this._errHandler.sync(this);
 					_la = this._input.LA(1);
 				}
 				}
 				break;
-			case 55:
+			case 56:
 				this.enterOuterAlt(localctx, 2);
 				{
-				this.state = 208;
+				this.state = 212;
 				this.match(XtkParser.X_CURRENT);
 				}
 				break;
-			case 54:
+			case 55:
 				this.enterOuterAlt(localctx, 3);
 				{
-				this.state = 209;
+				this.state = 213;
 				this.match(XtkParser.X_PARENT);
 				}
 				break;
@@ -1128,33 +1156,33 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public xpath_qname(): Xpath_qnameContext {
 		let localctx: Xpath_qnameContext = new Xpath_qnameContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 40, XtkParser.RULE_xpath_qname);
+		this.enterRule(localctx, 42, XtkParser.RULE_xpath_qname);
 		let _la: number;
 		try {
 			let _alt: number;
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 216;
+			this.state = 220;
 			this._errHandler.sync(this);
 			_alt = this._interp.adaptivePredict(this._input, 18, this._ctx);
 			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
 				if (_alt === 1) {
 					{
 					{
-					this.state = 212;
+					this.state = 216;
 					this.match(XtkParser.X_NCNAME);
-					this.state = 213;
+					this.state = 217;
 					this.match(XtkParser.X_COLON);
 					}
 					}
 				}
-				this.state = 218;
+				this.state = 222;
 				this._errHandler.sync(this);
 				_alt = this._interp.adaptivePredict(this._input, 18, this._ctx);
 			}
-			this.state = 219;
+			this.state = 223;
 			_la = this._input.LA(1);
-			if(!(_la===49 || _la===51)) {
+			if(!(_la===50 || _la===52)) {
 			this._errHandler.recoverInline(this);
 			}
 			else {
@@ -1180,15 +1208,15 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public xpath_predicate(): Xpath_predicateContext {
 		let localctx: Xpath_predicateContext = new Xpath_predicateContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 42, XtkParser.RULE_xpath_predicate);
+		this.enterRule(localctx, 44, XtkParser.RULE_xpath_predicate);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 221;
+			this.state = 225;
 			this.match(XtkParser.X_BRAC_OPEN);
-			this.state = 222;
+			this.state = 226;
 			this.xpath_expr();
-			this.state = 223;
+			this.state = 227;
 			this.match(XtkParser.X_BRAC_CLOSE);
 			}
 		}
@@ -1209,26 +1237,26 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public xpath_expr(): Xpath_exprContext {
 		let localctx: Xpath_exprContext = new Xpath_exprContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 44, XtkParser.RULE_xpath_expr);
+		this.enterRule(localctx, 46, XtkParser.RULE_xpath_expr);
 		try {
-			this.state = 230;
+			this.state = 234;
 			this._errHandler.sync(this);
 			switch ( this._interp.adaptivePredict(this._input, 19, this._ctx) ) {
 			case 1:
 				this.enterOuterAlt(localctx, 1);
 				{
-				this.state = 225;
+				this.state = 229;
 				this.match(XtkParser.X_INT);
 				}
 				break;
 			case 2:
 				this.enterOuterAlt(localctx, 2);
 				{
-				this.state = 226;
+				this.state = 230;
 				this.xpath_locationPath();
-				this.state = 227;
+				this.state = 231;
 				this.match(XtkParser.X_EQ);
-				this.state = 228;
+				this.state = 232;
 				this.match(XtkParser.X_STRING);
 				}
 				break;
@@ -1251,26 +1279,26 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public list(): ListContext {
 		let localctx: ListContext = new ListContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 46, XtkParser.RULE_list);
+		this.enterRule(localctx, 48, XtkParser.RULE_list);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 232;
+			this.state = 236;
 			this.expression();
-			this.state = 237;
+			this.state = 241;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while (_la===42) {
+			while (_la===43) {
 				{
 				{
-				this.state = 233;
+				this.state = 237;
 				this.match(XtkParser.COMMA);
-				this.state = 234;
+				this.state = 238;
 				this.expression();
 				}
 				}
-				this.state = 239;
+				this.state = 243;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
@@ -1293,30 +1321,30 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public parameters(): ParametersContext {
 		let localctx: ParametersContext = new ParametersContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 48, XtkParser.RULE_parameters);
+		this.enterRule(localctx, 50, XtkParser.RULE_parameters);
 		try {
 			let _alt: number;
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 245;
+			this.state = 249;
 			this._errHandler.sync(this);
 			_alt = this._interp.adaptivePredict(this._input, 21, this._ctx);
 			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
 				if (_alt === 1) {
 					{
 					{
-					this.state = 240;
+					this.state = 244;
 					this.expression();
-					this.state = 241;
+					this.state = 245;
 					this.match(XtkParser.COMMA);
 					}
 					}
 				}
-				this.state = 247;
+				this.state = 251;
 				this._errHandler.sync(this);
 				_alt = this._interp.adaptivePredict(this._input, 21, this._ctx);
 			}
-			this.state = 248;
+			this.state = 252;
 			this.expression();
 			}
 		}
@@ -1337,33 +1365,33 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public variablePath(): VariablePathContext {
 		let localctx: VariablePathContext = new VariablePathContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 50, XtkParser.RULE_variablePath);
+		this.enterRule(localctx, 52, XtkParser.RULE_variablePath);
 		let _la: number;
 		try {
 			let _alt: number;
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 254;
+			this.state = 258;
 			this._errHandler.sync(this);
 			_alt = this._interp.adaptivePredict(this._input, 22, this._ctx);
 			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
 				if (_alt === 1) {
 					{
 					{
-					this.state = 250;
+					this.state = 254;
 					this.match(XtkParser.IDENTIFIER);
-					this.state = 251;
+					this.state = 255;
 					this.match(XtkParser.DIV);
 					}
 					}
 				}
-				this.state = 256;
+				this.state = 260;
 				this._errHandler.sync(this);
 				_alt = this._interp.adaptivePredict(this._input, 22, this._ctx);
 			}
-			this.state = 257;
+			this.state = 261;
 			_la = this._input.LA(1);
-			if(!(_la===23 || _la===24)) {
+			if(!(_la===24 || _la===25)) {
 			this._errHandler.recoverInline(this);
 			}
 			else {
@@ -1389,34 +1417,34 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public variableIdentifier(): VariableIdentifierContext {
 		let localctx: VariableIdentifierContext = new VariableIdentifierContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 52, XtkParser.RULE_variableIdentifier);
+		this.enterRule(localctx, 54, XtkParser.RULE_variableIdentifier);
 		let _la: number;
 		try {
-			this.state = 263;
+			this.state = 267;
 			this._errHandler.sync(this);
 			switch ( this._interp.adaptivePredict(this._input, 23, this._ctx) ) {
 			case 1:
 				this.enterOuterAlt(localctx, 1);
 				{
-				this.state = 259;
+				this.state = 263;
 				this.match(XtkParser.IDENTIFIER);
-				this.state = 260;
+				this.state = 264;
 				_la = this._input.LA(1);
-				if(!(_la===43 || _la===44)) {
+				if(!(_la===44 || _la===45)) {
 				this._errHandler.recoverInline(this);
 				}
 				else {
 					this._errHandler.reportMatch(this);
 				    this.consume();
 				}
-				this.state = 261;
+				this.state = 265;
 				this.match(XtkParser.IDENTIFIER);
 				}
 				break;
 			case 2:
 				this.enterOuterAlt(localctx, 2);
 				{
-				this.state = 262;
+				this.state = 266;
 				this.variablePath();
 				}
 				break;
@@ -1439,17 +1467,17 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public variable(): VariableContext {
 		let localctx: VariableContext = new VariableContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 54, XtkParser.RULE_variable);
+		this.enterRule(localctx, 56, XtkParser.RULE_variable);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 265;
+			this.state = 269;
 			this.match(XtkParser.START_VARIABLE);
-			this.state = 266;
+			this.state = 270;
 			this.match(XtkParser.PAR_OPEN);
-			this.state = 267;
+			this.state = 271;
 			this.variableIdentifier();
-			this.state = 268;
+			this.state = 272;
 			this.match(XtkParser.PAR_CLOSE);
 			}
 		}
@@ -1470,19 +1498,19 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public castVariable(): CastVariableContext {
 		let localctx: CastVariableContext = new CastVariableContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 56, XtkParser.RULE_castVariable);
+		this.enterRule(localctx, 58, XtkParser.RULE_castVariable);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 270;
-			this.match(XtkParser.START_VARIABLE);
-			this.state = 271;
-			this.match(XtkParser.IDENTIFIER);
-			this.state = 272;
-			this.match(XtkParser.PAR_OPEN);
-			this.state = 273;
-			this.variableIdentifier();
 			this.state = 274;
+			this.match(XtkParser.START_VARIABLE);
+			this.state = 275;
+			this.match(XtkParser.IDENTIFIER);
+			this.state = 276;
+			this.match(XtkParser.PAR_OPEN);
+			this.state = 277;
+			this.variableIdentifier();
+			this.state = 278;
 			this.match(XtkParser.PAR_CLOSE);
 			}
 		}
@@ -1503,75 +1531,82 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public literal(): LiteralContext {
 		let localctx: LiteralContext = new LiteralContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 58, XtkParser.RULE_literal);
+		this.enterRule(localctx, 60, XtkParser.RULE_literal);
 		try {
-			this.state = 287;
+			this.state = 292;
 			this._errHandler.sync(this);
 			switch ( this._interp.adaptivePredict(this._input, 24, this._ctx) ) {
 			case 1:
 				this.enterOuterAlt(localctx, 1);
 				{
-				this.state = 276;
+				this.state = 280;
 				this.match(XtkParser.STRING);
 				}
 				break;
 			case 2:
 				this.enterOuterAlt(localctx, 2);
 				{
-				this.state = 277;
+				this.state = 281;
 				this.match(XtkParser.INT);
 				}
 				break;
 			case 3:
 				this.enterOuterAlt(localctx, 3);
 				{
-				this.state = 278;
+				this.state = 282;
 				this.match(XtkParser.MINUS);
-				this.state = 279;
+				this.state = 283;
 				this.match(XtkParser.INT);
 				}
 				break;
 			case 4:
 				this.enterOuterAlt(localctx, 4);
 				{
-				this.state = 280;
+				this.state = 284;
 				this.match(XtkParser.DOUBLE);
 				}
 				break;
 			case 5:
 				this.enterOuterAlt(localctx, 5);
 				{
-				this.state = 281;
+				this.state = 285;
 				this.match(XtkParser.MINUS);
-				this.state = 282;
+				this.state = 286;
 				this.match(XtkParser.DOUBLE);
 				}
 				break;
 			case 6:
 				this.enterOuterAlt(localctx, 6);
 				{
-				this.state = 283;
-				this.match(XtkParser.BOOLEAN);
+				this.state = 287;
+				this.match(XtkParser.TRUE);
 				}
 				break;
 			case 7:
 				this.enterOuterAlt(localctx, 7);
 				{
-				this.state = 284;
-				this.match(XtkParser.DATE);
+				this.state = 288;
+				this.match(XtkParser.FALSE);
 				}
 				break;
 			case 8:
 				this.enterOuterAlt(localctx, 8);
 				{
-				this.state = 285;
-				this.match(XtkParser.TIME);
+				this.state = 289;
+				this.match(XtkParser.DATE);
 				}
 				break;
 			case 9:
 				this.enterOuterAlt(localctx, 9);
 				{
-				this.state = 286;
+				this.state = 290;
+				this.match(XtkParser.TIME);
+				}
+				break;
+			case 10:
+				this.enterOuterAlt(localctx, 10);
+				{
+				this.state = 291;
 				this.match(XtkParser.DATETIME);
 				}
 				break;
@@ -1594,54 +1629,54 @@ export default class XtkParser extends Parser {
 	// @RuleVersion(0)
 	public computableAtom(): ComputableAtomContext {
 		let localctx: ComputableAtomContext = new ComputableAtomContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 60, XtkParser.RULE_computableAtom);
+		this.enterRule(localctx, 62, XtkParser.RULE_computableAtom);
 		try {
-			this.state = 298;
+			this.state = 303;
 			this._errHandler.sync(this);
 			switch ( this._interp.adaptivePredict(this._input, 25, this._ctx) ) {
 			case 1:
 				this.enterOuterAlt(localctx, 1);
 				{
-				this.state = 289;
+				this.state = 294;
 				this.literal();
 				}
 				break;
 			case 2:
 				this.enterOuterAlt(localctx, 2);
 				{
-				this.state = 290;
+				this.state = 295;
 				this.functionCall();
 				}
 				break;
 			case 3:
 				this.enterOuterAlt(localctx, 3);
 				{
-				this.state = 291;
+				this.state = 296;
 				this.xpath();
 				}
 				break;
 			case 4:
 				this.enterOuterAlt(localctx, 4);
 				{
-				this.state = 292;
+				this.state = 297;
 				this.variable();
 				}
 				break;
 			case 5:
 				this.enterOuterAlt(localctx, 5);
 				{
-				this.state = 293;
+				this.state = 298;
 				this.castVariable();
 				}
 				break;
 			case 6:
 				this.enterOuterAlt(localctx, 6);
 				{
-				this.state = 294;
+				this.state = 299;
 				this.match(XtkParser.PAR_OPEN);
-				this.state = 295;
+				this.state = 300;
 				this.addingExpression();
-				this.state = 296;
+				this.state = 301;
 				this.match(XtkParser.PAR_CLOSE);
 				}
 				break;
@@ -1662,104 +1697,105 @@ export default class XtkParser extends Parser {
 		return localctx;
 	}
 
-	public static readonly _serializedATN: number[] = [4,1,57,301,2,0,7,0,2,
+	public static readonly _serializedATN: number[] = [4,1,58,306,2,0,7,0,2,
 	1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,
 	10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,2,14,7,14,2,15,7,15,2,16,7,16,2,17,
 	7,17,2,18,7,18,2,19,7,19,2,20,7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,
-	24,2,25,7,25,2,26,7,26,2,27,7,27,2,28,7,28,2,29,7,29,2,30,7,30,1,0,1,0,
-	1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,75,8,1,1,2,1,2,1,2,5,2,80,8,
-	2,10,2,12,2,83,9,2,1,3,1,3,1,3,1,3,1,3,3,3,90,8,3,1,3,1,3,1,3,1,3,1,3,1,
-	3,1,3,1,3,1,3,1,3,3,3,102,8,3,5,3,104,8,3,10,3,12,3,107,9,3,1,4,1,4,1,4,
-	3,4,112,8,4,1,4,1,4,1,5,1,5,1,5,1,5,5,5,120,8,5,10,5,12,5,123,9,5,1,6,1,
-	6,1,6,1,6,5,6,129,8,6,10,6,12,6,132,9,6,1,7,1,7,1,8,1,8,1,9,1,9,1,10,1,
-	10,1,10,1,10,1,11,1,11,1,12,1,12,1,12,1,13,1,13,1,14,1,14,1,14,1,14,1,15,
-	1,15,1,15,1,15,1,15,1,15,1,16,1,16,1,16,1,16,3,16,165,8,16,1,16,1,16,1,
-	16,1,16,3,16,171,8,16,1,16,1,16,1,16,3,16,176,8,16,1,17,1,17,1,17,1,17,
-	1,17,3,17,183,8,17,1,18,3,18,186,8,18,1,18,1,18,1,18,5,18,191,8,18,10,18,
-	12,18,194,9,18,1,18,3,18,197,8,18,1,19,3,19,200,8,19,1,19,1,19,5,19,204,
-	8,19,10,19,12,19,207,9,19,1,19,1,19,3,19,211,8,19,1,20,1,20,5,20,215,8,
-	20,10,20,12,20,218,9,20,1,20,1,20,1,21,1,21,1,21,1,21,1,22,1,22,1,22,1,
-	22,1,22,3,22,231,8,22,1,23,1,23,1,23,5,23,236,8,23,10,23,12,23,239,9,23,
-	1,24,1,24,1,24,5,24,244,8,24,10,24,12,24,247,9,24,1,24,1,24,1,25,1,25,5,
-	25,253,8,25,10,25,12,25,256,9,25,1,25,1,25,1,26,1,26,1,26,1,26,3,26,264,
-	8,26,1,27,1,27,1,27,1,27,1,27,1,28,1,28,1,28,1,28,1,28,1,28,1,29,1,29,1,
-	29,1,29,1,29,1,29,1,29,1,29,1,29,1,29,1,29,3,29,288,8,29,1,30,1,30,1,30,
-	1,30,1,30,1,30,1,30,1,30,1,30,3,30,299,8,30,1,30,0,0,31,0,2,4,6,8,10,12,
-	14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,
-	0,10,1,0,18,19,3,0,22,22,34,35,38,39,1,0,26,33,2,0,36,37,40,40,1,0,12,13,
-	1,0,20,21,2,0,10,10,15,15,1,0,23,24,2,0,49,49,51,51,1,0,43,44,317,0,62,
-	1,0,0,0,2,74,1,0,0,0,4,76,1,0,0,0,6,89,1,0,0,0,8,108,1,0,0,0,10,115,1,0,
-	0,0,12,124,1,0,0,0,14,133,1,0,0,0,16,135,1,0,0,0,18,137,1,0,0,0,20,139,
-	1,0,0,0,22,143,1,0,0,0,24,145,1,0,0,0,26,148,1,0,0,0,28,150,1,0,0,0,30,
-	154,1,0,0,0,32,175,1,0,0,0,34,177,1,0,0,0,36,185,1,0,0,0,38,210,1,0,0,0,
-	40,216,1,0,0,0,42,221,1,0,0,0,44,230,1,0,0,0,46,232,1,0,0,0,48,245,1,0,
-	0,0,50,254,1,0,0,0,52,263,1,0,0,0,54,265,1,0,0,0,56,270,1,0,0,0,58,287,
-	1,0,0,0,60,298,1,0,0,0,62,63,3,2,1,0,63,64,5,0,0,1,64,1,1,0,0,0,65,75,3,
-	60,30,0,66,67,5,41,0,0,67,75,3,2,1,0,68,75,3,4,2,0,69,75,3,10,5,0,70,71,
-	5,4,0,0,71,72,3,2,1,0,72,73,5,5,0,0,73,75,1,0,0,0,74,65,1,0,0,0,74,66,1,
-	0,0,0,74,68,1,0,0,0,74,69,1,0,0,0,74,70,1,0,0,0,75,3,1,0,0,0,76,81,3,6,
-	3,0,77,78,5,17,0,0,78,80,3,6,3,0,79,77,1,0,0,0,80,83,1,0,0,0,81,79,1,0,
-	0,0,81,82,1,0,0,0,82,5,1,0,0,0,83,81,1,0,0,0,84,90,3,60,30,0,85,90,3,20,
-	10,0,86,90,3,24,12,0,87,90,3,28,14,0,88,90,3,30,15,0,89,84,1,0,0,0,89,85,
-	1,0,0,0,89,86,1,0,0,0,89,87,1,0,0,0,89,88,1,0,0,0,90,105,1,0,0,0,91,101,
-	7,0,0,0,92,102,3,60,30,0,93,102,3,20,10,0,94,102,3,24,12,0,95,102,3,28,
-	14,0,96,102,3,30,15,0,97,98,5,4,0,0,98,99,3,4,2,0,99,100,5,5,0,0,100,102,
-	1,0,0,0,101,92,1,0,0,0,101,93,1,0,0,0,101,94,1,0,0,0,101,95,1,0,0,0,101,
-	96,1,0,0,0,101,97,1,0,0,0,102,104,1,0,0,0,103,91,1,0,0,0,104,107,1,0,0,
-	0,105,103,1,0,0,0,105,106,1,0,0,0,106,7,1,0,0,0,107,105,1,0,0,0,108,109,
-	5,24,0,0,109,111,5,4,0,0,110,112,3,48,24,0,111,110,1,0,0,0,111,112,1,0,
-	0,0,112,113,1,0,0,0,113,114,5,5,0,0,114,9,1,0,0,0,115,121,3,12,6,0,116,
-	117,3,14,7,0,117,118,3,12,6,0,118,120,1,0,0,0,119,116,1,0,0,0,120,123,1,
-	0,0,0,121,119,1,0,0,0,121,122,1,0,0,0,122,11,1,0,0,0,123,121,1,0,0,0,124,
-	130,3,60,30,0,125,126,3,18,9,0,126,127,3,60,30,0,127,129,1,0,0,0,128,125,
-	1,0,0,0,129,132,1,0,0,0,130,128,1,0,0,0,130,131,1,0,0,0,131,13,1,0,0,0,
-	132,130,1,0,0,0,133,134,7,1,0,0,134,15,1,0,0,0,135,136,7,2,0,0,136,17,1,
-	0,0,0,137,138,7,3,0,0,138,19,1,0,0,0,139,140,3,10,5,0,140,141,3,16,8,0,
-	141,142,3,10,5,0,142,21,1,0,0,0,143,144,7,4,0,0,144,23,1,0,0,0,145,146,
-	3,10,5,0,146,147,3,22,11,0,147,25,1,0,0,0,148,149,7,5,0,0,149,27,1,0,0,
-	0,150,151,3,10,5,0,151,152,3,26,13,0,152,153,3,10,5,0,153,29,1,0,0,0,154,
-	155,3,10,5,0,155,156,7,6,0,0,156,157,5,4,0,0,157,158,3,46,23,0,158,159,
-	5,5,0,0,159,31,1,0,0,0,160,164,7,7,0,0,161,162,5,46,0,0,162,163,5,49,0,
-	0,163,165,5,48,0,0,164,161,1,0,0,0,164,165,1,0,0,0,165,176,1,0,0,0,166,
-	170,5,46,0,0,167,168,3,34,17,0,168,169,5,53,0,0,169,171,1,0,0,0,170,167,
-	1,0,0,0,170,171,1,0,0,0,171,172,1,0,0,0,172,173,3,36,18,0,173,174,5,48,
-	0,0,174,176,1,0,0,0,175,160,1,0,0,0,175,166,1,0,0,0,176,33,1,0,0,0,177,
-	178,5,51,0,0,178,179,5,53,0,0,179,182,5,51,0,0,180,181,5,53,0,0,181,183,
-	5,49,0,0,182,180,1,0,0,0,182,183,1,0,0,0,183,35,1,0,0,0,184,186,5,52,0,
-	0,185,184,1,0,0,0,185,186,1,0,0,0,186,187,1,0,0,0,187,192,3,38,19,0,188,
-	189,5,52,0,0,189,191,3,38,19,0,190,188,1,0,0,0,191,194,1,0,0,0,192,190,
-	1,0,0,0,192,193,1,0,0,0,193,196,1,0,0,0,194,192,1,0,0,0,195,197,3,40,20,
-	0,196,195,1,0,0,0,196,197,1,0,0,0,197,37,1,0,0,0,198,200,5,56,0,0,199,198,
-	1,0,0,0,199,200,1,0,0,0,200,201,1,0,0,0,201,205,3,40,20,0,202,204,3,42,
-	21,0,203,202,1,0,0,0,204,207,1,0,0,0,205,203,1,0,0,0,205,206,1,0,0,0,206,
-	211,1,0,0,0,207,205,1,0,0,0,208,211,5,55,0,0,209,211,5,54,0,0,210,199,1,
-	0,0,0,210,208,1,0,0,0,210,209,1,0,0,0,211,39,1,0,0,0,212,213,5,51,0,0,213,
-	215,5,53,0,0,214,212,1,0,0,0,215,218,1,0,0,0,216,214,1,0,0,0,216,217,1,
-	0,0,0,217,219,1,0,0,0,218,216,1,0,0,0,219,220,7,8,0,0,220,41,1,0,0,0,221,
-	222,5,47,0,0,222,223,3,44,22,0,223,224,5,48,0,0,224,43,1,0,0,0,225,231,
-	5,49,0,0,226,227,3,36,18,0,227,228,5,57,0,0,228,229,5,50,0,0,229,231,1,
-	0,0,0,230,225,1,0,0,0,230,226,1,0,0,0,231,45,1,0,0,0,232,237,3,2,1,0,233,
-	234,5,42,0,0,234,236,3,2,1,0,235,233,1,0,0,0,236,239,1,0,0,0,237,235,1,
-	0,0,0,237,238,1,0,0,0,238,47,1,0,0,0,239,237,1,0,0,0,240,241,3,2,1,0,241,
-	242,5,42,0,0,242,244,1,0,0,0,243,240,1,0,0,0,244,247,1,0,0,0,245,243,1,
-	0,0,0,245,246,1,0,0,0,246,248,1,0,0,0,247,245,1,0,0,0,248,249,3,2,1,0,249,
-	49,1,0,0,0,250,251,5,24,0,0,251,253,5,37,0,0,252,250,1,0,0,0,253,256,1,
-	0,0,0,254,252,1,0,0,0,254,255,1,0,0,0,255,257,1,0,0,0,256,254,1,0,0,0,257,
-	258,7,7,0,0,258,51,1,0,0,0,259,260,5,24,0,0,260,261,7,9,0,0,261,264,5,24,
-	0,0,262,264,3,50,25,0,263,259,1,0,0,0,263,262,1,0,0,0,264,53,1,0,0,0,265,
-	266,5,25,0,0,266,267,5,4,0,0,267,268,3,52,26,0,268,269,5,5,0,0,269,55,1,
-	0,0,0,270,271,5,25,0,0,271,272,5,24,0,0,272,273,5,4,0,0,273,274,3,52,26,
-	0,274,275,5,5,0,0,275,57,1,0,0,0,276,288,5,1,0,0,277,288,5,2,0,0,278,279,
-	5,35,0,0,279,288,5,2,0,0,280,288,5,6,0,0,281,282,5,35,0,0,282,288,5,6,0,
-	0,283,288,5,3,0,0,284,288,5,7,0,0,285,288,5,8,0,0,286,288,5,9,0,0,287,276,
-	1,0,0,0,287,277,1,0,0,0,287,278,1,0,0,0,287,280,1,0,0,0,287,281,1,0,0,0,
-	287,283,1,0,0,0,287,284,1,0,0,0,287,285,1,0,0,0,287,286,1,0,0,0,288,59,
-	1,0,0,0,289,299,3,58,29,0,290,299,3,8,4,0,291,299,3,32,16,0,292,299,3,54,
-	27,0,293,299,3,56,28,0,294,295,5,4,0,0,295,296,3,10,5,0,296,297,5,5,0,0,
-	297,299,1,0,0,0,298,289,1,0,0,0,298,290,1,0,0,0,298,291,1,0,0,0,298,292,
-	1,0,0,0,298,293,1,0,0,0,298,294,1,0,0,0,299,61,1,0,0,0,26,74,81,89,101,
-	105,111,121,130,164,170,175,182,185,192,196,199,205,210,216,230,237,245,
-	254,263,287,298];
+	24,2,25,7,25,2,26,7,26,2,27,7,27,2,28,7,28,2,29,7,29,2,30,7,30,2,31,7,31,
+	1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,77,8,1,1,2,1,2,1,2,
+	5,2,82,8,2,10,2,12,2,85,9,2,1,3,1,3,1,3,1,3,1,3,3,3,92,8,3,1,3,1,3,1,3,
+	1,3,1,3,1,3,1,3,1,3,1,3,1,3,3,3,104,8,3,5,3,106,8,3,10,3,12,3,109,9,3,1,
+	4,1,4,1,5,1,5,1,5,3,5,116,8,5,1,5,1,5,1,6,1,6,1,6,1,6,5,6,124,8,6,10,6,
+	12,6,127,9,6,1,7,1,7,1,7,1,7,5,7,133,8,7,10,7,12,7,136,9,7,1,8,1,8,1,9,
+	1,9,1,10,1,10,1,11,1,11,1,11,1,11,1,12,1,12,1,13,1,13,1,13,1,14,1,14,1,
+	15,1,15,1,15,1,15,1,16,1,16,1,16,1,16,1,16,1,16,1,17,1,17,1,17,1,17,3,17,
+	169,8,17,1,17,1,17,1,17,1,17,3,17,175,8,17,1,17,1,17,1,17,3,17,180,8,17,
+	1,18,1,18,1,18,1,18,1,18,3,18,187,8,18,1,19,3,19,190,8,19,1,19,1,19,1,19,
+	5,19,195,8,19,10,19,12,19,198,9,19,1,19,3,19,201,8,19,1,20,3,20,204,8,20,
+	1,20,1,20,5,20,208,8,20,10,20,12,20,211,9,20,1,20,1,20,3,20,215,8,20,1,
+	21,1,21,5,21,219,8,21,10,21,12,21,222,9,21,1,21,1,21,1,22,1,22,1,22,1,22,
+	1,23,1,23,1,23,1,23,1,23,3,23,235,8,23,1,24,1,24,1,24,5,24,240,8,24,10,
+	24,12,24,243,9,24,1,25,1,25,1,25,5,25,248,8,25,10,25,12,25,251,9,25,1,25,
+	1,25,1,26,1,26,5,26,257,8,26,10,26,12,26,260,9,26,1,26,1,26,1,27,1,27,1,
+	27,1,27,3,27,268,8,27,1,28,1,28,1,28,1,28,1,28,1,29,1,29,1,29,1,29,1,29,
+	1,29,1,30,1,30,1,30,1,30,1,30,1,30,1,30,1,30,1,30,1,30,1,30,1,30,3,30,293,
+	8,30,1,31,1,31,1,31,1,31,1,31,1,31,1,31,1,31,1,31,3,31,304,8,31,1,31,0,
+	0,32,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,
+	48,50,52,54,56,58,60,62,0,10,1,0,19,20,3,0,23,23,35,36,39,40,1,0,27,34,
+	2,0,37,38,41,41,1,0,13,14,1,0,21,22,2,0,11,11,16,16,1,0,24,25,2,0,50,50,
+	52,52,1,0,44,45,322,0,64,1,0,0,0,2,76,1,0,0,0,4,78,1,0,0,0,6,91,1,0,0,0,
+	8,110,1,0,0,0,10,112,1,0,0,0,12,119,1,0,0,0,14,128,1,0,0,0,16,137,1,0,0,
+	0,18,139,1,0,0,0,20,141,1,0,0,0,22,143,1,0,0,0,24,147,1,0,0,0,26,149,1,
+	0,0,0,28,152,1,0,0,0,30,154,1,0,0,0,32,158,1,0,0,0,34,179,1,0,0,0,36,181,
+	1,0,0,0,38,189,1,0,0,0,40,214,1,0,0,0,42,220,1,0,0,0,44,225,1,0,0,0,46,
+	234,1,0,0,0,48,236,1,0,0,0,50,249,1,0,0,0,52,258,1,0,0,0,54,267,1,0,0,0,
+	56,269,1,0,0,0,58,274,1,0,0,0,60,292,1,0,0,0,62,303,1,0,0,0,64,65,3,2,1,
+	0,65,66,5,0,0,1,66,1,1,0,0,0,67,77,3,62,31,0,68,69,5,42,0,0,69,77,3,2,1,
+	0,70,77,3,4,2,0,71,77,3,12,6,0,72,73,5,5,0,0,73,74,3,2,1,0,74,75,5,6,0,
+	0,75,77,1,0,0,0,76,67,1,0,0,0,76,68,1,0,0,0,76,70,1,0,0,0,76,71,1,0,0,0,
+	76,72,1,0,0,0,77,3,1,0,0,0,78,83,3,6,3,0,79,80,5,18,0,0,80,82,3,6,3,0,81,
+	79,1,0,0,0,82,85,1,0,0,0,83,81,1,0,0,0,83,84,1,0,0,0,84,5,1,0,0,0,85,83,
+	1,0,0,0,86,92,3,62,31,0,87,92,3,22,11,0,88,92,3,26,13,0,89,92,3,30,15,0,
+	90,92,3,32,16,0,91,86,1,0,0,0,91,87,1,0,0,0,91,88,1,0,0,0,91,89,1,0,0,0,
+	91,90,1,0,0,0,92,107,1,0,0,0,93,103,3,8,4,0,94,104,3,62,31,0,95,104,3,22,
+	11,0,96,104,3,26,13,0,97,104,3,30,15,0,98,104,3,32,16,0,99,100,5,5,0,0,
+	100,101,3,4,2,0,101,102,5,6,0,0,102,104,1,0,0,0,103,94,1,0,0,0,103,95,1,
+	0,0,0,103,96,1,0,0,0,103,97,1,0,0,0,103,98,1,0,0,0,103,99,1,0,0,0,104,106,
+	1,0,0,0,105,93,1,0,0,0,106,109,1,0,0,0,107,105,1,0,0,0,107,108,1,0,0,0,
+	108,7,1,0,0,0,109,107,1,0,0,0,110,111,7,0,0,0,111,9,1,0,0,0,112,113,5,25,
+	0,0,113,115,5,5,0,0,114,116,3,50,25,0,115,114,1,0,0,0,115,116,1,0,0,0,116,
+	117,1,0,0,0,117,118,5,6,0,0,118,11,1,0,0,0,119,125,3,14,7,0,120,121,3,16,
+	8,0,121,122,3,14,7,0,122,124,1,0,0,0,123,120,1,0,0,0,124,127,1,0,0,0,125,
+	123,1,0,0,0,125,126,1,0,0,0,126,13,1,0,0,0,127,125,1,0,0,0,128,134,3,62,
+	31,0,129,130,3,20,10,0,130,131,3,62,31,0,131,133,1,0,0,0,132,129,1,0,0,
+	0,133,136,1,0,0,0,134,132,1,0,0,0,134,135,1,0,0,0,135,15,1,0,0,0,136,134,
+	1,0,0,0,137,138,7,1,0,0,138,17,1,0,0,0,139,140,7,2,0,0,140,19,1,0,0,0,141,
+	142,7,3,0,0,142,21,1,0,0,0,143,144,3,12,6,0,144,145,3,18,9,0,145,146,3,
+	12,6,0,146,23,1,0,0,0,147,148,7,4,0,0,148,25,1,0,0,0,149,150,3,12,6,0,150,
+	151,3,24,12,0,151,27,1,0,0,0,152,153,7,5,0,0,153,29,1,0,0,0,154,155,3,12,
+	6,0,155,156,3,28,14,0,156,157,3,12,6,0,157,31,1,0,0,0,158,159,3,12,6,0,
+	159,160,7,6,0,0,160,161,5,5,0,0,161,162,3,48,24,0,162,163,5,6,0,0,163,33,
+	1,0,0,0,164,168,7,7,0,0,165,166,5,47,0,0,166,167,5,50,0,0,167,169,5,49,
+	0,0,168,165,1,0,0,0,168,169,1,0,0,0,169,180,1,0,0,0,170,174,5,47,0,0,171,
+	172,3,36,18,0,172,173,5,54,0,0,173,175,1,0,0,0,174,171,1,0,0,0,174,175,
+	1,0,0,0,175,176,1,0,0,0,176,177,3,38,19,0,177,178,5,49,0,0,178,180,1,0,
+	0,0,179,164,1,0,0,0,179,170,1,0,0,0,180,35,1,0,0,0,181,182,5,52,0,0,182,
+	183,5,54,0,0,183,186,5,52,0,0,184,185,5,54,0,0,185,187,5,50,0,0,186,184,
+	1,0,0,0,186,187,1,0,0,0,187,37,1,0,0,0,188,190,5,53,0,0,189,188,1,0,0,0,
+	189,190,1,0,0,0,190,191,1,0,0,0,191,196,3,40,20,0,192,193,5,53,0,0,193,
+	195,3,40,20,0,194,192,1,0,0,0,195,198,1,0,0,0,196,194,1,0,0,0,196,197,1,
+	0,0,0,197,200,1,0,0,0,198,196,1,0,0,0,199,201,3,42,21,0,200,199,1,0,0,0,
+	200,201,1,0,0,0,201,39,1,0,0,0,202,204,5,57,0,0,203,202,1,0,0,0,203,204,
+	1,0,0,0,204,205,1,0,0,0,205,209,3,42,21,0,206,208,3,44,22,0,207,206,1,0,
+	0,0,208,211,1,0,0,0,209,207,1,0,0,0,209,210,1,0,0,0,210,215,1,0,0,0,211,
+	209,1,0,0,0,212,215,5,56,0,0,213,215,5,55,0,0,214,203,1,0,0,0,214,212,1,
+	0,0,0,214,213,1,0,0,0,215,41,1,0,0,0,216,217,5,52,0,0,217,219,5,54,0,0,
+	218,216,1,0,0,0,219,222,1,0,0,0,220,218,1,0,0,0,220,221,1,0,0,0,221,223,
+	1,0,0,0,222,220,1,0,0,0,223,224,7,8,0,0,224,43,1,0,0,0,225,226,5,48,0,0,
+	226,227,3,46,23,0,227,228,5,49,0,0,228,45,1,0,0,0,229,235,5,50,0,0,230,
+	231,3,38,19,0,231,232,5,58,0,0,232,233,5,51,0,0,233,235,1,0,0,0,234,229,
+	1,0,0,0,234,230,1,0,0,0,235,47,1,0,0,0,236,241,3,2,1,0,237,238,5,43,0,0,
+	238,240,3,2,1,0,239,237,1,0,0,0,240,243,1,0,0,0,241,239,1,0,0,0,241,242,
+	1,0,0,0,242,49,1,0,0,0,243,241,1,0,0,0,244,245,3,2,1,0,245,246,5,43,0,0,
+	246,248,1,0,0,0,247,244,1,0,0,0,248,251,1,0,0,0,249,247,1,0,0,0,249,250,
+	1,0,0,0,250,252,1,0,0,0,251,249,1,0,0,0,252,253,3,2,1,0,253,51,1,0,0,0,
+	254,255,5,25,0,0,255,257,5,38,0,0,256,254,1,0,0,0,257,260,1,0,0,0,258,256,
+	1,0,0,0,258,259,1,0,0,0,259,261,1,0,0,0,260,258,1,0,0,0,261,262,7,7,0,0,
+	262,53,1,0,0,0,263,264,5,25,0,0,264,265,7,9,0,0,265,268,5,25,0,0,266,268,
+	3,52,26,0,267,263,1,0,0,0,267,266,1,0,0,0,268,55,1,0,0,0,269,270,5,26,0,
+	0,270,271,5,5,0,0,271,272,3,54,27,0,272,273,5,6,0,0,273,57,1,0,0,0,274,
+	275,5,26,0,0,275,276,5,25,0,0,276,277,5,5,0,0,277,278,3,54,27,0,278,279,
+	5,6,0,0,279,59,1,0,0,0,280,293,5,3,0,0,281,293,5,4,0,0,282,283,5,36,0,0,
+	283,293,5,4,0,0,284,293,5,7,0,0,285,286,5,36,0,0,286,293,5,7,0,0,287,293,
+	5,1,0,0,288,293,5,2,0,0,289,293,5,8,0,0,290,293,5,9,0,0,291,293,5,10,0,
+	0,292,280,1,0,0,0,292,281,1,0,0,0,292,282,1,0,0,0,292,284,1,0,0,0,292,285,
+	1,0,0,0,292,287,1,0,0,0,292,288,1,0,0,0,292,289,1,0,0,0,292,290,1,0,0,0,
+	292,291,1,0,0,0,293,61,1,0,0,0,294,304,3,60,30,0,295,304,3,10,5,0,296,304,
+	3,34,17,0,297,304,3,56,28,0,298,304,3,58,29,0,299,300,5,5,0,0,300,301,3,
+	12,6,0,301,302,5,6,0,0,302,304,1,0,0,0,303,294,1,0,0,0,303,295,1,0,0,0,
+	303,296,1,0,0,0,303,297,1,0,0,0,303,298,1,0,0,0,303,299,1,0,0,0,304,63,
+	1,0,0,0,26,76,83,91,103,107,115,125,134,168,174,179,186,189,196,200,203,
+	209,214,220,234,241,249,258,267,292,303];
 
 	private static __ATN: ATN;
 	public static get _ATN(): ATN {
@@ -1936,17 +1972,11 @@ export class AndExpressionContext extends ParserRuleContext {
 	public includedInExpression(i: number): IncludedInExpressionContext {
 		return this.getTypedRuleContext(IncludedInExpressionContext, i) as IncludedInExpressionContext;
 	}
-	public AND_list(): TerminalNode[] {
-	    	return this.getTokens(XtkParser.AND);
+	public andOperator_list(): AndOperatorContext[] {
+		return this.getTypedRuleContexts(AndOperatorContext) as AndOperatorContext[];
 	}
-	public AND(i: number): TerminalNode {
-		return this.getToken(XtkParser.AND, i);
-	}
-	public AND_NOT_list(): TerminalNode[] {
-	    	return this.getTokens(XtkParser.AND_NOT);
-	}
-	public AND_NOT(i: number): TerminalNode {
-		return this.getToken(XtkParser.AND_NOT, i);
+	public andOperator(i: number): AndOperatorContext {
+		return this.getTypedRuleContext(AndOperatorContext, i) as AndOperatorContext;
 	}
 	public PAR_OPEN_list(): TerminalNode[] {
 	    	return this.getTokens(XtkParser.PAR_OPEN);
@@ -1983,6 +2013,41 @@ export class AndExpressionContext extends ParserRuleContext {
 	public accept<Result>(visitor: XtkParserVisitor<Result>): Result {
 		if (visitor.visitAndExpression) {
 			return visitor.visitAndExpression(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
+}
+
+
+export class AndOperatorContext extends ParserRuleContext {
+	constructor(parser?: XtkParser, parent?: ParserRuleContext, invokingState?: number) {
+		super(parent, invokingState);
+    	this.parser = parser;
+	}
+	public AND(): TerminalNode {
+		return this.getToken(XtkParser.AND, 0);
+	}
+	public AND_NOT(): TerminalNode {
+		return this.getToken(XtkParser.AND_NOT, 0);
+	}
+    public get ruleIndex(): number {
+    	return XtkParser.RULE_andOperator;
+	}
+	public enterRule(listener: XtkParserListener): void {
+	    if(listener.enterAndOperator) {
+	 		listener.enterAndOperator(this);
+		}
+	}
+	public exitRule(listener: XtkParserListener): void {
+	    if(listener.exitAndOperator) {
+	 		listener.exitAndOperator(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: XtkParserVisitor<Result>): Result {
+		if (visitor.visitAndOperator) {
+			return visitor.visitAndOperator(this);
 		} else {
 			return visitor.visitChildren(this);
 		}
@@ -3059,8 +3124,11 @@ export class LiteralContext extends ParserRuleContext {
 	public DOUBLE(): TerminalNode {
 		return this.getToken(XtkParser.DOUBLE, 0);
 	}
-	public BOOLEAN(): TerminalNode {
-		return this.getToken(XtkParser.BOOLEAN, 0);
+	public TRUE(): TerminalNode {
+		return this.getToken(XtkParser.TRUE, 0);
+	}
+	public FALSE(): TerminalNode {
+		return this.getToken(XtkParser.FALSE, 0);
 	}
 	public DATE(): TerminalNode {
 		return this.getToken(XtkParser.DATE, 0);

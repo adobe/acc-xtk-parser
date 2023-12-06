@@ -1,6 +1,6 @@
 # Adobe Campaign XTK expression parser
 
-This project is the implementation of a [grammar](./grammar/XtkParser.g4) for Adobe Campaign XTK expressions. It is based on antlr4 syntax.
+This project is the implementation of a [grammar](./grammar/XtkParser.g4) for Adobe Campaign XTK expressions. It is based on antlr4 syntax. The documentation of the API provided by this package can be found [here](./doc/doc.md).
 
 ## Installation
 

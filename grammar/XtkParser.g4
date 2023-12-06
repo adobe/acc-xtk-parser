@@ -29,7 +29,11 @@ orExpression
     ;
 
 andExpression
-    : (computableAtom | relationalExpression | unaryExpression | likeExpression | includedInExpression ) ((AND | AND_NOT) (computableAtom | relationalExpression | unaryExpression | likeExpression | includedInExpression | PAR_OPEN orExpression PAR_CLOSE ))*
+    : (computableAtom | relationalExpression | unaryExpression | likeExpression | includedInExpression ) ( andOperator (computableAtom | relationalExpression | unaryExpression | likeExpression | includedInExpression | PAR_OPEN orExpression PAR_CLOSE ))*
+    ;
+
+andOperator
+    : AND | AND_NOT
     ;
 
 functionCall
@@ -143,7 +147,8 @@ literal
     | MINUS INT
     | DOUBLE
     | MINUS DOUBLE
-    | BOOLEAN
+    | TRUE
+    | FALSE
     | DATE
     | TIME
     | DATETIME

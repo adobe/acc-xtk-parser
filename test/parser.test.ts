@@ -32,12 +32,18 @@ const runParser = (expr) => {
 describe('Test API', () => {
   it('should parse expression and return tree', () => {
     expect(runXtkParser('@a = @b')).toBeDefined();
+    expect(runXtkParser('(@a = @b)')).toBeDefined();
+    expect(runXtkParser('!(@a = @b)')).toBeDefined();
   });
 });
 
 describe('Test integer', () => {
   it.each(['=', '==', '!=', '<>', '>', '<', '>=', '<='])('should handle integer', (operator) => {
     expect(runParser(`@a ${operator} 1`)).toBeDefined();
+    expect(runParser(`@a ${operator} -1`)).toBeDefined();
+    expect(runParser(`@a ${operator} 1.0`)).toBeDefined();
+    expect(runParser(`@a ${operator} 1.0e-2`)).toBeDefined();
+    expect(runParser(`@a ${operator} -1.0`)).toBeDefined();
     expect(runParser(`[@a] ${operator} 1`)).toBeDefined();
     expect(runParser(`[targetData/@permissionsCategoryDetailiNSURANCE-consentStatusId]  ${operator} 2`)).toBeDefined();
   });
@@ -113,6 +119,14 @@ describe('Test xpath', () => {
     expect(runParser('[@a]')).toBeDefined();
     expect(runParser('[x/y/@a]')).toBeDefined();
     expect(runParser('([x/y/@a])')).toBeDefined();
+    expect(runParser('([x/y[0]/@a])')).toBeDefined();
+  });
+});
+
+describe('Test date / time', () => {
+  it('should handle different kind of date', () => {
+    expect(runParser('#2023-12-06#')).toBeDefined();
+    expect(runParser('#12:00:00#')).toBeDefined();
   });
 });
 
