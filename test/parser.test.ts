@@ -31,9 +31,15 @@ const runParser = (expr) => {
 
 describe('Test API', () => {
   it('should parse expression and return tree', () => {
+    expect(runXtkParser('', false)).toBeUndefined();
     expect(runXtkParser('@a = @b')).toBeDefined();
     expect(runXtkParser('(@a = @b)')).toBeDefined();
     expect(runXtkParser('!(@a = @b)')).toBeDefined();
+  });
+  it.each(['@', 'TRUE OR @a =', 'TRUE AND @a ='])('should handle error on expression', (expr) => {
+    const error = jest.spyOn(console, 'error').mockImplementation(() => void 0);
+    expect(runXtkParser(expr, false)).toBeDefined();
+    expect(error).toHaveBeenCalled();
   });
 });
 
@@ -120,6 +126,7 @@ describe('Test xpath', () => {
     expect(runParser('[x/y/@a]')).toBeDefined();
     expect(runParser('([x/y/@a])')).toBeDefined();
     expect(runParser('([x/y[0]/@a])')).toBeDefined();
+    expect(runParser('[xxx:xxx/@id]')).toBeDefined();
   });
 });
 
@@ -148,6 +155,12 @@ describe('Test SQL', () => {
   });
   it('should handle expression mixing AND and OR with parenthesis', () => {
     expect(runParser(`@a = 1 AND ( @b > 0 OR @b < 2 )`)).toBeDefined();
+  });
+  it('should handle AND expression with LIKE', () => {
+    expect(runParser(`@a LIKE 1 AND @b LIKE 2`)).toBeDefined();
+  });
+  it('should handle AND expression with IN', () => {
+    expect(runParser(`@a IN (1,2) AND @b IN (1,2)`)).toBeDefined();
   });
 });
 

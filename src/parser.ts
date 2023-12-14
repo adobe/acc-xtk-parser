@@ -35,16 +35,22 @@ export class SyntaxErrorException extends Error {
 
 /**
  * Run the XTK parser on the provided expression and returns the parsing tree
- * @param expr The expression
+ * @param {string} expr The expression
+ * @param {boolean} exceptionOnError If false, no exception on syntax errors - maybe result in an incomplete tree
  * @returns A parsing tree
  * @throws {SyntaxErrorException} Raised at the first error of syntax
  */
-export const runXtkParser = (expr: string): UnitContext => {
+export const runXtkParser = (expr: string, exceptionOnError = true): UnitContext => {
+  if (!expr) {
+    return undefined;
+  }
   const inputStream = new CharStream(expr);
   const lexer = new XtkLexer(inputStream);
   const tokenStream = new CommonTokenStream(lexer);
   const parser = new XtkParser(tokenStream);
-  (parser as any).removeErrorListeners();
-  (parser as any).addErrorListener(new SyntaxError());
+  if (exceptionOnError) {
+    (parser as any).removeErrorListeners();
+    (parser as any).addErrorListener(new SyntaxError());
+  }
   return parser.unit();
 };
