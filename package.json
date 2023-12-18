@@ -1,6 +1,6 @@
 {
   "name": "@adobe/acc-xtk-parser",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Adobe Campaign XTK expression parser",
   "source": "src/index.ts",
   "main": "lib/main.js",
@@ -35,6 +35,11 @@
   },
   "targets": {
     "main": {
+      "includeNodeModules": [
+        "antlr4"
+      ]
+    },
+    "module": {
       "includeNodeModules": [
         "antlr4"
       ]
