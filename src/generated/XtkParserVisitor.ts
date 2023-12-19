@@ -7,6 +7,7 @@ import { UnitContext } from "./XtkParser";
 import { ExpressionContext } from "./XtkParser";
 import { OrExpressionContext } from "./XtkParser";
 import { AndExpressionContext } from "./XtkParser";
+import { SingleExpressionContext } from "./XtkParser";
 import { AndOperatorContext } from "./XtkParser";
 import { FunctionCallContext } from "./XtkParser";
 import { AddingExpressionContext } from "./XtkParser";
@@ -69,6 +70,12 @@ export default class XtkParserVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitAndExpression?: (ctx: AndExpressionContext) => Result;
+	/**
+	 * Visit a parse tree produced by `XtkParser.singleExpression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSingleExpression?: (ctx: SingleExpressionContext) => Result;
 	/**
 	 * Visit a parse tree produced by `XtkParser.andOperator`.
 	 * @param ctx the parse tree

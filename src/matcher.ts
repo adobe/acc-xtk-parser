@@ -24,6 +24,7 @@ import {
   OrExpressionContext,
   ParametersContext,
   RelationalExpressionContext,
+  SingleExpressionContext,
   UnaryExpressionContext,
   UnitContext,
 } from './generated/XtkParser';
@@ -132,6 +133,46 @@ function matcherImpl(patternCtx: UnitContext, expr: string): Matched {
     }
     throw new NoMatchFoundException();
   };
+  matcher.visitSingleExpression = (ctx: SingleExpressionContext): Matched => {
+    const expressionCtx = stack.last() as SingleExpressionContext;
+    if (ctx.relationalExpression() && expressionCtx.relationalExpression()) {
+      stack.push(expressionCtx.relationalExpression());
+      const result = matcher.visitRelationalExpression(ctx.relationalExpression());
+      stack.pop();
+      return result;
+    }
+    if (ctx.computableAtom() && expressionCtx.computableAtom()) {
+      stack.push(expressionCtx.computableAtom());
+      const result = matcher.visitComputableAtom(ctx.computableAtom());
+      stack.pop();
+      return result;
+    }
+    if (ctx.unaryExpression() && expressionCtx.unaryExpression()) {
+      stack.push(expressionCtx.unaryExpression());
+      const result = matcher.visitUnaryExpression(ctx.unaryExpression());
+      stack.pop();
+      return result;
+    }
+    if (ctx.likeExpression() && expressionCtx.likeExpression()) {
+      stack.push(expressionCtx.likeExpression());
+      const result = matcher.visitLikeExpression(ctx.likeExpression());
+      stack.pop();
+      return result;
+    }
+    if (ctx.includedInExpression() && expressionCtx.includedInExpression()) {
+      stack.push(expressionCtx.includedInExpression());
+      const result = matcher.visitIncludedInExpression(ctx.includedInExpression());
+      stack.pop();
+      return result;
+    }
+    if (ctx.orExpression() && expressionCtx.orExpression()) {
+      stack.push(expressionCtx.orExpression());
+      const result = matcher.visitOrExpression(ctx.orExpression());
+      stack.pop();
+      return result;
+    }
+    throw new NoMatchFoundException();
+  };
   matcher.visitAndExpression = (ctx: AndExpressionContext): Matched => {
     const expressionCtx = stack.last() as AndExpressionContext;
     if (ctx.andOperator_list().length === expressionCtx.andOperator_list().length) {
@@ -140,75 +181,15 @@ function matcherImpl(patternCtx: UnitContext, expr: string): Matched {
           throw new NoMatchFoundException();
         }
       }
-    } else {
-      throw new NoMatchFoundException();
-    }
-    if (
-      ctx.relationalExpression_list().length > 0 &&
-      ctx.relationalExpression_list().length === expressionCtx.relationalExpression_list().length
-    ) {
       let result = {};
-      for (let i = 0; i < ctx.relationalExpression_list().length; i++) {
-        stack.push(expressionCtx.relationalExpression(i));
-        const subResult = matcher.visitRelationalExpression(ctx.relationalExpression(i));
+      for (let i = 0; i < ctx.singleExpression_list().length; i++) {
+        stack.push(expressionCtx.singleExpression(i));
+        const subResult = matcher.visitSingleExpression(ctx.singleExpression(i));
         result = combineResults(result, subResult);
         stack.pop();
       }
       return result;
     }
-    if (
-      ctx.computableAtom_list().length > 0 &&
-      ctx.computableAtom_list().length === expressionCtx.computableAtom_list().length
-    ) {
-      let result = {};
-      for (let i = 0; i < ctx.computableAtom_list().length; i++) {
-        stack.push(expressionCtx.computableAtom(i));
-        const subResult = matcher.visitComputableAtom(ctx.computableAtom(i));
-        result = combineResults(result, subResult);
-        stack.pop();
-      }
-      return result;
-    }
-    if (
-      ctx.unaryExpression_list().length > 0 &&
-      ctx.unaryExpression_list().length === expressionCtx.unaryExpression_list().length
-    ) {
-      let result = {};
-      for (let i = 0; i < ctx.unaryExpression_list().length; i++) {
-        stack.push(expressionCtx.unaryExpression(i));
-        const subResult = matcher.visitUnaryExpression(ctx.unaryExpression(i));
-        result = combineResults(result, subResult);
-        stack.pop();
-      }
-      return result;
-    }
-    if (
-      ctx.likeExpression_list().length > 0 &&
-      ctx.likeExpression_list().length === expressionCtx.likeExpression_list().length
-    ) {
-      let result = {};
-      for (let i = 0; i < ctx.likeExpression_list().length; i++) {
-        stack.push(expressionCtx.likeExpression(i));
-        const subResult = matcher.visitLikeExpression(ctx.likeExpression(i));
-        result = combineResults(result, subResult);
-        stack.pop();
-      }
-      return result;
-    }
-    if (
-      ctx.includedInExpression_list().length > 0 &&
-      ctx.includedInExpression_list().length === expressionCtx.includedInExpression_list().length
-    ) {
-      let result = {};
-      for (let i = 0; i < ctx.includedInExpression_list().length; i++) {
-        stack.push(expressionCtx.includedInExpression(i));
-        const subResult = matcher.visitIncludedInExpression(ctx.includedInExpression(i));
-        result = combineResults(result, subResult);
-        stack.pop();
-      }
-      return result;
-    }
-
     throw new NoMatchFoundException();
   };
   matcher.visitFunctionCall = (ctx: FunctionCallContext): Matched => {

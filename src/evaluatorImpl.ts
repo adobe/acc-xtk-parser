@@ -22,6 +22,7 @@ import {
   MultiplyingExpressionContext,
   OrExpressionContext,
   RelationalExpressionContext,
+  SingleExpressionContext,
   UnitContext,
   VariableContext,
   XpathContext,
@@ -103,6 +104,15 @@ export function createEvaluator(options?: EvaluatorOptions) {
     }
     throw 'Unsupported relation';
   };
+  evaluator.visitSingleExpression = (ctx: SingleExpressionContext): Literal => {
+    if (ctx.computableAtom()) {
+      return evaluator.visitComputableAtom(ctx.computableAtom());
+    }
+    if (ctx.relationalExpression()) {
+      return evaluator.visitRelationalExpression(ctx.relationalExpression());
+    }
+    throw 'Unsupported single expression';
+  };
   evaluator.visitAndExpression = (ctx: AndExpressionContext): Literal => {
     let result: number;
     const accumulateValue = (ix: number, value: number): void => {
@@ -118,9 +128,8 @@ export function createEvaluator(options?: EvaluatorOptions) {
       }
     };
     ctx
-      .relationalExpression_list()
-      .forEach((exp, ix) => accumulateValue(ix, evaluator.visitRelationalExpression(exp) as number));
-    ctx.computableAtom_list().forEach((exp, ix) => accumulateValue(ix, evaluator.visitComputableAtom(exp) as number));
+      .singleExpression_list()
+      .forEach((exp, ix) => accumulateValue(ix, evaluator.visitSingleExpression(exp) as number));
     return result;
   };
   evaluator.visitOrExpression = (ctx: OrExpressionContext): Literal => {
