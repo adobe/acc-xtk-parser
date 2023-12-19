@@ -29,7 +29,16 @@ orExpression
     ;
 
 andExpression
-    : (computableAtom | relationalExpression | unaryExpression | likeExpression | includedInExpression ) ( andOperator (computableAtom | relationalExpression | unaryExpression | likeExpression | includedInExpression | PAR_OPEN orExpression PAR_CLOSE ))*
+    : singleExpression ( andOperator singleExpression)*
+    ;
+
+singleExpression
+    : computableAtom
+    | relationalExpression
+    | unaryExpression
+    | likeExpression
+    | includedInExpression
+    | PAR_OPEN orExpression PAR_CLOSE
     ;
 
 andOperator
