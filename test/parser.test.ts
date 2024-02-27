@@ -81,6 +81,7 @@ describe('Test date / time', () => {
   it('should handle date with fractional', () => {
     expect(runParser('@created >= #2021-09-16 23:00:00.000#')).toBeDefined();
     expect(runParser('@created >= #2021-09-16 23:00:00.000Z#')).toBeDefined();
+    expect(runParser('@created >= #2021-09-16 23:00:00.000+01#')).toBeDefined();
   });
 });
 
