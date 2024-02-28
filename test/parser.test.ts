@@ -56,6 +56,9 @@ describe('Test integer', () => {
   it.each(['IN', 'NOT IN'])('should handle inclusion', (operator) => {
     expect(runParser(`@pers_id ${operator} (200195162087, 200016067320, 200058387214)`)).toBeDefined();
   });
+  it.each(['IN', 'NOT IN'])('should handle inclusion with empty list', (operator) => {
+    expect(runParser(`@pers_id ${operator} ()`)).toBeDefined();
+  });
   it.each(['+', '-', '*', '/', '&', '|', '%'])('should support numeric operations', (operator) => {
     expect(runParser(`@a ${operator} 1`)).toBeDefined();
     expect(runParser(`[@a] ${operator} 1`)).toBeDefined();
