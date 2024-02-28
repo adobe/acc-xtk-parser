@@ -90,7 +90,7 @@ likeExpression
     ;
 
 includedInExpression
-    : addingExpression (IN | NOT_IN) PAR_OPEN list PAR_CLOSE
+    : addingExpression (IN | NOT_IN) PAR_OPEN list? PAR_CLOSE
     ;
 
 xpath
