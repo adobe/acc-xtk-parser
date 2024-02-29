@@ -126,7 +126,6 @@ describe('Test expression matcher', () => {
     expect(() => pattern.match('@v NOT LIKE @u')).toThrow();
   });
   it.each(['IN', 'NOT IN'])('should handle IN expressions', (op) => {
-    debugger;
     const pattern = new XtkPattern(`$(p1) ${op} (1,$(p2))`);
     const result = pattern.match(`@email ${op}  (1,@prefix)`);
     expect(result).toEqual({ p1: '@email', p2: '@prefix' });
@@ -135,5 +134,10 @@ describe('Test expression matcher', () => {
     const pattern = new XtkPattern('$(p1) IN (1,$(p2))');
     expect(() => pattern.match('@v NOT IN (1,@u)')).toThrow();
     expect(() => pattern.match('@v IN (1,@u,2)')).toThrow();
+  });
+  it('should not break when a function has an empty list of parameters', () => {
+    const pattern = new XtkPattern('DateOnly($(p1)) = DateOnly(GetDate())');
+    const result = pattern.match(`DateOnly(@date) = DateOnly(GetDate())`);
+    expect(result).toEqual({ p1: '@date' });
   });
 });

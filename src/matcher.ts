@@ -299,6 +299,10 @@ function matcherImpl(patternCtx: UnitContext, expr: string): Matched {
   };
   matcher.visitList = (ctx: ListContext): Matched => {
     const expressionCtx = stack.last() as ListContext;
+    if (!ctx && !expressionCtx) {
+      stack.pop();
+      return {};
+    }
     if (ctx.expression_list().length > 0 && ctx.expression_list().length === expressionCtx.expression_list().length) {
       let result = {};
       for (let i = 0; i < ctx.expression_list().length; i++) {
@@ -313,6 +317,10 @@ function matcherImpl(patternCtx: UnitContext, expr: string): Matched {
   };
   matcher.visitParameters = (ctx: ParametersContext): Matched => {
     const expressionCtx = stack.last() as ParametersContext;
+    if (!ctx && !expressionCtx) {
+      stack.pop();
+      return {};
+    }
     if (ctx.expression_list().length > 0 && ctx.expression_list().length === expressionCtx.expression_list().length) {
       let result = {};
       for (let i = 0; i < ctx.expression_list().length; i++) {
