@@ -135,9 +135,13 @@ describe('Test expression matcher', () => {
     expect(() => pattern.match('@v NOT IN (1,@u)')).toThrow();
     expect(() => pattern.match('@v IN (1,@u,2)')).toThrow();
   });
-  it('should not break when a function has an empty list of parameters', () => {
-    const pattern = new XtkPattern('DateOnly($(p1)) = DateOnly(GetDate())');
+  it('should not break when a function has an empty list of parameters and match expected', () => {
+    const pattern = new XtkPattern('DateOnly($(p1)) $(op) DateOnly(GetDate())');
     const result = pattern.match(`DateOnly(@date) = DateOnly(GetDate())`);
-    expect(result).toEqual({ p1: '@date' });
+    expect(result).toEqual({ p1: '@date', op: '=' });
+  });
+  it('should not break when a function has an empty list of parameters and match not expected', () => {
+    const pattern = new XtkPattern('DateOnly($(p1)) = DateOnly(GetDate(1))');
+    expect(() => pattern.match(`DateOnly(@date) = DateOnly(GetDate())`)).toThrow();
   });
 });

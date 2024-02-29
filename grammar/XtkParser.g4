@@ -69,8 +69,10 @@ multiplyOperator
      : TIMES|DIV|PERCENT
      ;
 
+// Enabling variables in the syntax is just there to ease the matching of expressions
+// It is not actually supported when evaluating of an expression
 relationalExpression
-    : addingExpression comparisonOperator addingExpression
+    : addingExpression (comparisonOperator | variable) addingExpression
     ;
 
 unaryOperator

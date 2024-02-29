@@ -64,6 +64,9 @@ describe('Test integer', () => {
     expect(runParser(`[@a] ${operator} 1`)).toBeDefined();
     expect(runParser(`(@a + 1) ${operator} 1`)).toBeDefined();
   });
+  it('should support special syntax with operator replace by a variable (not supported by the backend)', () => {
+    expect(runParser(`@id $(var) 1`)).toBeDefined();
+  });
 });
 
 describe('Test floating point', () => {

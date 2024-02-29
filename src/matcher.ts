@@ -250,13 +250,23 @@ function matcherImpl(patternCtx: UnitContext, expr: string): Matched {
   };
   matcher.visitRelationalExpression = (ctx: RelationalExpressionContext): Matched => {
     const expressionCtx = stack.last() as RelationalExpressionContext;
-    if ((ctx.comparisonOperator() as any).getText() === (expressionCtx.comparisonOperator() as any).getText()) {
+    if (
+      ctx.variable() ||
+      (ctx.comparisonOperator() as any).getText() === (expressionCtx.comparisonOperator() as any).getText()
+    ) {
       stack.push(expressionCtx.addingExpression(0));
       const leftResult = matcher.visitAddingExpression(ctx.addingExpression(0));
       stack.pop();
       stack.push(expressionCtx.addingExpression(1));
       const rightResult = matcher.visitAddingExpression(ctx.addingExpression(1));
       stack.pop();
+      if (ctx.variable()) {
+        const outputVariableName = (ctx.variable().variableIdentifier() as any).getText();
+        return combineResults(
+          combineResults({ [outputVariableName]: (expressionCtx.comparisonOperator() as any).getText() }, leftResult),
+          rightResult,
+        );
+      }
       return combineResults(leftResult, rightResult);
     }
     throw new NoMatchFoundException();
@@ -321,7 +331,11 @@ function matcherImpl(patternCtx: UnitContext, expr: string): Matched {
       stack.pop();
       return {};
     }
-    if (ctx.expression_list().length > 0 && ctx.expression_list().length === expressionCtx.expression_list().length) {
+    if (
+      expressionCtx &&
+      ctx.expression_list().length > 0 &&
+      ctx.expression_list().length === expressionCtx.expression_list().length
+    ) {
       let result = {};
       for (let i = 0; i < ctx.expression_list().length; i++) {
         stack.push(expressionCtx.expression(i));
