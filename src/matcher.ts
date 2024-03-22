@@ -375,6 +375,9 @@ function matcherImpl(patternCtx: UnitContext, expr: string): Matched {
         if (expressionCtx.literal().FALSE()) {
           return { [outputVariableName]: 0 };
         }
+        if (expressionCtx.literal().NULL()) {
+          return { [outputVariableName]: null };
+        }
       }
     }
 

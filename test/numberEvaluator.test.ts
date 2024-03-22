@@ -20,6 +20,7 @@ describe('Test number evaluator', () => {
     expect(evaluate('true')).toEqual(1);
     expect(evaluate('FALSE')).toEqual(0);
     expect(evaluate('false')).toEqual(0);
+    expect(evaluate('NULL')).toEqual(null);
   });
   it('should evaluate add and substract', () => {
     expect(evaluate('1+2')).toEqual(3);
