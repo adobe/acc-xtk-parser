@@ -163,6 +163,7 @@ literal
     | DATE
     | TIME
     | DATETIME
+    | NULL
     ;
 
 computableAtom
