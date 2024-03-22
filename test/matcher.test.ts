@@ -144,4 +144,9 @@ describe('Test expression matcher', () => {
     const pattern = new XtkPattern('DateOnly($(p1)) = DateOnly(GetDate(1))');
     expect(() => pattern.match(`DateOnly(@date) = DateOnly(GetDate())`)).toThrow();
   });
+  it('should not break when a function has an empty list of parameters and match not expected', () => {
+    const pattern = new XtkPattern('Iif($(status) not in (13, 14), 1, NULL)');
+    const result = pattern.match(`Iif(@status not in (13, 14), 1, NULL)`);
+    expect(result).toEqual({ status: '@status' });
+  });
 });

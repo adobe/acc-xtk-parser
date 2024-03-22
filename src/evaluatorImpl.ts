@@ -170,6 +170,9 @@ export function createEvaluator(options?: EvaluatorOptions) {
     if (ctx.FALSE()) {
       return 0;
     }
+    if (ctx.NULL()) {
+      return null;
+    }
     return text;
   };
   evaluator.visitFunctionCall = (ctx: FunctionCallContext): Literal => {
