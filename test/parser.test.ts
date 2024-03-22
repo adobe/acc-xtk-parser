@@ -91,6 +91,12 @@ describe('Test date / time', () => {
   });
 });
 
+describe('Test NULL', () => {
+  it('Should support NULL litteral', () => {
+    expect(runParser('Iif(@status not in (13, 14), 1, NULL)')).toBeDefined();
+  });
+});
+
 describe('Test string', () => {
   it.each(['@mobilePhone', '[target/recipient/@firstName]'])('should handle embedded quotes', (xpath) => {
     expect(runParser(`${xpath} NOT LIKE '%' + '"' + '%'`)).toBeDefined();
