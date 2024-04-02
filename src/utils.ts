@@ -55,7 +55,7 @@ export function asBoolean(value: number): boolean {
   return value === 0 ? false : true;
 }
 
-export type Literal = string | number;
+export type Literal = string | number | Date;
 
 export type ExecEvaluateXPath = (xpath: string) => Literal;
 
@@ -68,3 +68,11 @@ export type EvaluatorOptions = {
   functionConverter?: ExecEvaluateFunction;
   variableConverter?: ExecEvaluateVariable;
 };
+
+export function fromDate(value: string): Date {
+  const dateValue = value.replace(/#(.*)#/, '$1');
+  if (!dateValue) {
+    return null;
+  }
+  return new Date(dateValue);
+}

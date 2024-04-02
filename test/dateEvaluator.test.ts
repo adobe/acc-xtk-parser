@@ -10,17 +10,19 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { runXtkParser } from './parser';
-import { createEvaluator } from './evaluatorImpl';
-import { EvaluatorOptions, Literal } from './utils';
+import { evaluate } from '../src/evaluator';
 
-/**
- * Evaluate the given expression
- * @param {string} expr The XTK expression
- * @param {EvaluatorOptions} options Evaluator options used to provide external values required for evaluation
- * @returns {Literal} A literal value
- */
-export function evaluate(expr: string, options?: EvaluatorOptions): Literal {
-  const ctx = runXtkParser(expr);
-  return ctx.accept(createEvaluator(options));
-}
+describe('Test date evaluator', () => {
+  it('should handle empty date', () => {
+    expect(evaluate('##')).toBeNull();
+  });
+  it('should evaluate a date', () => {
+    expect(evaluate('#2024-31-03#')).toBeDefined();
+  });
+  it('should evaluate a date time', () => {
+    expect(evaluate('#2021-09-16 23:00:00.000#')).toBeDefined();
+  });
+  it('should evaluate a date time marked as UTC', () => {
+    expect(evaluate('#2021-09-16 23:00:00.000Z#')).toBeDefined();
+  });
+});
