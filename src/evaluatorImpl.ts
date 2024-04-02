@@ -34,6 +34,7 @@ import {
   asInteger,
   assertNumber,
   assertString,
+  fromDate,
   isNumber,
   isString,
   unescapeQuotes,
@@ -172,6 +173,9 @@ export function createEvaluator(options?: EvaluatorOptions) {
     }
     if (ctx.NULL()) {
       return null;
+    }
+    if (ctx.DATE() || ctx.DATETIME()) {
+      return fromDate(ctx.getText());
     }
     return text;
   };
