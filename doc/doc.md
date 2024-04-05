@@ -50,7 +50,7 @@ Variables may be present in certain context of evaluation, they can be emulated 
 ```TypeScript
 import { evaluate } from '@adobe/acc-xtk-parser';
 
-const value1 = evaluate('@myattribute == 1', { variableConverter: (name) => // return your value});
+const value1 = evaluate('$(var1) == 1', { variableConverter: () => 1 }) // returns 1
 ```
 
 ## Match an Expression
@@ -70,4 +70,14 @@ const matched = pattern.match('@count = 1 AND @email IS NOT NULL');
 pattern.match('@count = 2 AND @email IS NOT NULL')
 // will raise a NoMatchFoundException exception
 
+```
+
+## Capture all xpath
+
+This feature is about collecting all xpath mentioned inside an expression.
+
+```TypeScript
+import { colcollectXPathlect } from '@adobe/acc-xtk-parser';
+
+const list = collectXPath('@path1 == @path2') // return ['@path1','@path2'];
 ```

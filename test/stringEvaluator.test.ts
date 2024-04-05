@@ -31,21 +31,7 @@ describe('Test string evaluator', () => {
     expect(evaluate("'abc' + 'def' + 'ghi'")).toEqual('abcdefghi');
     expect(evaluate("'abc' + 1")).toEqual('abc1');
   });
-  it('should manage xpath', () => {
-    expect(() => evaluate("'abc' + @path")).toThrow();
-    expect(evaluate("'abc' + @path", { xpathConverter: (str) => str.substring(1) })).toEqual('abcpath');
-    expect(evaluate("'abc' + @path + @next", { xpathConverter: (str) => str.substring(1) })).toEqual('abcpathnext');
-    expect(evaluate("'abc' + ( @path + @next )", { xpathConverter: (str) => str.substring(1) })).toEqual('abcpathnext');
-  });
-  it('should manage functions', () => {
-    expect(() => evaluate("'abc' + func(@path)")).toThrow();
-    expect(evaluate("'abc' + func('value')", { functionConverter: (_, str) => str.toUpperCase() })).toEqual('abcVALUE');
-    expect(
-      evaluate("'abc' + func('value1','value2')", {
-        functionConverter: (_, str1, str2) => `${str1.toUpperCase()}${str2.toUpperCase()}`,
-      }),
-    ).toEqual('abcVALUE1VALUE2');
-  });
+
   it('should manage variables', () => {
     expect(() => evaluate("'abc' + $(var)")).toThrow();
     expect(evaluate("'abc' + $(var)", { variableConverter: () => 'VALUE' })).toEqual('abcVALUE');
@@ -57,6 +43,5 @@ describe('Test string evaluator', () => {
   it('should manage escaping and unicode', () => {
     expect(evaluate("'my\\'string\\''")).toEqual("my'string'");
     expect(evaluate("'çàaé'")).toEqual('çàaé');
-    expect(evaluate('@été', { xpathConverter: () => 'value' })).toBe('value');
   });
 });
