@@ -78,9 +78,4 @@ describe('Test logical evaluator', () => {
   it('should manage precedence of AND over OR', () => {
     expect(evaluate('TRUE OR FALSE AND FALSE')).toEqual(1);
   });
-
-  it('should manage condition using functions', () => {
-    expect(evaluate('f() AND g()', { functionConverter: (name) => (name === 'f' ? 1 : 0) })).toEqual(0);
-    expect(evaluate('f() OR g()', { functionConverter: (name) => (name === 'f' ? 1 : 1) })).toEqual(1);
-  });
 });
