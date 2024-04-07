@@ -13,6 +13,15 @@ governing permissions and limitations under the License.
 import { evaluate } from '../src/evaluator';
 
 describe('Test function evaluation', () => {
+  it('should manage functions', () => {
+    expect(() => evaluate("'abc' + func(@path)")).toThrow();
+    expect(evaluate("'abc' + func('value')", { functionConverter: (_, str) => str.toUpperCase() })).toEqual('abcVALUE');
+    expect(
+      evaluate("'abc' + func('value1','value2')", {
+        functionConverter: (_, str1, str2) => `${str1.toUpperCase()}${str2.toUpperCase()}`,
+      }),
+    ).toEqual('abcVALUE1VALUE2');
+  });
   it('should manage condition using functions', () => {
     expect(evaluate('f() AND g()', { functionConverter: (name) => (name === 'f' ? 1 : 0) })).toEqual(0);
     expect(evaluate('f() OR g()', { functionConverter: (name) => (name === 'f' ? 1 : 1) })).toEqual(1);

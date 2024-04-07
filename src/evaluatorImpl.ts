@@ -35,6 +35,7 @@ import {
   assertNumber,
   assertString,
   fromDate,
+  isNull,
   isNumber,
   isString,
   unescapeQuotes,
@@ -59,8 +60,10 @@ export function createEvaluator(options?: EvaluatorOptions) {
     throw 'Unsupported expression';
   };
   evaluator.visitRelationalExpression = (ctx: RelationalExpressionContext): Literal => {
-    const leftOperand = evaluator.visitAddingExpression(ctx.addingExpression(0));
-    const rightOperand = evaluator.visitAddingExpression(ctx.addingExpression(1));
+    const rawLeftOperand = evaluator.visitAddingExpression(ctx.addingExpression(0));
+    const rawRightOperand = evaluator.visitAddingExpression(ctx.addingExpression(1));
+    const leftOperand = isNull(rawLeftOperand) ? 0 : rawLeftOperand;
+    const rightOperand = isNull(rawRightOperand) ? 0 : rawRightOperand;
     if (isNumber(leftOperand) && isNumber(rightOperand)) {
       if (ctx.comparisonOperator().EQ() || ctx.comparisonOperator().EQ_2()) {
         return asInteger(leftOperand === rightOperand);
@@ -102,6 +105,9 @@ export function createEvaluator(options?: EvaluatorOptions) {
       if (ctx.comparisonOperator().LT()) {
         return asInteger(String(leftOperand).localeCompare(String(rightOperand)) === -1);
       }
+    }
+    if (isNull(rawLeftOperand) || isNull(rawRightOperand)) {
+      return 0;
     }
     throw 'Unsupported relation';
   };
@@ -150,9 +156,7 @@ export function createEvaluator(options?: EvaluatorOptions) {
     if (!options?.xpathConverter) {
       throw 'No xpath converter provided';
     }
-    const value = options.xpathConverter((ctx as any).getText());
-    assertString(value);
-    return value as string;
+    return options.xpathConverter((ctx as any).getText());
   };
   evaluator.visitLiteral = (ctx: LiteralContext): Literal => {
     const text = (ctx as any).getText();

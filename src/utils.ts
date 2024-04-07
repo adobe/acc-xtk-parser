@@ -47,6 +47,10 @@ export function isNumber(value: any) {
   return typeof value === 'number';
 }
 
+export function isNull(value: any) {
+  return value === null;
+}
+
 export function asInteger(value: boolean): number {
   return value ? 1 : 0;
 }

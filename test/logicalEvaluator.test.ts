@@ -78,4 +78,11 @@ describe('Test logical evaluator', () => {
   it('should manage precedence of AND over OR', () => {
     expect(evaluate('TRUE OR FALSE AND FALSE')).toEqual(1);
   });
+
+  it('should handle NULL', () => {
+    expect(evaluate('NULL = NULL')).toEqual(1);
+    expect(evaluate('NULL = 0')).toEqual(1);
+    expect(evaluate('NULL = 23')).toEqual(0);
+    expect(evaluate("NULL = 'ab'")).toEqual(0);
+  });
 });
