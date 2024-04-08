@@ -23,4 +23,8 @@ describe('Test xpath collector', () => {
   it('should manage to collect xpath wrapped in function call', () => {
     expect(collectXPath('f(@path1) + f(g(@path2))')).toEqual(['@path1', '@path2']);
   });
+  it('should not break on errors', () => {
+    expect(collectXPath('@value IS')).toEqual(['@value']);
+    expect(collectXPath('+')).toEqual([]);
+  });
 });
