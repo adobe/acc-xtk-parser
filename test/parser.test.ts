@@ -13,7 +13,7 @@ import { CommonTokenStream, ErrorListener, CharStream } from 'antlr4';
 import { runXtkParser, XtkLexer, XtkParser, XtkParserVisitor } from '../src/index';
 
 class ValidatorListener extends ErrorListener<any> {
-  syntaxError(recognizer, offendingSymbol, line, column, msg, e) {
+  syntaxError(_recognizer, _offendingSymbol, line, column, msg, e) {
     throw new Error(`${line}:${column}\n${msg}`);
   }
 }
@@ -31,15 +31,24 @@ const runParser = (expr) => {
 
 describe('Test API', () => {
   it('should parse expression and return tree', () => {
-    expect(runXtkParser('', false)).toBeUndefined();
+    expect(runXtkParser('', { exceptionOnError: false })).toBeUndefined();
     expect(runXtkParser('@a = @b')).toBeDefined();
     expect(runXtkParser('(@a = @b)')).toBeDefined();
     expect(runXtkParser('!(@a = @b)')).toBeDefined();
   });
   it.each(['@', 'TRUE OR @a =', 'TRUE AND @a ='])('should handle error on expression', (expr) => {
     const error = jest.spyOn(console, 'error').mockImplementation(() => void 0);
-    expect(runXtkParser(expr, false)).toBeDefined();
+    expect(runXtkParser(expr, { exceptionOnError: false })).toBeDefined();
     expect(error).toHaveBeenCalled();
+  });
+  it('should call listener error when needed', () => {
+    const errorListener = jest.fn();
+    runXtkParser('@a =', { errorListener });
+    expect(errorListener).toHaveBeenCalledTimes(1);
+  });
+  it('should throw an exception when requested', () => {
+    expect(() => runXtkParser('@a =')).toThrow();
+    expect(() => runXtkParser('@a =', { exceptionOnError: true })).toThrow();
   });
 });
 
