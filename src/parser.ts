@@ -20,6 +20,19 @@ class SyntaxError extends ErrorListener<void> {
   }
 }
 
+export type SyntaxErrorListener = (line: number, column: number) => void;
+
+class SyntaxErrorListenerWrapper extends ErrorListener<void> {
+  listener: SyntaxErrorListener;
+  constructor(listener: SyntaxErrorListener) {
+    super();
+    this.listener = listener;
+  }
+  syntaxError(_0: any, _1: any, line: number, column: number, _2: string, _3: any): void {
+    this.listener(line, column);
+  }
+}
+
 /**
  * Exception raised in case of syntax error
  */
@@ -34,13 +47,27 @@ export class SyntaxErrorException extends Error {
 }
 
 /**
+ * The options to customize the behavior of the parser
+ */
+export type ParserOptions = {
+  /**
+   * If true, the parser will raise an exception on the first syntax error
+   */
+  exceptionOnError?: boolean;
+  /**
+   * A listener to be called on each syntax error
+   */
+  errorListener?: SyntaxErrorListener;
+};
+
+/**
  * Run the XTK parser on the provided expression and returns the parsing tree
  * @param {string} expr The expression
- * @param {boolean} exceptionOnError If false, no exception on syntax errors - maybe result in an incomplete tree
+ * @param {ParserOptions} options Supplementary options passed to the parser
  * @returns A parsing tree
  * @throws {SyntaxErrorException} Raised at the first error of syntax
  */
-export const runXtkParser = (expr: string, exceptionOnError = true): UnitContext => {
+export const runXtkParser = (expr: string, options?: ParserOptions): UnitContext => {
   if (!expr) {
     return undefined;
   }
@@ -48,9 +75,15 @@ export const runXtkParser = (expr: string, exceptionOnError = true): UnitContext
   const lexer = new XtkLexer(inputStream);
   const tokenStream = new CommonTokenStream(lexer);
   const parser = new XtkParser(tokenStream);
-  if (exceptionOnError) {
-    (parser as any).removeErrorListeners();
+  (parser as any).removeErrorListeners();
+  if (
+    (options?.exceptionOnError === undefined && options?.errorListener === undefined) ||
+    options.exceptionOnError === true
+  ) {
     (parser as any).addErrorListener(new SyntaxError());
+  }
+  if (options?.errorListener) {
+    (parser as any).addErrorListener(new SyntaxErrorListenerWrapper(options.errorListener));
   }
   return parser.unit();
 };

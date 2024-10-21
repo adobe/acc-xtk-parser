@@ -23,7 +23,7 @@ export function collectXPath(expr: string): string[] {
   if (!expr) {
     return [];
   }
-  const ctx = runXtkParser(expr, false);
+  const ctx = runXtkParser(expr, { exceptionOnError: false });
   const evaluator = new XtkParserVisitor<void>();
   const xpathList = [];
   evaluator.visitXpath = (ctx: XpathContext): void => {
