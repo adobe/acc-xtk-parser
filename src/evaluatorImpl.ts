@@ -72,9 +72,6 @@ export function createEvaluator(options?: EvaluatorOptions) {
     if (ctx.orExpression()) {
       return evaluator.visitOrExpression(ctx.orExpression());
     }
-    if (ctx.expression()) {
-      return negateIfNeeded(evaluator.visitExpression(ctx.expression()), !!ctx.EXCLAMATION());
-    }
     throw 'Unsupported expression';
   };
   evaluator.visitRelationalExpression = (ctx: RelationalExpressionContext): Literal => {
@@ -157,7 +154,7 @@ export function createEvaluator(options?: EvaluatorOptions) {
   };
   evaluator.visitSingleExpression = (ctx: SingleExpressionContext): Literal => {
     if (ctx.computableAtom()) {
-      return evaluator.visitComputableAtom(ctx.computableAtom());
+      return negateIfNeeded(evaluator.visitComputableAtom(ctx.computableAtom()), !!ctx.EXCLAMATION());
     }
     if (ctx.relationalExpression()) {
       return evaluator.visitRelationalExpression(ctx.relationalExpression());

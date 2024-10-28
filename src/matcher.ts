@@ -89,12 +89,10 @@ function matcherImpl(patternCtx: UnitContext, expr: string): Matched {
   matcher.visitExpression = (ctx: ExpressionContext): Matched => {
     const expressionCtx = stack.last() as ExpressionContext;
     if (ctx.expression() && expressionCtx.expression()) {
-      if ((ctx.EXCLAMATION() && expressionCtx.EXCLAMATION()) || (!ctx.EXCLAMATION() && !expressionCtx.EXCLAMATION())) {
-        stack.push(expressionCtx.expression());
-        const result = matcher.visitExpression(ctx.expression());
-        stack.pop();
-        return result;
-      }
+      stack.push(expressionCtx.expression());
+      const result = matcher.visitExpression(ctx.expression());
+      stack.pop();
+      return result;
     }
     if (ctx.orExpression() && expressionCtx.orExpression()) {
       stack.push(expressionCtx.orExpression());
@@ -183,10 +181,15 @@ function matcherImpl(patternCtx: UnitContext, expr: string): Matched {
       }
       let result = {};
       for (let i = 0; i < ctx.singleExpression_list().length; i++) {
-        stack.push(expressionCtx.singleExpression(i));
-        const subResult = matcher.visitSingleExpression(ctx.singleExpression(i));
-        result = combineResults(result, subResult);
-        stack.pop();
+        if (
+          (expressionCtx.singleExpression(i).EXCLAMATION() && expressionCtx.singleExpression(i).EXCLAMATION()) ||
+          (!expressionCtx.singleExpression(i).EXCLAMATION() && !expressionCtx.singleExpression(i).EXCLAMATION())
+        ) {
+          stack.push(expressionCtx.singleExpression(i));
+          const subResult = matcher.visitSingleExpression(ctx.singleExpression(i));
+          result = combineResults(result, subResult);
+          stack.pop();
+        }
       }
       return result;
     }

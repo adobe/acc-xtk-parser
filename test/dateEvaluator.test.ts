@@ -29,7 +29,7 @@ describe('Test date evaluator', () => {
   it('should evaluate a date time marked as UTC', () => {
     expect(evaluate('#2021-09-16 23:00:00.000Z#')).toStrictEqual(new Date('2021-09-16T23:00:00.000Z'));
   });
-  it('should compare dates', () => {
+  it('should compare date and time', () => {
     expect(evaluate('#2021-09-16 23:00:00.000Z# = #2021-09-16 23:00:00.000Z#')).toBe(1);
     expect(evaluate('#2021-09-16 23:00:00.000Z# >= #2021-09-16 23:00:00.000Z#')).toBe(1);
     expect(evaluate('#2021-09-16 22:00:00.000Z# != #2021-09-16 23:00:00.000Z#')).toBe(1);
@@ -40,5 +40,8 @@ describe('Test date evaluator', () => {
     expect(evaluate('#2021-09-16 23:00:01.000Z# <= #2021-09-16 23:00:00.000Z#')).toBe(0);
     expect(evaluate('#2021-09-16 23:00:00.000Z# <= #2021-09-16 23:00:00.000Z#')).toBe(1);
     expect(evaluate('#2021-09-16 23:00:00.000Z# = #2021-09-16 22:00:00.000Z#')).toBe(0);
+  });
+  it('should compare date only', () => {
+    expect(evaluate('#2022-07-04# >= #2022-07-04#')).toBe(1);
   });
 });

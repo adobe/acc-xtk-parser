@@ -18,10 +18,9 @@ unit
 
 expression
     : computableAtom
-    | EXCLAMATION expression
     | orExpression
     | addingExpression
-    | PAR_OPEN expression PAR_CLOSE
+    | EXCLAMATION? PAR_OPEN expression PAR_CLOSE
     ;
 
 orExpression
@@ -33,7 +32,7 @@ andExpression
     ;
 
 singleExpression
-    : computableAtom
+    : EXCLAMATION? computableAtom
     | relationalExpression
     | unaryExpression
     | likeExpression

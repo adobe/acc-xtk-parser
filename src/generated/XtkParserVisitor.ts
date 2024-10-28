@@ -1,41 +1,41 @@
-// Generated from XtkParser.g4 by ANTLR 4.13.1
+// Generated from XtkParser.g4 by ANTLR 4.13.2
 
 import {ParseTreeVisitor} from 'antlr4';
 
 
-import { UnitContext } from "./XtkParser";
-import { ExpressionContext } from "./XtkParser";
-import { OrExpressionContext } from "./XtkParser";
-import { AndExpressionContext } from "./XtkParser";
-import { SingleExpressionContext } from "./XtkParser";
-import { AndOperatorContext } from "./XtkParser";
-import { FunctionCallContext } from "./XtkParser";
-import { AddingExpressionContext } from "./XtkParser";
-import { MultiplyingExpressionContext } from "./XtkParser";
-import { AddingOperatorContext } from "./XtkParser";
-import { ComparisonOperatorContext } from "./XtkParser";
-import { MultiplyOperatorContext } from "./XtkParser";
-import { RelationalExpressionContext } from "./XtkParser";
-import { UnaryOperatorContext } from "./XtkParser";
-import { UnaryExpressionContext } from "./XtkParser";
-import { LikeOperatorContext } from "./XtkParser";
-import { LikeExpressionContext } from "./XtkParser";
-import { IncludedInExpressionContext } from "./XtkParser";
-import { XpathContext } from "./XtkParser";
-import { Xpath_schemaContext } from "./XtkParser";
-import { Xpath_locationPathContext } from "./XtkParser";
-import { Xpath_stepContext } from "./XtkParser";
-import { Xpath_qnameContext } from "./XtkParser";
-import { Xpath_predicateContext } from "./XtkParser";
-import { Xpath_exprContext } from "./XtkParser";
-import { ListContext } from "./XtkParser";
-import { ParametersContext } from "./XtkParser";
-import { VariablePathContext } from "./XtkParser";
-import { VariableIdentifierContext } from "./XtkParser";
-import { VariableContext } from "./XtkParser";
-import { CastVariableContext } from "./XtkParser";
-import { LiteralContext } from "./XtkParser";
-import { ComputableAtomContext } from "./XtkParser";
+import { UnitContext } from "./XtkParser.js";
+import { ExpressionContext } from "./XtkParser.js";
+import { OrExpressionContext } from "./XtkParser.js";
+import { AndExpressionContext } from "./XtkParser.js";
+import { SingleExpressionContext } from "./XtkParser.js";
+import { AndOperatorContext } from "./XtkParser.js";
+import { FunctionCallContext } from "./XtkParser.js";
+import { AddingExpressionContext } from "./XtkParser.js";
+import { MultiplyingExpressionContext } from "./XtkParser.js";
+import { AddingOperatorContext } from "./XtkParser.js";
+import { ComparisonOperatorContext } from "./XtkParser.js";
+import { MultiplyOperatorContext } from "./XtkParser.js";
+import { RelationalExpressionContext } from "./XtkParser.js";
+import { UnaryOperatorContext } from "./XtkParser.js";
+import { UnaryExpressionContext } from "./XtkParser.js";
+import { LikeOperatorContext } from "./XtkParser.js";
+import { LikeExpressionContext } from "./XtkParser.js";
+import { IncludedInExpressionContext } from "./XtkParser.js";
+import { XpathContext } from "./XtkParser.js";
+import { Xpath_schemaContext } from "./XtkParser.js";
+import { Xpath_locationPathContext } from "./XtkParser.js";
+import { Xpath_stepContext } from "./XtkParser.js";
+import { Xpath_qnameContext } from "./XtkParser.js";
+import { Xpath_predicateContext } from "./XtkParser.js";
+import { Xpath_exprContext } from "./XtkParser.js";
+import { ListContext } from "./XtkParser.js";
+import { ParametersContext } from "./XtkParser.js";
+import { VariablePathContext } from "./XtkParser.js";
+import { VariableIdentifierContext } from "./XtkParser.js";
+import { VariableContext } from "./XtkParser.js";
+import { CastVariableContext } from "./XtkParser.js";
+import { LiteralContext } from "./XtkParser.js";
+import { ComputableAtomContext } from "./XtkParser.js";
 
 
 /**

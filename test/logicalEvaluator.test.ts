@@ -65,6 +65,7 @@ describe('Test logical evaluator', () => {
 
     expect(evaluate('1 = 1 AND 2 = 2')).toEqual(1);
     expect(evaluate('1 = 1 AND NOT 2 = 2')).toEqual(0);
+    expect(evaluate('!FALSE AND FALSE')).toEqual(0);
   });
 
   it('should evaluate OR conditions', () => {
@@ -75,6 +76,7 @@ describe('Test logical evaluator', () => {
     expect(evaluate('1 = 2 OR 2 = 3')).toEqual(0);
 
     expect(evaluate('TRUE OR 1')).toEqual(1);
+    expect(evaluate('!TRUE OR TRUE')).toEqual(1);
   });
 
   it('should manage precedence of AND over OR', () => {

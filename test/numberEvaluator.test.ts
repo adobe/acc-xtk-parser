@@ -24,6 +24,7 @@ describe('Test number evaluator', () => {
     expect(evaluate('!1')).toEqual(0);
     expect(evaluate('!0')).toEqual(1);
     expect(evaluate('(1+1)')).toEqual(2);
+    expect(evaluate('!(1-1)')).toEqual(1);
   });
   it('should evaluate add and substract', () => {
     expect(evaluate('1+2')).toEqual(3);
