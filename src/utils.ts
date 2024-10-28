@@ -47,6 +47,10 @@ export function isNumber(value: any) {
   return typeof value === 'number';
 }
 
+export function isDate(value: any) {
+  return value instanceof Date;
+}
+
 export function isNull(value: any) {
   return value === null;
 }
@@ -59,13 +63,19 @@ export function asBoolean(value: number): boolean {
   return value === 0 ? false : true;
 }
 
-export type Literal = string | number | Date;
+export type Literal = string | number | Date | Time;
 
 export type ExecEvaluateXPath = (xpath: string) => Literal;
 
 export type ExecEvaluateFunction = (name: string, ...args) => Literal;
 
 export type ExecEvaluateVariable = (name: string) => Literal;
+
+export type Time = {
+  hours: number;
+  minutes: number;
+  seconds: number;
+};
 
 export type EvaluatorOptions = {
   xpathConverter?: ExecEvaluateXPath;
@@ -79,4 +89,17 @@ export function fromDate(value: string): Date {
     return null;
   }
   return new Date(dateValue);
+}
+
+export function fromTime(value: string): Time {
+  const dateValue = value.replace(/#(.*)#/, '$1');
+  if (!dateValue) {
+    return null;
+  }
+  const pieces = dateValue.split(':');
+  return {
+    hours: parseInt(pieces[0], 10),
+    minutes: parseInt(pieces[1], 10),
+    seconds: parseInt(pieces[2], 10),
+  };
 }

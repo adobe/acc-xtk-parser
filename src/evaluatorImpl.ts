@@ -35,12 +35,27 @@ import {
   assertNumber,
   assertString,
   fromDate,
+  fromTime,
+  isDate,
   isNull,
   isNumber,
   isString,
   unescapeQuotes,
   unquote,
 } from './utils';
+
+const negateIfNeeded = (value: Literal, negate: boolean): Literal => {
+  if (!negate) {
+    return value;
+  }
+  if (value === 0) {
+    return 1;
+  }
+  if (value === undefined || value === null) {
+    return 1;
+  }
+  return 0;
+};
 
 export function createEvaluator(options?: EvaluatorOptions) {
   const evaluator = new XtkParserVisitor<Literal>();
@@ -56,6 +71,9 @@ export function createEvaluator(options?: EvaluatorOptions) {
     }
     if (ctx.orExpression()) {
       return evaluator.visitOrExpression(ctx.orExpression());
+    }
+    if (ctx.expression()) {
+      return negateIfNeeded(evaluator.visitExpression(ctx.expression()), !!ctx.EXCLAMATION());
     }
     throw 'Unsupported expression';
   };
@@ -104,6 +122,32 @@ export function createEvaluator(options?: EvaluatorOptions) {
       }
       if (ctx.comparisonOperator().LT()) {
         return asInteger(String(leftOperand).localeCompare(String(rightOperand)) === -1);
+      }
+    }
+    if (isDate(leftOperand) && isDate(rightOperand)) {
+      const leftOperandAsDate = leftOperand as Date;
+      const rightOperandAsDate = rightOperand as Date;
+      if (ctx.comparisonOperator().EQ() || ctx.comparisonOperator().EQ_2()) {
+        return asInteger(leftOperandAsDate.getTime() === rightOperandAsDate.getTime());
+      }
+      if (ctx.comparisonOperator().NEQ() || ctx.comparisonOperator().NEQ_2()) {
+        return asInteger(leftOperandAsDate.getTime() !== rightOperandAsDate.getTime());
+      }
+      if (ctx.comparisonOperator().GE()) {
+        return asInteger(
+          leftOperandAsDate.getTime() === rightOperandAsDate.getTime() || leftOperandAsDate > rightOperandAsDate,
+        );
+      }
+      if (ctx.comparisonOperator().GT()) {
+        return asInteger(leftOperandAsDate > rightOperandAsDate);
+      }
+      if (ctx.comparisonOperator().LE()) {
+        return asInteger(
+          leftOperandAsDate.getTime() === rightOperandAsDate.getTime() || leftOperandAsDate < rightOperandAsDate,
+        );
+      }
+      if (ctx.comparisonOperator().LT()) {
+        return asInteger(leftOperandAsDate < rightOperandAsDate);
       }
     }
     if (isNull(rawLeftOperand) || isNull(rawRightOperand)) {
@@ -180,6 +224,9 @@ export function createEvaluator(options?: EvaluatorOptions) {
     }
     if (ctx.DATE() || ctx.DATETIME()) {
       return fromDate(ctx.getText());
+    }
+    if (ctx.TIME()) {
+      return fromTime(ctx.getText());
     }
     return text;
   };
