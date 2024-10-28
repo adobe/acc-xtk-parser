@@ -21,6 +21,9 @@ describe('Test number evaluator', () => {
     expect(evaluate('FALSE')).toEqual(0);
     expect(evaluate('false')).toEqual(0);
     expect(evaluate('NULL')).toEqual(null);
+    expect(evaluate('!1')).toEqual(0);
+    expect(evaluate('!0')).toEqual(1);
+    expect(evaluate('(1+1)')).toEqual(2);
   });
   it('should evaluate add and substract', () => {
     expect(evaluate('1+2')).toEqual(3);
@@ -42,6 +45,9 @@ describe('Test number evaluator', () => {
     expect(evaluate('2*2+3*4')).toEqual(16);
     expect(evaluate('12%5')).toEqual(2);
     expect(evaluate('1+12%5')).toEqual(3);
+  });
+  it('should evaluate negation of a value', () => {
+    expect(evaluate('!TRUE')).toEqual(0);
   });
   it('should evaluate using variable values', () => {
     const variableConverter = (name: string): number => {

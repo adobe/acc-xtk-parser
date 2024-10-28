@@ -19,8 +19,10 @@ describe('Test string evaluator', () => {
   });
   it('should throw an exception when string are concatenated with bad operators', () => {
     expect(() => evaluate("'abc' + 'def' - 'ghi'")).toThrow();
-    expect(() => evaluate("!'abc'")).toThrow();
     expect(() => evaluate("'abc' * 'cde'")).toThrow();
+  });
+  it('should support not operator', () => {
+    expect(evaluate("!'abc'")).toBe(0);
   });
   it('should throw an exception when string are mixed with logical operator or comparison operator', () => {
     expect(() => evaluate("'abc' OR 'def'")).toThrow();
