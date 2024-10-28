@@ -163,10 +163,9 @@ export function createEvaluator(options?: EvaluatorOptions) {
   };
   evaluator.visitAndExpression = (ctx: AndExpressionContext): Literal => {
     let result: number;
-    const accumulateValue = (ix: number, value: number): void => {
-      assertNumber(value);
+    const accumulateValue = (ix: number, value: Literal): void => {
       if (ix === 0) {
-        result = value as number;
+        result = asInteger(asBoolean(value));
       } else {
         if (ctx.andOperator(ix - 1).AND()) {
           result = asInteger(asBoolean(result) && asBoolean(value));

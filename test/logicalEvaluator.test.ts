@@ -66,6 +66,9 @@ describe('Test logical evaluator', () => {
     expect(evaluate('1 = 1 AND 2 = 2')).toEqual(1);
     expect(evaluate('1 = 1 AND NOT 2 = 2')).toEqual(0);
     expect(evaluate('!FALSE AND FALSE')).toEqual(0);
+
+    expect(evaluate('10 AND TRUE')).toEqual(1);
+    expect(evaluate('"TRUE" AND TRUE')).toEqual(1);
   });
 
   it('should evaluate OR conditions', () => {

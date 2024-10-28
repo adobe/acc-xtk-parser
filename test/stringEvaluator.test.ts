@@ -24,10 +24,12 @@ describe('Test string evaluator', () => {
   it('should support not operator', () => {
     expect(evaluate("!'abc'")).toBe(0);
   });
-  it('should throw an exception when string are mixed with logical operator or comparison operator', () => {
-    expect(() => evaluate("'abc' OR 'def'")).toThrow();
-    expect(() => evaluate("'abc' AND 'def'")).toThrow();
-    expect(() => evaluate("'abc' AND NOT 'def'")).toThrow();
+  it('should manage logical operator', () => {
+    expect(evaluate("'abc' OR 'def'")).toEqual(1);
+    expect(evaluate("'abc' AND 'def'")).toEqual(1);
+    expect(evaluate("'abc' AND FALSE")).toEqual(0);
+    expect(evaluate("'abc' AND TRUE")).toEqual(1);
+    expect(evaluate("'abc' AND NOT 'def'")).toEqual(0);
   });
   it('should support concatenation of strings', () => {
     expect(evaluate("'abc' + 'def' + 'ghi'")).toEqual('abcdefghi');

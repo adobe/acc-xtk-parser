@@ -59,8 +59,11 @@ export function asInteger(value: boolean): number {
   return value ? 1 : 0;
 }
 
-export function asBoolean(value: number): boolean {
-  return value === 0 ? false : true;
+export function asBoolean(value: Literal): boolean {
+  if (isNumber(value)) {
+    return value !== 0;
+  }
+  return value !== null && value !== undefined;
 }
 
 export type Literal = string | number | Date | Time;
