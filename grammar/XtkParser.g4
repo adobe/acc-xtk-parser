@@ -20,7 +20,8 @@ expression
     : computableAtom
     | orExpression
     | addingExpression
-    | EXCLAMATION? PAR_OPEN expression PAR_CLOSE
+    | PAR_OPEN expression PAR_CLOSE
+    | EXCLAMATION expression
     ;
 
 orExpression
