@@ -15,5 +15,6 @@ export { default as XtkParserListener } from './generated/XtkParserListener';
 export { default as XtkParserVisitor } from './generated/XtkParserVisitor';
 export { runXtkParser, SyntaxErrorException } from './parser';
 export { evaluate } from './evaluator';
+export { preprocess } from './preprocessor';
 export { XtkPattern } from './matcher';
 export { collectXPath } from './xpathCollector';
