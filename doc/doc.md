@@ -77,7 +77,25 @@ pattern.match('@count = 2 AND @email IS NOT NULL')
 This feature is about collecting all xpath mentioned inside an expression.
 
 ```TypeScript
-import { colcollectXPathlect } from '@adobe/acc-xtk-parser';
+import { collectXPath } from '@adobe/acc-xtk-parser';
 
 const list = collectXPath('@path1 == @path2') // return ['@path1','@path2'];
+```
+
+## Preprocess variable
+
+This feature replaces variable inside an expression and return a new expression
+
+```TypeScript
+import { colcollectXPathlect } from '@adobe/acc-xtk-parser';
+
+const newExpression = collectXPath('@path1 == $(VAR1)', { variableConverter: () => '1'}) // return "@path1 = 1";
+```
+
+A variant handle xpath inside variables
+
+```TypeScript
+import { colcollectXPathlect } from '@adobe/acc-xtk-parser';
+
+const newExpression = collectXPath('@path1 == $(@path2)', { xpathConverter: () => '1'}) // return "@path1 = 1";
 ```
