@@ -25,6 +25,8 @@ describe('Test xpath collector', () => {
   });
   it('should manage to collect xpath inside variables', () => {
     expect(collectXPath('@path1 = $(@path2)')).toEqual(['@path1', '@path2']);
+    expect(collectXPath('@path1 = $(env.val)')).toEqual(['@path1']);
+    expect(collectXPath('@path1 = $(a/b/@path2)')).toEqual(['@path1', 'a/b/@path2']);
   });
   it('should not break on errors', () => {
     expect(collectXPath('@value IS')).toEqual(['@value']);

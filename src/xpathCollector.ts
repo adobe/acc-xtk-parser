@@ -30,9 +30,8 @@ export function collectXPath(expr: string): string[] {
     xpathList.push(ctx.getText());
   };
   evaluator.visitVariableIdentifier = (ctx: VariableIdentifierContext): void => {
-    const variableName = ctx.getText();
-    if (variableName.startsWith('@')) {
-      xpathList.push(variableName);
+    if (ctx.variablePath()) {
+      xpathList.push(ctx.getText());
     }
   };
   ctx.accept(evaluator);
