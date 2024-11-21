@@ -206,7 +206,7 @@ export function createPreprocessor(options?: EvaluatorOptions) {
   };
   preprocessor.visitVariableIdentifier = (ctx: VariableIdentifierContext): string => {
     const variableName = ctx.getText();
-    if (variableName.startsWith('@')) {
+    if (ctx.variablePath()) {
       if (!options?.xpathConverter) {
         throw 'No xpath converter provided';
       }

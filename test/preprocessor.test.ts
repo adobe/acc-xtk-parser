@@ -51,9 +51,10 @@ describe('Test expression preprocessor', () => {
   });
 
   it('should preprocess simple variables', () => {
-    expect(preprocess('@value = $(VAR1)', { variableConverter: () => '1' })).toEqual('@value = 1');
-    expect(preprocess('f(@value + $(VAR1))', { variableConverter: () => '1' })).toEqual('f(@value + 1)');
-    expect(() => preprocess('@value = $(VAR1)')).toThrow();
+    expect(preprocess('@value = $(var1)', { xpathConverter: () => '1' })).toEqual('@value = 1');
+    expect(preprocess('f(@value + $(var1))', { xpathConverter: () => '1' })).toEqual('f(@value + 1)');
+    expect(() => preprocess('@value = $(var1)')).toThrow();
+    expect(preprocess('f(@value + $(var1.val1))', { variableConverter: () => '1' })).toEqual('f(@value + 1)');
   });
 
   it('should preprocess nested xpath', () => {
