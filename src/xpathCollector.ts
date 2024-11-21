@@ -12,7 +12,7 @@ governing permissions and limitations under the License.
 
 import { runXtkParser } from './parser';
 import XtkParserVisitor from './generated/XtkParserVisitor';
-import { XpathContext } from './generated/XtkParser';
+import { VariableIdentifierContext, XpathContext } from './generated/XtkParser';
 
 /**
  * Collect all xpath mentioned in an expression
@@ -28,6 +28,12 @@ export function collectXPath(expr: string): string[] {
   const xpathList = [];
   evaluator.visitXpath = (ctx: XpathContext): void => {
     xpathList.push(ctx.getText());
+  };
+  evaluator.visitVariableIdentifier = (ctx: VariableIdentifierContext): void => {
+    const variableName = ctx.getText();
+    if (variableName.startsWith('@')) {
+      xpathList.push(variableName);
+    }
   };
   ctx.accept(evaluator);
   return xpathList;
