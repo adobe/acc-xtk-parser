@@ -32,4 +32,12 @@ describe('Test function evaluation', () => {
       evaluate("f('S1','S2')", { functionConverter: (name, p1, p2) => (name === 'f' ? `${p1}${p2}` : 0) }),
     ).toEqual('S1S2');
   });
+  it('should handle build-in functions', () => {
+    expect(evaluate('Iif(1 + 1 = 2, 2, 1)')).toEqual(2);
+    expect(evaluate('Iif(1 + 1 = 3, 2, 1)')).toEqual(1);
+  });
+  it('should throw an error for build-in functions with incorrect number of parametersq', () => {
+    expect(() => evaluate('Iif()')).toThrow();
+    expect(() => evaluate('Iif(1)')).toThrow();
+  });
 });
