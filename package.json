@@ -1,6 +1,6 @@
 {
   "name": "@adobe/acc-xtk-parser",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "Adobe Campaign XTK expression parser",
   "source": "src/index.ts",
   "main": "lib/main.js",

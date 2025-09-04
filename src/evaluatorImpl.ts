@@ -29,6 +29,7 @@ import {
 } from './generated/XtkParser';
 import {
   EvaluatorOptions,
+  ExecEvaluateFunction,
   Literal,
   asBoolean,
   asInteger,
@@ -55,6 +56,19 @@ const negateIfNeeded = (value: Literal, negate: boolean): Literal => {
     return 1;
   }
   return 0;
+};
+
+const FUNCTION_IIF = 'Iif';
+const BUILDIN_FUNCTION = [FUNCTION_IIF];
+
+const executeBuildInFunction: ExecEvaluateFunction = (name: string, ...args: any[]): any => {
+  if (name === FUNCTION_IIF) {
+    if (args.length === 3) {
+      return args[0] ? args[1] : args[2];
+    }
+    throw new Error('Iif function requires 3 parameters');
+  }
+  throw new Error('Unknown buildin function');
 };
 
 export function createEvaluator(options?: EvaluatorOptions) {
@@ -227,19 +241,23 @@ export function createEvaluator(options?: EvaluatorOptions) {
     return text;
   };
   evaluator.visitFunctionCall = (ctx: FunctionCallContext): Literal => {
-    if (!options?.functionConverter) {
+    const functionName = (ctx.IDENTIFIER() as any).getText();
+    const isBuildIn = BUILDIN_FUNCTION.includes(functionName);
+
+    if (!isBuildIn && !options?.functionConverter) {
       throw 'No function converter provided';
     }
-    const functionName = (ctx.IDENTIFIER() as any).getText();
     const parameterContext = ctx.parameters();
     if (!parameterContext) {
-      return options.functionConverter(functionName);
+      return isBuildIn ? executeBuildInFunction(functionName) : options.functionConverter(functionName);
     }
     const params = [];
     for (const expression of parameterContext.expression_list()) {
       params.push(evaluator.visitExpression(expression));
     }
-    return options.functionConverter(functionName, ...params);
+    return isBuildIn
+      ? executeBuildInFunction(functionName, ...params)
+      : options.functionConverter(functionName, ...params);
   };
   evaluator.visitVariable = (ctx: VariableContext): Literal => {
     if (!options?.variableConverter) {
