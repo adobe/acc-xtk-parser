@@ -149,6 +149,7 @@ describe('Test xpath', () => {
     expect(runParser('([x/y/@a])')).toBeDefined();
     expect(runParser('([x/y[0]/@a])')).toBeDefined();
     expect(runParser('[xxx:xxx/@id]')).toBeDefined();
+    expect(runParser('[xxx:xxx:-1000:@id]')).toBeDefined();
   });
 });
 

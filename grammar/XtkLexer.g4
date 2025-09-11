@@ -144,7 +144,7 @@ X_BRAC_OPEN : '[' -> pushMode(XPATH);
 X_BRAC_CLOSE: ']' -> popMode;
 
 X_INT
-    : DIGIT+
+    : MINUS? DIGIT+
     ;
 
 X_STRING
